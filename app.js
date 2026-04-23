@@ -228,6 +228,7 @@
     notices: [],
   };
   let revealObserver = null;
+  let skipNextReveal = false;
 
   function loadFromStorage(key, fallback) {
     try {
@@ -371,6 +372,7 @@
       if (response.most === response.least) response.most = null;
     }
     setPending(pending);
+    skipNextReveal = true;
     render();
   }
 
@@ -461,6 +463,11 @@
   }
 
   function applyPageEffects() {
+    if (skipNextReveal) {
+      skipNextReveal = false;
+      return;
+    }
+
     const targets = document.querySelectorAll(
       '.hero-stack, .panel, .section-card, .metric-card, .visual-row, .disc-summary-card, .article-card, .trait-card, .share-card, .result-hero, .question-wrap, .accordion'
     );
