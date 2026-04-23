@@ -227,6 +227,7 @@
     routeData: {},
     notices: [],
   };
+  let revealObserver = null;
 
   function loadFromStorage(key, fallback) {
     try {
@@ -456,7 +457,42 @@
   }
 
   function discSummaryCard(letter, title, subtitle, copy, percent) {
-    return '<article class="disc-summary-card" data-style="' + letter + '"><div class="disc-summary-top"><div class="disc-summary-letter">' + letter + '</div><div class="disc-summary-percent">' + percent + '</div></div><h3>' + title + '</h3><div class="disc-summary-subtitle">' + subtitle + '</div><p class="card-copy">' + copy + '</p></article>';
+    return '<a class="disc-summary-card" data-style="' + letter + '" href="#/disc/' + letter.toLowerCase() + '"><div class="disc-summary-top"><div class="disc-summary-letter">' + letter + '</div><div class="disc-summary-percent">' + percent + '</div></div><h3>' + title + '</h3><div class="disc-summary-subtitle">' + subtitle + '</div><p class="card-copy">' + copy + '</p></a>';
+  }
+
+  function applyPageEffects() {
+    const targets = document.querySelectorAll(
+      '.hero-stack, .panel, .section-card, .metric-card, .visual-row, .disc-summary-card, .article-card, .trait-card, .share-card, .result-hero, .question-wrap, .accordion'
+    );
+
+    if (!targets.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      targets.forEach(function (node) {
+        node.classList.add("reveal-up", "is-visible");
+      });
+      return;
+    }
+
+    if (!revealObserver) {
+      revealObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      );
+    }
+
+    targets.forEach(function (node, index) {
+      node.classList.add("reveal-up");
+      node.style.transitionDelay = Math.min(index * 40, 240) + "ms";
+      revealObserver.observe(node);
+    });
   }
 
   function renderAuthPage(mode) {
@@ -1125,6 +1161,7 @@
 
   function render() {
     renderPage();
+    applyPageEffects();
   }
 
   window.addEventListener("hashchange", function () {

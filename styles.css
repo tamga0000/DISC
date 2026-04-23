@@ -191,11 +191,18 @@ button { cursor: pointer; }
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
   padding: 24px;
+  display: block;
+  color: inherit;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
 }
 .disc-summary-card[data-style="D"] { border-top: 4px solid #ff6b3d; }
 .disc-summary-card[data-style="I"] { border-top: 4px solid #f59e0b; }
 .disc-summary-card[data-style="S"] { border-top: 4px solid #14b8a6; }
 .disc-summary-card[data-style="C"] { border-top: 4px solid #8b5cf6; }
+.disc-summary-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 44px rgba(43, 76, 122, 0.14);
+}
 .disc-summary-top {
   display:flex;
   align-items:center;
@@ -236,6 +243,16 @@ button { cursor: pointer; }
   font-weight: 800;
   letter-spacing: .08em;
   margin-bottom: 12px;
+}
+.reveal-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .65s ease, transform .65s ease;
+  will-change: opacity, transform;
+}
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 .metric-card, .panel, .section-card, .type-card, .question-wrap, .result-panel, .accordion, .share-card, .score-card, .trait-card, .article-card {
   background: var(--surface);
