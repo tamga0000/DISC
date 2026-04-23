@@ -654,7 +654,7 @@
         const value = (detail.chart_scores && detail.chart_scores[key]) || detail['chart_' + key.toLowerCase()] || 4;
         return '<span class="small-note">' + levelLabel(value) + '</span>';
       }).join('') +
-      '</div></div></div></div><div><article class="result-panel"><div class="eyebrow">M? t? chi ti?t</div><h2>' +
+      '</div></div></div></div><div><article class="result-panel"><div class="eyebrow">Mô tả chi tiết</div><h2>' +
       escapeHtml(detail.disc_code + ' - ' + combo[0]) +
       '</h2><p class="type-copy">' +
       escapeHtml(detailText) +
@@ -694,10 +694,14 @@
                 item.result_visible_to_user === "true" ||
                 item.email_status === 'sent';
               const locked = !resultVisible;
+              const comboTitle =
+                (COMBINATION_LABELS[item.disc_code] && COMBINATION_LABELS[item.disc_code][0]) ||
+                item.result_title ||
+                'Đang chờ kết quả';
               const status = item.email_status_text || (item.email_status === 'sent' ? 'Đã gửi kết quả' : 'Sai thông tin người nhận');
               return (
                 '<article class="share-card" style="margin-top:16px"><div class="header-actions"><strong>' +
-                escapeHtml((item.disc_code || '--') + ' - ' + (item.result_title || 'Đang chờ kết quả')) +
+                escapeHtml((item.disc_code || '--') + ' - ' + comboTitle) +
                 '</strong>' +
                 (locked
                   ? '<span class="small-note" style="color:#ef4444">' + escapeHtml(status) + '</span>'
