@@ -77,6 +77,27 @@ button { cursor: pointer; }
 .topnav { display:flex; flex-wrap:wrap; align-items:center; gap:14px; }
 .nav-link { color: var(--text-soft); font-weight: 600; }
 .nav-link:hover { color: var(--link); }
+.nav-group { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.nav-chip-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.nav-chip {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--text-soft);
+  font-size: .86rem;
+  font-weight: 800;
+}
+.nav-chip:hover {
+  color: var(--primary);
+  border-color: rgba(255, 100, 10, .3);
+  background: var(--primary-soft);
+}
 
 .btn {
   border: 1px solid transparent;

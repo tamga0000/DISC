@@ -23,33 +23,33 @@
       description:
         "Nhóm D nổi bật ở sự mạnh mẽ, trực diện, thích dẫn dắt và ưu tiên hiệu quả. Họ phản ứng nhanh, thích kiểm soát tình huống và thường sẵn sàng nhận việc khó khi thấy mục tiêu đủ lớn.",
       highlights: [
-        "Quyet doan, phan ung nhanh va tap trung muc tieu",
-        "Ua thu thach, thich tu chu va thich vai tro dan dat",
-        "Giao tiep truc tiep, ro rang va thien ve hieu qua",
+        "Quyết đoán, phản ứng nhanh và tập trung mục tiêu",
+        "Ưa thử thách, thích tự chủ và thích vai trò dẫn dắt",
+        "Giao tiếp trực tiếp, rõ ràng và thiên về hiệu quả",
       ],
       strengths: [
-        "Ra quyet dinh nhanh trong ap luc",
-        "Tinh than chu dong, dam chiu trach nhiem",
-        "Co to chat lanh dao va dinh huong ket qua ro rang",
-        "Hop voi moi truong toc do cao, nhieu muc tieu lon",
+        "Ra quyết định nhanh trong áp lực",
+        "Tinh thần chủ động, dám chịu trách nhiệm",
+        "Có tố chất lãnh đạo và định hướng kết quả rõ ràng",
+        "Hợp với môi trường tốc độ cao, nhiều mục tiêu lớn",
       ],
       weaknesses: [
-        "De thieu kien nhan khi nguoi khac cham nhip",
-        "Co the qua thang va tao cam giac ap luc",
-        "Kho tiep nhan gop y khi dang qua tin vao huong di cua minh",
-        "Thuong uu tien muc tieu hon cam xuc con nguoi",
+        "Dễ thiếu kiên nhẫn khi người khác chậm nhịp",
+        "Có thể quá thẳng và tạo cảm giác áp lực",
+        "Khó tiếp nhận góp ý khi đang quá tin vào hướng đi của mình",
+        "Thường ưu tiên mục tiêu hơn cảm xúc con người",
       ],
       workStyle:
-        "Trong cong viec, nhom D thich toc do, quyen chu dong va cac muc tieu do dem ro rang. Ho thuong muon quyet nhanh, lam nhanh va nhin vao buc tranh lon thay vi sa vao tieu tiet.",
+        "Trong công việc, nhóm D thích tốc độ, quyền chủ động và các mục tiêu đo đếm rõ ràng. Họ thường muốn quyết nhanh, làm nhanh và nhìn vào bức tranh lớn thay vì sa vào tiểu tiết.",
       career: [
-        "Quan ly / dieu hanh",
+        "Quản lý / điều hành",
         "Kinh doanh",
-        "Quan ly du an",
-        "Bat dong san",
-        "Logistics / van hanh",
+        "Quản lý dự án",
+        "Bất động sản",
+        "Logistics / vận hành",
       ],
       advice:
-        "De di xa hon, nhom D nen luyen them lang nghe, chia se quyen kiem soat va can bang giua ket qua voi trai nghiem cua nguoi xung quanh.",
+        "Để đi xa hơn, nhóm D nên luyện thêm lắng nghe, chia sẻ quyền kiểm soát và cân bằng giữa kết quả với trải nghiệm của người xung quanh.",
     },
     I: {
       key: "I",
@@ -60,33 +60,33 @@
       description:
         "Nhóm I thường cởi mở, giàu nhiệt huyết và dễ tạo ảnh hưởng tích cực lên người khác. Họ thích giao tiếp, thích được ghi nhận và thường mang lại sức sống cho môi trường làm việc.",
       highlights: [
-        "Gioi giao tiep, ket noi va tao thien cam",
-        "Nhiet tinh, truyen cam hung va mang nhieu nang luong tich cuc",
-        "Coi mo voi trai nghiem moi va thich moi truong co tuong tac",
+        "Giỏi giao tiếp, kết nối và tạo thiện cảm",
+        "Nhiệt tình, truyền cảm hứng và mang nhiều năng lượng tích cực",
+        "Cởi mở với trải nghiệm mới và thích môi trường có tương tác",
       ],
       strengths: [
-        "Kha nang thuyet phuc va lan toa dong luc tot",
-        "De thich nghi voi boi canh nhieu nguoi va nhieu thay doi",
-        "Phu hop voi vai tro can giao tiep, sang tao, truyen cam hung",
-        "Tao khong khi tich cuc va keo nhip doi nhom len nhanh",
+        "Khả năng thuyết phục và lan tỏa động lực tốt",
+        "Dễ thích nghi với bối cảnh nhiều người và nhiều thay đổi",
+        "Phù hợp với vai trò cần giao tiếp, sáng tạo, truyền cảm hứng",
+        "Tạo không khí tích cực và kéo nhịp đội nhóm lên nhanh",
       ],
       weaknesses: [
-        "De cam tinh hoac boc dong khi qua hung khoi",
-        "Kho giu tap trung lau vao viec lap lai, te nhat",
-        "Co the thieu ky luat follow-up neu khong co cau truc ho tro",
-        "De bi anh huong boi su cong nhan cua nguoi khac",
+        "Dễ cảm tính hoặc bốc đồng khi quá hứng khởi",
+        "Khó giữ tập trung lâu vào việc lặp lại, tỉ mỉ",
+        "Có thể thiếu kỷ luật theo đuổi đến cùng nếu không có cấu trúc hỗ trợ",
+        "Dễ bị ảnh hưởng bởi sự công nhận của người khác",
       ],
       workStyle:
-        "Nhom I lam tot nhat trong moi truong than thien, giau tuong tac, co khong gian bieu dat va khuyen khich sang tao. Ho thich duoc noi, duoc chia se va duoc nhin thay tac dong minh tao ra.",
+        "Nhóm I làm tốt nhất trong môi trường thân thiện, giàu tương tác, có không gian biểu đạt và khuyến khích sáng tạo. Họ thích được nói, được chia sẻ và được nhìn thấy tác động mình tạo ra.",
       career: [
-        "Marketing / truyen thong",
-        "Kinh doanh / phat trien thi truong",
-        "Dao tao / giang day",
-        "Cham soc khach hang",
-        "Su kien / cong dong",
+        "Marketing / truyền thông",
+        "Kinh doanh / phát triển thị trường",
+        "Đào tạo / giảng dạy",
+        "Chăm sóc khách hàng",
+        "Sự kiện / cộng đồng",
       ],
       advice:
-        "Nhom I se phat trien ben vung hon khi ren kha nang uu tien, giu cam ket den cung va dua cam hung di cung ky luat thuc thi.",
+        "Nhóm I sẽ phát triển bền vững hơn khi rèn khả năng ưu tiên, giữ cam kết đến cùng và đưa cảm hứng đi cùng kỷ luật thực thi.",
     },
     S: {
       key: "S",
@@ -97,33 +97,33 @@
       description:
         "Nhóm S điềm đạm, kiên nhẫn và đáng tin cậy. Họ coi trọng sự ổn định, lòng trung thành và các mối quan hệ bền vững; thường đóng vai trò người giữ nhịp và hỗ trợ âm thầm trong đội nhóm.",
       highlights: [
-        "On hoa, kien nhan va thich moi truong hoa thuan",
-        "Trung thanh, dang tin cay va ben bi voi cam ket",
-        "Lang nghe tot, ho tro tot va it thich xung dot",
+        "Ôn hòa, kiên nhẫn và thích môi trường hòa thuận",
+        "Trung thành, đáng tin cậy và bền bỉ với cam kết",
+        "Lắng nghe tốt, hỗ trợ tốt và ít thích xung đột",
       ],
       strengths: [
-        "Giu su on dinh khi moi truong nhieu ap luc",
-        "Phoi hop nhom tot va tao cam giac an tam cho nguoi khac",
-        "Lam viec deu tay, co trach nhiem va dang tin cay",
-        "Phu hop voi vai tro can ho tro, duy tri va cham soc lau dai",
+        "Giữ sự ổn định khi môi trường nhiều áp lực",
+        "Phối hợp nhóm tốt và tạo cảm giác an tâm cho người khác",
+        "Làm việc đều tay, có trách nhiệm và đáng tin cậy",
+        "Phù hợp với vai trò cần hỗ trợ, duy trì và chăm sóc lâu dài",
       ],
       weaknesses: [
-        "Ngai thay doi dot ngot va kho thich nghi qua nhanh",
-        "De ne tranh xung dot hoac cham bay to chinh kien",
-        "Co the dat nhu cau nguoi khac len tren ban than qua muc",
-        "Hay chan chu trong cac tinh huong can quyet rat nhanh",
+        "Ngại thay đổi đột ngột và khó thích nghi quá nhanh",
+        "Dễ né tránh xung đột hoặc chậm bày tỏ chính kiến",
+        "Có thể đặt nhu cầu người khác lên trên bản thân quá mức",
+        "Hay chần chừ trong các tình huống cần quyết rất nhanh",
       ],
       workStyle:
-        "Nhom S thich quy trinh ro, nhip lam viec on dinh va moi truong tu te. Ho phat huy rat tot khi duoc tin tuong, co thoi gian thich nghi va duoc lam viec trong tap the coi trong su ho tro lan nhau.",
+        "Nhóm S thích quy trình rõ, nhịp làm việc ổn định và môi trường tử tế. Họ phát huy rất tốt khi được tin tưởng, có thời gian thích nghi và được làm việc trong tập thể coi trọng sự hỗ trợ lẫn nhau.",
       career: [
-        "Nhan su",
-        "Dich vu khach hang",
-        "Hanh chinh - van phong",
-        "Y te / cham soc",
-        "Dieu phoi / ho tro van hanh",
+        "Nhân sự",
+        "Dịch vụ khách hàng",
+        "Hành chính - văn phòng",
+        "Y tế / chăm sóc",
+        "Điều phối / hỗ trợ vận hành",
       ],
       advice:
-        "Muon but len manh hon, nhom S nen tap noi ro nhu cau cua minh, dat ranh gioi lanh manh va tap thich nghi dan voi thay doi thay vi ne tranh hoan toan.",
+        "Muốn bứt lên mạnh hơn, nhóm S nên tập nói rõ nhu cầu của mình, đặt ranh giới lành mạnh và tập thích nghi dần với thay đổi thay vì né tránh hoàn toàn.",
     },
     C: {
       key: "C",
@@ -134,33 +134,33 @@
       description:
         "Nhóm C thường hành động dựa trên logic, tiêu chuẩn và quy tắc rõ ràng. Họ cẩn thận, tỉ mỉ, thích phân tích sâu và luôn muốn đảm bảo chất lượng, tính chính xác trong mọi việc.",
       highlights: [
-        "Chinh xac, phan tich tot va chu trong chi tiet",
-        "Ton trong quy trinh, tieu chuan va cau truc ro rang",
-        "Tap trung cao, lam viec doc lap tot va dang tin cay",
+        "Chính xác, phân tích tốt và chú trọng chi tiết",
+        "Tôn trọng quy trình, tiêu chuẩn và cấu trúc rõ ràng",
+        "Tập trung cao, làm việc độc lập tốt và đáng tin cậy",
       ],
       strengths: [
-        "Tu duy logic, nhin thay rui ro va lo hong nhanh",
-        "Lam viec co he thong, giu chuan rat tot",
-        "Phu hop voi viec can kiem soat chat luong va du lieu",
-        "It bi cuon theo cam xuc khi ra quyet dinh",
+        "Tư duy logic, nhìn thấy rủi ro và lỗ hổng nhanh",
+        "Làm việc có hệ thống, giữ chuẩn rất tốt",
+        "Phù hợp với việc cần kiểm soát chất lượng và dữ liệu",
+        "Ít bị cuốn theo cảm xúc khi ra quyết định",
       ],
       weaknesses: [
-        "De cau toan va cham quyet khi thieu du du lieu",
-        "Khong thoai mai voi moi truong mo ho hoac thay doi dot ngot",
-        "Giao tiep co the hoi lanh va qua than trong",
-        "Co luc dat tieu chuan qua cao cho ban than va nguoi khac",
+        "Dễ cầu toàn và chậm quyết khi thiếu đủ dữ liệu",
+        "Không thoải mái với môi trường mơ hồ hoặc thay đổi đột ngột",
+        "Giao tiếp có thể hơi lạnh và quá thận trọng",
+        "Có lúc đặt tiêu chuẩn quá cao cho bản thân và người khác",
       ],
       workStyle:
-        "Nhom C thich moi truong co quy trinh ro, it nhieu va du thoi gian de suy nghi thau dao. Ho phu hop voi vai tro can chat luong, su chuan xac va kha nang to chuc tot.",
+        "Nhóm C thích môi trường có quy trình rõ, ít nhiễu và đủ thời gian để suy nghĩ thấu đáo. Họ phù hợp với vai trò cần chất lượng, sự chuẩn xác và khả năng tổ chức tốt.",
       career: [
-        "Phan tich du lieu",
-        "Kiem soat chat luong",
-        "Tai chinh / ke toan",
-        "Phap che / tuan thu",
-        "Ky thuat / quy trinh",
+        "Phân tích dữ liệu",
+        "Kiểm soát chất lượng",
+        "Tài chính / kế toán",
+        "Pháp chế / tuân thủ",
+        "Kỹ thuật / quy trình",
       ],
       advice:
-        "De phat huy tron ven, nhom C nen hoc cach chap nhan muc du tot, giao tiep de gan hon va linh hoat hon truoc cac tinh huong chua hoan hao.",
+        "Để phát huy trọn vẹn, nhóm C nên học cách chấp nhận mức đủ tốt, giao tiếp dễ gần hơn và linh hoạt hơn trước các tình huống chưa hoàn hảo.",
     },
   };
 
@@ -385,7 +385,7 @@
     return (
       '<header class="topbar"><div class="topbar-inner"><a class="brand" href="#/"><div class="brand-mark">DC</div><div class="brand-copy"><strong>' +
       escapeHtml(SETTINGS.siteTitle) +
-      '</strong><span>Trắc nghiệm DISC 28 câu nội bộ</span></div></a><nav class="topnav"><a class="nav-link" href="#/">Trang chủ</a><a class="nav-link" href="#/disc/d">Nhóm DISC</a>' +
+      '</strong><span>Trắc nghiệm DISC 28 câu nội bộ</span></div></a><nav class="topnav"><a class="nav-link" href="#/">Trang chủ</a><div class="nav-group"><a class="nav-link" href="#/disc">Nhóm DISC</a><div class="nav-chip-row"><a class="nav-chip" href="#/disc/d">D</a><a class="nav-chip" href="#/disc/i">I</a><a class="nav-chip" href="#/disc/s">S</a><a class="nav-chip" href="#/disc/c">C</a></div></div>' +
       (auth
         ? '<a class="nav-link" href="#/profile">Hồ sơ</a>' +
           (auth.user && auth.user.role === "admin"
@@ -423,33 +423,28 @@
   function renderHome() {
     return (
       "<main>" +
-      '<section class="hero"><div class="container hero-grid"><div><div class="eyebrow">Google Sheet + Email + Admin dashboard</div><h1 class="hero-title">' +
+      '<section class="hero"><div class="container hero-grid"><div><div class="eyebrow">Bài trắc nghiệm DISC 28 câu</div><h1 class="hero-title">' +
       highlightAccent(SETTINGS.heroTitle) +
-      '</h1><p class="hero-copy">' +
-      escapeHtml(SETTINGS.heroCopy) +
-      '</p><div class="hero-actions"><button class="btn btn-primary" data-action="start-quiz">' +
+      '</h1><p class="hero-copy">DISC là công cụ giúp bạn nhận diện xu hướng hành vi của bản thân thông qua 4 nhóm chính: D, I, S và C. Khi hiểu mình thuộc xu hướng nào nổi trội hơn, bạn sẽ dễ nhìn rõ cách mình giao tiếp, phối hợp, ra quyết định và phản ứng trước áp lực.</p><p class="hero-copy">Bài test trên website này gồm 28 câu. Mỗi câu có 4 mô tả ngắn, bạn chọn 1 mô tả giống mình nhất và 1 mô tả khác mình nhất để hệ thống đưa ra phần đánh giá phù hợp hơn với phong cách tự nhiên của bạn.</p><div class="hero-actions"><button class="btn btn-primary" data-action="start-quiz">' +
       escapeHtml(SETTINGS.startButton) +
-      '</button><a class="btn btn-secondary" href="#/register">Đăng ký ngay tại trang chủ</a></div><div class="metric-grid">' +
-      metricCard("Đăng ký tại chỗ", "Người dùng có thể tạo tài khoản ngay tại trang chủ và lưu hồ sơ trên Google Sheet.") +
-      metricCard("Gửi kết quả qua mail", "Sau bài test, kết quả chỉ mở nếu email gửi thành công.") +
-      metricCard("Admin tách riêng", "Tài khoản admin có dashboard xem hôm nay có bao nhiêu người đã làm bài, họ là ai.") +
-      '</div></div><div class="hero-visual panel"><div class="visual-card">' +
-      visualRow("A", "Đăng ký / Đăng nhập", "Tài khoản user và admin tách biệt rõ") +
-      visualRow("Q", "28 câu hỏi", "Chọn Giống nhất và Khác nhất") +
-      visualRow("M", "Email kết quả", "Gửi mail đẹp, cá nhân hóa theo mã DISC") +
-      visualRow("R", "Báo cáo admin", "Thống kê hôm nay, danh sách người làm bài, trạng thái gửi mail") +
-      "</div></div></div></section>" +
-      '<section class="section"><div class="container"><div class="section-header"><div><div class="eyebrow">Luồng sản phẩm</div><h2 class="section-title">Đúng luồng nghiệp vụ mà anh/chị vừa mô tả.</h2></div><p class="section-copy">Frontend này đã được chuyển thành giao diện kết nối backend thật. Phần xác thực, phân quyền, ghi Google Sheet và gửi email được thiết kế để chạy với Google Apps Script.</p></div><div class="benefit-grid">' +
-      infoCard("01", "Đăng ký ngay trang chủ", "Lưu hồ sơ người dùng vào Google Sheet qua backend Apps Script.") +
-      infoCard("02", "Làm xong mới bắt đăng ký", "Nếu chưa đăng nhập, người dùng vẫn làm bài được và sẽ bị chặn ở bước nhận kết quả.") +
-      infoCard("03", "Chỉ show kết quả nếu mail thành công", "Nếu email sai hoặc gửi thất bại, hồ sơ chỉ hiện trạng thái lỗi và nút cập nhật email.") +
-      infoCard("04", "Admin xem được báo cáo", "User thường không thể thấy nội dung thống kê, lịch sử người khác hay dashboard.") +
-      "</div></div></section>" +
-      '<section class="section"><div class="container info-grid"><article class="panel section-card"><div class="eyebrow">Dành cho người dùng</div><h3>Làm bài test, nhận kết quả, xem lịch sử và cập nhật email nếu gửi thất bại.</h3><ul class="bullet-list"><li>Người dùng không đăng nhập vẫn được làm hết 28 câu.</li><li>Sau câu 28, hệ thống bắt buộc đăng ký / đăng nhập để nhận kết quả.</li><li>Nếu email gửi thành công, kết quả hiện trong hồ sơ và có link xem chi tiết.</li><li>Nếu email sai, hồ sơ đánh dấu sai thông tin người nhận và cho cập nhật lại.</li></ul></article><article class="panel section-card"><div class="eyebrow">Dành cho admin</div><h3>Admin có tài khoản riêng, dashboard riêng và quyền xem báo cáo tổng hợp.</h3><ul class="bullet-list"><li>Xem hôm nay có bao nhiêu người làm bài.</li><li>Xem họ là ai, email nào, thời gian nào, mã DISC gì.</li><li>Xem trạng thái mail: thành công / lỗi / đang chờ gửi lại.</li><li>Không user thường nào có quyền vào luồng này.</li></ul></article></div></section>' +
+      '</button><a class="btn btn-secondary" href="#/disc">Xem 4 nhóm DISC</a></div></div><div class="hero-visual panel"><div class="visual-card">' +
+      visualRow("D", "Dominance", "Quyết đoán, thích thử thách, ưu tiên kết quả và hành động") +
+      visualRow("I", "Influence", "Cởi mở, giàu năng lượng, thích kết nối và tạo ảnh hưởng") +
+      visualRow("S", "Steadiness", "Điềm tĩnh, bền bỉ, đáng tin cậy và đề cao sự hài hòa") +
+      visualRow("C", "Conscientiousness", "Cẩn trọng, logic, chú ý chi tiết và coi trọng tính chính xác") +
+      '</div></div></div></section>' +
+      '<section class="section"><div class="container"><div class="section-header"><div><div class="eyebrow">DISC là gì?</div><h2 class="section-title">Một góc nhìn ngắn gọn nhưng hữu ích để hiểu cách bạn hành xử trong thực tế.</h2></div><p class="section-copy">DISC không nhằm kết luận ai tốt hơn ai. Mỗi nhóm đều có điểm mạnh riêng. Điều quan trọng là bạn hiểu xu hướng nổi bật của mình để biết khi nào nên phát huy, khi nào nên điều chỉnh và cách phối hợp hiệu quả hơn với người khác.</p></div><div class="info-grid"><article class="panel section-card"><div class="eyebrow">4 nhóm hành vi</div><h3>DISC chia hành vi tự nhiên thành 4 nhóm chính.</h3><ul class="bullet-list"><li><strong>D</strong>: Thiên về quyết đoán, chủ động, thích thử thách và tập trung vào mục tiêu.</li><li><strong>I</strong>: Thiên về giao tiếp, kết nối, lan tỏa năng lượng và tạo cảm hứng.</li><li><strong>S</strong>: Thiên về sự ổn định, kiên nhẫn, chân thành và hỗ trợ tập thể.</li><li><strong>C</strong>: Thiên về logic, nguyên tắc, chi tiết và sự chính xác.</li></ul></article><article class="panel section-card"><div class="eyebrow">Điều bài test phản ánh</div><h3>Kết quả giúp bạn hiểu rõ hơn phong cách hành vi nổi trội của mình.</h3><ul class="bullet-list"><li>Cách bạn thường phản ứng trong công việc và giao tiếp.</li><li>Điểm mạnh tự nhiên dễ tạo ra giá trị.</li><li>Những điểm cần cân bằng để phối hợp tốt hơn.</li><li>Xu hướng làm việc, ra quyết định và chịu áp lực.</li></ul></article></div></div></section>' +
+      '<section class="section"><div class="container"><div class="section-header"><div><div class="eyebrow">Bài test mang lại gì?</div><h2 class="section-title">Sau 28 câu, bạn sẽ có phần đọc kết quả chi tiết hơn về chính mình.</h2></div><p class="section-copy">Thay vì chỉ biết mình thuộc nhóm nào, bạn còn có thể nhìn rõ hơn các sắc thái đi kèm, cách mình làm việc, cách mình tác động tới người khác và những điều nên điều chỉnh để phát huy tốt hơn.</p></div><div class="benefit-grid">' +
+      infoCard("01", "Nhóm DISC nổi trội", "Biết nhóm nào đang là xu hướng hành vi nổi bật nhất của bạn trong 4 nhóm D, I, S, C.") +
+      infoCard("02", "Điểm mạnh tự nhiên", "Nhìn rõ những điểm bạn có thể phát huy trong công việc, phối hợp và giao tiếp.") +
+      infoCard("03", "Điểm cần cân bằng", "Nhận ra những điều dễ tạo lệch nhịp hoặc gây khó khăn khi làm việc với người khác.") +
+      infoCard("04", "Gợi ý phát triển", "Có thêm định hướng để điều chỉnh phong cách của mình theo hướng hiệu quả hơn.") +
+      '</div></div></section>' +
+      '<section class="section"><div class="container info-grid"><article class="panel section-card"><div class="eyebrow">Cách làm bài</div><h3>Bài test được thiết kế ngắn gọn, rõ ràng và dễ hoàn thành.</h3><ul class="bullet-list"><li>Bài test gồm 28 câu, mỗi câu có 4 mô tả khác nhau.</li><li>Ở mỗi câu, bạn chọn 1 mô tả giống mình nhất và 1 mô tả khác mình nhất.</li><li>Không có đáp án đúng hay sai, hãy chọn theo cách bạn thường thể hiện trong thực tế.</li><li>Hoàn thành xong, hệ thống sẽ trả về phần kết quả và diễn giải chi tiết hơn cho bạn.</li></ul></article><article class="panel section-card"><div class="eyebrow">Phù hợp với ai?</div><h3>Bài test này phù hợp với những ai muốn hiểu mình rõ hơn trong công việc và giao tiếp.</h3><ul class="bullet-list"><li>Người đi làm muốn hiểu phong cách làm việc và cách phối hợp của bản thân.</li><li>Ứng viên muốn nhìn rõ hơn điểm mạnh tự nhiên trước khi ứng tuyển hoặc phỏng vấn.</li><li>Người quản lý muốn hiểu cách mình ra quyết định, dẫn dắt và phản hồi với đội nhóm.</li><li>Bất kỳ ai muốn có thêm một góc nhìn để hiểu mình và hiểu người khác tốt hơn.</li></ul></article></div></section>' +
+      '<section class="section"><div class="container"><div class="panel section-card" style="text-align:center"><div class="eyebrow">Sẵn sàng bắt đầu?</div><h2 class="section-title">Làm bài trắc nghiệm DISC 28 câu để khám phá phong cách hành vi của bạn.</h2><p class="section-copy">Chỉ cần hoàn thành lần lượt 28 câu hỏi, hệ thống sẽ trả về kết quả chi tiết hơn để bạn hiểu rõ chính mình.</p><div class="hero-actions" style="justify-content:center;margin-top:18px"><button class="btn btn-primary" data-action="start-quiz">Bắt đầu làm bài</button><a class="btn btn-secondary" href="#/disc">Xem trước 4 nhóm DISC</a></div></div></div></section>' +
       "</main>"
     );
   }
-
   function visualRow(icon, title, copy) {
     return '<div class="visual-row"><div class="visual-tag"><span class="visual-icon" style="background:#ff8a3d">' + icon + '</span><div><strong>' + title + '</strong><div class="helper">' + copy + "</div></div></div></div>";
   }
@@ -648,7 +643,12 @@
       (history.items && history.items.length
         ? history.items
             .map(function (item) {
-              const locked = !item.result_visible_to_user;
+              const resultVisible =
+                item.result_visible_to_user === true ||
+                item.result_visible_to_user === "TRUE" ||
+                item.result_visible_to_user === "true" ||
+                item.email_status === 'sent';
+              const locked = !resultVisible;
               const status = item.email_status_text || (item.email_status === 'sent' ? 'Đã gửi kết quả' : 'Sai thông tin người nhận');
               return (
                 '<article class="share-card" style="margin-top:16px"><div class="header-actions"><strong>' +
@@ -714,6 +714,34 @@
     );
   }
 
+  function renderDiscHub() {
+    return (
+      '<main class="type-page"><div class="container"><section class="panel section-card"><div class="section-header"><div><div class="eyebrow">Khám phá 4 nhóm</div><h2 class="section-title">Chọn nhóm DISC bạn muốn xem chi tiết.</h2></div><p class="section-copy">Từ trang này, người dùng có thể đi vào đầy đủ 4 nhóm tính cách D, I, S, C thay vì chỉ một trang mô tả duy nhất.</p></div><div class="type-grid">' +
+      Object.keys(DISC_TYPES)
+        .map(function (key) {
+          const style = DISC_TYPES[key];
+          return (
+            '<article class="type-card" data-style="' +
+            style.key +
+            '"><div class="type-letter" style="background:' +
+            style.color +
+            '">' +
+            style.key +
+            '</div><h3>' +
+            escapeHtml(style.fullName) +
+            '</h3><p class="card-copy">' +
+            escapeHtml(style.tone) +
+            '</p><div class="card-actions" style="margin-top:12px"><a class="btn btn-secondary" href="#/disc/' +
+            style.key.toLowerCase() +
+            '">Xem nhóm ' +
+            style.key +
+            '</a></div></article>'
+          );
+        })
+        .join('') +
+      '</div></section></div></main>'
+    );
+  }
   function renderDiscType(typeKey) {
     const style = DISC_TYPES[(typeKey || '').toUpperCase()];
     if (!style) {
@@ -948,7 +976,7 @@
     else if (first === "profile") content = renderProfilePage();
     else if (first === "admin") content = renderAdminPage();
     else if (first === "result") content = renderResultPage();
-    else if (first === "disc") content = renderDiscType(route.parts[1]);
+    else if (first === "disc") content = route.parts[1] ? renderDiscType(route.parts[1]) : renderDiscHub();
     else content = renderNotFound("???ng d?n kh?ng h?p l?.");
 
     app.innerHTML =

@@ -8,6 +8,7 @@ var SHEETS = {
 // Use the actual spreadsheet explicitly so the web app works even when the
 // Apps Script project is standalone and not container-bound.
 var SPREADSHEET_ID = "1ChwU9e9Mnb3r2kjmAhSSSQg7Z-GUwpfwVseKryMeSd4";
+var FRONTEND_URL = "https://vagavydisctest.netlify.app/#/";
 
 var QUESTION_BANK = [
   ["q1", [["a", "I"], ["b", "I"], ["c", "D"], ["d", "C"]]],
@@ -41,18 +42,18 @@ var QUESTION_BANK = [
 ];
 
 var COMBO_LABELS = {
-  DI: ["Nguoi dan dat truyen lua", "Quyet doan, giau nang luong, thich but pha va tao anh huong."],
-  DC: ["Nguoi chi huy chien luoc", "Manh me, chuan xac, quyet theo muc tieu nhung van giu nguyen tac."],
-  DS: ["Nguoi dat muc tieu", "Manh me, kien tri, trach nhiem, huong toi ket qua va tao su can bang."],
-  ID: ["Nguoi lan toa va chinh phuc", "Soi noi, tu tin, thich ket noi va khong ngai dan dat."],
-  IC: ["Nguoi thuyet phuc tinh te", "Gioi ket noi, noi co suc nang va van chu y chuan muc."],
-  IS: ["Nguoi ket noi chan thanh", "Am ap, tich cuc, de gan va luon muon tao bau khong khi hai hoa."],
-  SD: ["Nguoi ben bi hanh dong", "Diem tinh nhung chac tay, biet giu nhip va van theo duoi muc tieu."],
-  SI: ["Nguoi gan ket con nguoi", "Chan thanh, kien nhan, giau tinh than ho tro va ket noi."],
-  SC: ["Nguoi on dinh chuan muc", "Can trong, kien nhan va thich su ro rang, trat tu."],
-  CD: ["Nguoi nguyen tac dinh huong", "Ly tri, manh me va co xu huong kiem soat chat luong lan muc tieu."],
-  CI: ["Nguoi chuan xac thuyet phuc", "Phan tich tot nhung van co kha nang tao anh huong nhe nhang."],
-  CS: ["Nguoi can trong tan tam", "Ti mi, dang tin, ho tro ben bi va thich moi truong co cau truc."],
+  DI: ["Người dẫn dắt truyền lửa", "Quyết đoán, giàu năng lượng, thích bứt phá và tạo ảnh hưởng."],
+  DC: ["Người chỉ huy chiến lược", "Mạnh mẽ, chuẩn xác, quyết theo mục tiêu nhưng vẫn giữ nguyên tắc."],
+  DS: ["Người đạt mục tiêu", "Mạnh mẽ, kiên trì, trách nhiệm, hướng tới kết quả và tạo sự cân bằng."],
+  ID: ["Người lan tỏa và chinh phục", "Sôi nổi, tự tin, thích kết nối và không ngại dẫn dắt."],
+  IC: ["Người thuyết phục tinh tế", "Giỏi kết nối, nói có sức nặng và vẫn chú ý chuẩn mực."],
+  IS: ["Người kết nối chân thành", "Ấm áp, tích cực, dễ gần và luôn muốn tạo bầu không khí hài hòa."],
+  SD: ["Người bền bỉ hành động", "Điềm tĩnh nhưng chắc tay, biết giữ nhịp và vẫn theo đuổi mục tiêu."],
+  SI: ["Người gắn kết con người", "Chân thành, kiên nhẫn, giàu tinh thần hỗ trợ và kết nối."],
+  SC: ["Người ổn định chuẩn mực", "Cẩn trọng, kiên nhẫn và thích sự rõ ràng, trật tự."],
+  CD: ["Người nguyên tắc định hướng", "Lý trí, mạnh mẽ và có xu hướng kiểm soát chất lượng lẫn mục tiêu."],
+  CI: ["Người chuẩn xác thuyết phục", "Phân tích tốt nhưng vẫn có khả năng tạo ảnh hưởng nhẹ nhàng."],
+  CS: ["Người cẩn trọng tận tâm", "Tỉ mỉ, đáng tin, hỗ trợ bền bỉ và thích môi trường có cấu trúc."],
 };
 
 function doPost(e) {
@@ -267,7 +268,7 @@ function handleGetMyHistory(token) {
       result_title: rows[i][16],
       email_status: rows[i][18],
       email_status_text: rows[i][19],
-      result_visible_to_user: String(rows[i][22]) === "TRUE",
+      result_visible_to_user: isVisible_(rows[i][22]) || rows[i][18] === "sent",
     });
   }
   return { items: items };
@@ -296,7 +297,7 @@ function handleGetAssessmentDetail(token, payload) {
     result_subtitle: row[17],
     email_status: row[18],
     email_status_text: row[19],
-    result_visible_to_user: String(row[22]) === "TRUE",
+    result_visible_to_user: isVisible_(row[22]) || row[18] === "sent",
   };
 }
 
@@ -365,7 +366,7 @@ function handleGetAdminDashboard(token) {
       submitted_at_text: formatDate_(row[4]),
       disc_code: row[5],
       email_status: row[18],
-      result_visible_to_user: String(row[22]) === "TRUE",
+      result_visible_to_user: isVisible_(row[22]) || row[18] === "sent",
     });
   }
 
@@ -432,17 +433,34 @@ function normalizeScores_(raw) {
 function sendResultEmail_(payload) {
   try {
     validateEmail_(payload.email);
-    var subject = "Ket qua DISC cua " + payload.fullName + " da san sang";
+    var subject = "Kết quả DISC của " + payload.fullName + " đã sẵn sàng";
+    var detail = buildEmailDetail_(payload.primary, payload.secondary);
     var html =
-      '<div style="font-family:Arial,sans-serif;background:#f7f9fc;padding:32px;color:#1f3554">' +
-      '<div style="max-width:640px;margin:0 auto;background:#ffffff;border:1px solid #dbe4f0;border-radius:20px;overflow:hidden">' +
-      '<div style="padding:28px;background:linear-gradient(135deg,#fff1e8,#ffffff)"><div style="display:inline-block;padding:8px 14px;border-radius:999px;background:#fff1e8;color:#ff640a;font-weight:700">DISC ket qua</div>' +
-      '<h1 style="margin:16px 0 8px;font-size:28px;color:#ef4444">' + payload.discCode + " - " + payload.title + "</h1>" +
-      "<p style=\"margin:0;line-height:1.7;color:#4b5f7c\">Xin chao " + payload.fullName + ", ket qua DISC cua ban da duoc xu ly thanh cong. Day la ban tom tat ngan gon va ca nhan hoa de ban de dang nhin ra xu huong hanh vi noi troi cua minh.</p></div>" +
-      '<div style="padding:28px"><p style="line-height:1.8;margin-top:0"><strong>Ma DISC cua ban:</strong> ' + payload.discCode + "</p>" +
-      '<p style="line-height:1.8"><strong>Phong cach:</strong> ' + payload.subtitle + "</p>" +
-      '<p style="line-height:1.8">Ban vui long quay lai he thong de xem day du bieu do, cac diem manh, diem can can bang, lich su bai test va cac goi y phat trien ca nhan.</p>' +
-      '<div style="margin-top:22px"><a href="' + ScriptApp.getService().getUrl() + '" style="display:inline-block;padding:12px 18px;border-radius:12px;background:#ff640a;color:#fff;text-decoration:none;font-weight:700">Mo he thong DISC</a></div></div></div></div>';
+      '<!doctype html><html><head><meta charset="UTF-8"></head><body style="margin:0;padding:0;background:#f7f9fc;font-family:Arial,sans-serif;color:#1f3554;">' +
+      '<div style="padding:32px 16px;background:#f7f9fc;">' +
+      '<div style="max-width:760px;margin:0 auto;background:#ffffff;border:1px solid #dbe4f0;border-radius:24px;overflow:hidden;">' +
+      '<div style="padding:30px;background:linear-gradient(135deg,#fff1e8,#ffffff);border-bottom:1px solid #eef2f7;">' +
+      '<div style="display:inline-block;padding:8px 14px;border-radius:999px;background:#fff1e8;color:#ff640a;font-weight:700;">Kết quả DISC</div>' +
+      '<h1 style="margin:18px 0 10px;font-size:32px;line-height:1.15;color:#ef4444;">' + escapeHtmlEmail_(payload.discCode + " - " + payload.title) + '</h1>' +
+      '<p style="margin:0;font-size:16px;line-height:1.8;color:#4b5f7c;">Xin chào <strong>' + escapeHtmlEmail_(payload.fullName) + '</strong>, bài trắc nghiệm DISC 28 câu của bạn đã được xử lý thành công. Dưới đây là phần tóm tắt nhanh để bạn nhìn rõ hơn phong cách hành vi nổi bật của mình.</p>' +
+      '</div>' +
+      '<div style="padding:30px;">' +
+      '<div style="padding:18px 20px;border:1px solid #e5edf6;border-radius:18px;background:#fbfdff;">' +
+      '<p style="margin:0 0 10px;font-size:15px;line-height:1.8;"><strong>Mã DISC của bạn:</strong> ' + escapeHtmlEmail_(payload.discCode) + '</p>' +
+      '<p style="margin:0 0 10px;font-size:15px;line-height:1.8;"><strong>Phong cách tổng quan:</strong> ' + escapeHtmlEmail_(payload.subtitle) + '</p>' +
+      '<p style="margin:0;font-size:15px;line-height:1.8;color:#4b5f7c;">' + escapeHtmlEmail_(detail.summary) + '</p>' +
+      '</div>' +
+      '<div style="margin-top:24px;display:grid;grid-template-columns:1fr;gap:16px;">' +
+      emailListCard_("Điểm mạnh nổi bật", detail.strengths, "#d97706") +
+      emailListCard_("Điểm cần cân bằng", detail.watchouts, "#ec4899") +
+      emailParagraphCard_("Phong cách làm việc", detail.workStyle, "#0ea5e9") +
+      emailParagraphCard_("Gợi ý phát triển", detail.guidance, "#14b8a6") +
+      '</div>' +
+      '<div style="margin-top:24px;padding:18px 20px;border-radius:18px;background:#fff7ed;border:1px solid #fed7aa;">' +
+      '<p style="margin:0;font-size:15px;line-height:1.8;color:#7c2d12;">Bạn có thể quay lại website để xem đầy đủ hơn phần biểu đồ, mô tả chi tiết, lịch sử bài test và các nội dung mở rộng cho nhóm DISC của mình.</p>' +
+      '<div style="margin-top:18px;"><a href="' + escapeHtmlEmail_(FRONTEND_URL) + '" style="display:inline-block;padding:13px 20px;border-radius:14px;background:#ff640a;color:#ffffff;text-decoration:none;font-weight:700;">Mở trang chủ DISC</a></div>' +
+      '</div>' +
+      '</div></div></div></body></html>';
 
     MailApp.sendEmail({
       to: payload.email,
@@ -552,6 +570,119 @@ function getSheet_(name, headers) {
     sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
   }
   return sheet;
+}
+
+function isVisible_(value) {
+  return value === true || String(value).toUpperCase() === "TRUE";
+}
+
+function buildEmailDetail_(primary, secondary) {
+  var profiles = {
+    D: {
+      summary: "Bạn thiên về sự quyết đoán, chủ động và mong muốn nhìn thấy kết quả rõ ràng trong công việc.",
+      strengths: [
+        "Quyết định nhanh khi áp lực tăng cao",
+        "Chủ động dẫn dắt và giữ nhịp công việc",
+        "Tập trung mạnh vào mục tiêu và hiệu quả",
+      ],
+      watchouts: [
+        "Dễ thiếu kiên nhẫn khi người khác chậm nhịp",
+        "Có thể tạo cảm giác áp lực vì cách nói quá thẳng",
+        "Đôi lúc ưu tiên mục tiêu hơn cảm xúc con người",
+      ],
+      workStyle: "Phù hợp với môi trường có tốc độ cao, quyền chủ động rõ ràng và mục tiêu đo đếm được.",
+      guidance: "Rèn thêm lắng nghe, chia sẻ quyền kiểm soát và cân bằng giữa hiệu quả với trải nghiệm của đội nhóm.",
+    },
+    I: {
+      summary: "Bạn thiên về giao tiếp, kết nối và có xu hướng lan tỏa năng lượng tích cực tới người xung quanh.",
+      strengths: [
+        "Tạo thiện cảm và kết nối nhanh với người khác",
+        "Truyền cảm hứng tốt trong môi trường tập thể",
+        "Linh hoạt, cởi mở với thay đổi và tương tác mới",
+      ],
+      watchouts: [
+        "Dễ cảm tính hoặc bốc đồng khi quá hứng khởi",
+        "Có thể thiếu bền bỉ ở các việc lặp lại, tỉ mỉ",
+        "Dễ bị ảnh hưởng bởi phản hồi và sự ghi nhận từ bên ngoài",
+      ],
+      workStyle: "Phát huy tốt trong môi trường thân thiện, nhiều tương tác, có không gian để thuyết phục và chia sẻ ý tưởng.",
+      guidance: "Tăng khả năng ưu tiên, theo đuổi đến cùng và kết hợp cảm hứng với tính kỷ luật trong thực thi.",
+    },
+    S: {
+      summary: "Bạn thiên về sự điềm tĩnh, ổn định và thường tạo cảm giác an tâm, dễ chịu cho người khác khi phối hợp cùng.",
+      strengths: [
+        "Kiên nhẫn, bền bỉ và đáng tin cậy",
+        "Phối hợp nhóm tốt, biết lắng nghe và hỗ trợ",
+        "Giữ được sự ổn định trong môi trường có áp lực",
+      ],
+      watchouts: [
+        "Ngại thay đổi đột ngột hoặc xung đột trực diện",
+        "Dễ chậm bày tỏ chính kiến khi cần quyết nhanh",
+        "Có xu hướng ưu tiên sự hài hòa hơn nhu cầu của bản thân",
+      ],
+      workStyle: "Hợp với môi trường có nhịp làm việc ổn định, quy trình rõ ràng và đề cao sự hỗ trợ lẫn nhau.",
+      guidance: "Tập nói rõ nhu cầu của mình, đặt ranh giới lành mạnh và nâng dần tốc độ thích nghi với thay đổi.",
+    },
+    C: {
+      summary: "Bạn thiên về logic, chuẩn mực và có xu hướng muốn mọi việc rõ ràng, chính xác trước khi đưa ra kết luận.",
+      strengths: [
+        "Tư duy phân tích và nhìn ra rủi ro nhanh",
+        "Làm việc có hệ thống, chú ý chi tiết tốt",
+        "Giữ chuẩn chất lượng và sự chính xác cao",
+      ],
+      watchouts: [
+        "Dễ cầu toàn hoặc chậm quyết khi thiếu dữ liệu",
+        "Không thoải mái với môi trường mơ hồ, thay đổi gấp",
+        "Cách giao tiếp đôi lúc có thể bị cảm nhận là lạnh hoặc quá thận trọng",
+      ],
+      workStyle: "Phù hợp với công việc cần cấu trúc rõ, dữ liệu đáng tin và thời gian đủ để suy nghĩ thấu đáo.",
+      guidance: "Luyện sự linh hoạt, chấp nhận mức đủ tốt trong một số tình huống và giao tiếp dễ gần hơn với người khác.",
+    },
+  };
+
+  var primaryProfile = profiles[primary] || profiles.D;
+  var secondaryFlavor = {
+    D: "Khi đi cùng sắc thái D, bạn có thêm nét quyết liệt, rõ định hướng và thích tạo chuyển động nhanh.",
+    I: "Khi đi cùng sắc thái I, bạn có thêm nét cởi mở, dễ tạo thiện cảm và lan tỏa năng lượng tích cực.",
+    S: "Khi đi cùng sắc thái S, bạn có thêm nét điềm tĩnh, biết giữ nhịp và coi trọng sự hài hòa khi phối hợp.",
+    C: "Khi đi cùng sắc thái C, bạn có thêm nét phân tích, thận trọng và chú ý nhiều hơn tới tiêu chuẩn.",
+  };
+
+  return {
+    summary: primaryProfile.summary + " " + (secondaryFlavor[secondary] || ""),
+    strengths: primaryProfile.strengths,
+    watchouts: primaryProfile.watchouts,
+    workStyle: primaryProfile.workStyle,
+    guidance: primaryProfile.guidance,
+  };
+}
+
+function emailListCard_(title, items, color) {
+  return (
+    '<div style="padding:18px 20px;border:1px solid #e5edf6;border-radius:18px;background:#ffffff;">' +
+    '<div style="display:inline-block;padding:7px 12px;border-radius:999px;background:#fff7ed;color:' + color + ';font-weight:700;font-size:13px;">' + escapeHtmlEmail_(title) + '</div>' +
+    '<ul style="margin:14px 0 0;padding-left:18px;color:#334155;line-height:1.9;">' +
+    items.map(function (item) { return '<li>' + escapeHtmlEmail_(item) + '</li>'; }).join('') +
+    '</ul></div>'
+  );
+}
+
+function emailParagraphCard_(title, text, color) {
+  return (
+    '<div style="padding:18px 20px;border:1px solid #e5edf6;border-radius:18px;background:#ffffff;">' +
+    '<div style="display:inline-block;padding:7px 12px;border-radius:999px;background:#eff6ff;color:' + color + ';font-weight:700;font-size:13px;">' + escapeHtmlEmail_(title) + '</div>' +
+    '<p style="margin:14px 0 0;color:#334155;line-height:1.9;">' + escapeHtmlEmail_(text) + '</p>' +
+    '</div>'
+  );
+}
+
+function escapeHtmlEmail_(value) {
+  return String(value == null ? "" : value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 function findRowByValue_(rows, columnIndex, value) {
