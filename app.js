@@ -3,6 +3,7 @@
   const STORAGE_KEYS = {
     auth: "disc_auth_v4",
     pending: "disc_pending_v4",
+    recentResult: "disc_recent_result_v1",
   };
 
   const SETTINGS = {
@@ -592,6 +593,14 @@
     saveToStorage(STORAGE_KEYS.pending, payload);
   }
 
+  function setRecentResult(payload) {
+    saveToStorage(STORAGE_KEYS.recentResult, payload);
+  }
+
+  function getRecentResult() {
+    return loadFromStorage(STORAGE_KEYS.recentResult, null);
+  }
+
   function pushNotice(type, message) {
     state.notices = [{ id: uid(), type: type, message: message }];
   }
@@ -714,6 +723,59 @@
     }
   }
 
+  function normalizeScoreMap(raw) {
+    const values = [raw.D, raw.I, raw.S, raw.C];
+    const min = Math.min.apply(null, values);
+    const max = Math.max.apply(null, values);
+    const output = { D: 4, I: 4, S: 4, C: 4 };
+    if (max === min) return output;
+    ["D", "I", "S", "C"].forEach(function (key) {
+      const scaled = 1 + ((raw[key] - min) / (max - min)) * 6;
+      output[key] = Math.max(1, Math.min(7, Math.round(scaled * 10) / 10));
+    });
+    return output;
+  }
+
+  function buildLocalAssessmentDetail(pending, questions, assessmentId, submitResult) {
+    const raw = { D: 0, I: 0, S: 0, C: 0 };
+    const answerLookup = {};
+    questions.forEach(function (question) {
+      answerLookup[question.id] = question;
+    });
+    (pending.responses || []).forEach(function (response) {
+      const question = answerLookup[response.questionId];
+      const selectedItem =
+        question &&
+        question.items.find(function (item) {
+          return item.id === response.choice;
+        });
+      const discKey = selectedItem && selectedItem.disc;
+      if (discKey && raw[discKey] !== undefined) raw[discKey] += 1;
+    });
+    const sorted = ["D", "I", "S", "C"].sort(function (a, b) {
+      return raw[b] - raw[a];
+    });
+    const code = sorted[0] + sorted[1];
+    const combo = RESULT_COMBOS[code] || COMBINATION_LABELS[code] || ["Phong cách kết hợp", "Sự pha trộn giữa hai động lực hành vi nổi trội."];
+    return {
+      assessment_id: assessmentId,
+      disc_code: code,
+      disc_primary: sorted[0],
+      disc_secondary: sorted[1],
+      raw_scores: raw,
+      chart_scores: normalizeScoreMap(raw),
+      result_title: combo[0],
+      result_subtitle: combo[1],
+      email_status: submitResult && submitResult.email_status,
+      email_status_text: normalizeBackendMessage(submitResult && submitResult.email_status_text),
+      result_visible_to_user: !!(submitResult && submitResult.result_visible_to_user),
+      environment_key: pending.environmentKey,
+      environment_label: getQuestionBank(pending.environmentKey).label,
+      question_bank_version: QUESTION_BANK_VERSION,
+      is_local_fallback: true,
+    };
+  }
+
   async function apiRequest(action, payload, options) {
     options = options || {};
     if (!CONFIG.apiBase) {
@@ -731,8 +793,12 @@
           payload: payload || {},
         }),
       });
-    } catch (_networkError) {
-      throw new Error("Khong ket noi duoc Apps Script. Hay kiem tra lai link deploy hoac quyen truy cap Web App.");
+    } catch (networkError) {
+      const extra =
+        networkError && networkError.message
+          ? " Chi tiết từ trình duyệt: " + networkError.message
+          : "";
+      throw new Error("Không kết nối được Apps Script. Hãy kiểm tra lại link deploy, quyền truy cập Web App hoặc lỗi mạng tạm thời." + extra);
     }
 
     let data;
@@ -1299,93 +1365,101 @@ function renderLockedResult(assessmentId, statusText) {
   }
 
   function resultTabButton(tab, label, activeTab) {
-    return '<button class="result-tab-btn ' + (tab === activeTab ? "is-active" : "") + '" data-action="switch-result-tab" data-tab="' + tab + '">' + escapeHtml(label) + "</button>";
+    return '<button type="button" class="result-tab-btn ' + (tab === activeTab ? "is-active" : "") + '" data-action="switch-result-tab" data-tab="' + tab + '">' + escapeHtml(label) + "</button>";
   }
 
   function renderResultTabContent(activeTab, detail, primary, secondary, combo, sortedScores, resultKnowledge) {
-    if (activeTab === "strengths") {
-      return (
-        '<section class="result-tab-panel"><div class="result-list-block"><h3 class="result-block-title good">Điểm mạnh nổi bật</h3>' +
-        renderListRows(resultKnowledge.strengths, "good") +
-        '</div><div class="result-list-block"><h3 class="result-block-title warn">Điểm cần phát triển</h3>' +
-        renderListRows(resultKnowledge.growth, "warn") +
-        '</div><div class="result-compare"><h3 class="result-block-title">So sánh 4 chiều</h3>' +
-        sortedScores.map(function (item, index) {
-          return '<div class="compare-row"><span class="compare-rank">' + (index + 1) + '</span><span class="compare-letter" style="background:' + item.meta.color + '">' + item.key + '</span><span class="compare-name">' + escapeHtml(item.meta.shortName) + '</span><div class="compare-bar"><span style="width:' + Math.round((item.value / 40) * 100) + "%;background:" + item.meta.color + '"></span></div><strong style="color:' + item.meta.color + '">' + item.value + '/40</strong></div>';
-        }).join("") +
-        "</div></section>"
-      );
-    }
-    if (activeTab === "communication") {
-      return (
-        '<section class="result-tab-panel"><div class="result-copy-block"><h3 class="result-block-title">Phong cách giao tiếp của bạn</h3><p class="type-copy">' +
-        escapeHtml(resultKnowledge.communicationStyle) +
-        '</p></div><div class="result-copy-block"><h3 class="result-block-title">Cách giao tiếp hiệu quả với bạn</h3>' +
-        renderArrowRows(resultKnowledge.communicationTips) +
-        '</div><div class="result-highlight" style="background:' +
-        secondary.soft +
-        '; border-color:' +
-        secondary.color +
-        '33"><strong>Ảnh hưởng từ kiểu phụ (' +
-        secondary.key +
-        " — " +
-        escapeHtml(secondary.shortName) +
-        ')</strong><p>' +
-        escapeHtml(secondaryCommunicationText(secondary.key)) +
-        "</p></div></section>"
-      );
-    }
-    if (activeTab === "sales") {
-      return (
-        '<section class="result-tab-panel"><div class="result-list-block"><h3 class="result-block-title good">' +
-        escapeHtml(resultKnowledge.applicationTitle) +
-        '</h3>' +
-        renderListRows(resultKnowledge.application, "good") +
-        '</div><div class="result-copy-block"><h3 class="result-block-title">Khi bị căng thẳng</h3><p class="type-copy">' +
-        escapeHtml(resultKnowledge.stress) +
-        '</p></div><div class="result-advice-bar"><strong>Gợi ý trọng tâm:</strong> ' +
-        escapeHtml(primary.advice || primary.salesAdvice) +
-        "</div></section>"
-      );
-    }
+    try {
+      if (activeTab === "strengths") {
+        return (
+          '<section class="result-tab-panel"><div class="result-list-block"><h3 class="result-block-title good">Điểm mạnh nổi bật</h3>' +
+          renderListRows(resultKnowledge.strengths, "good") +
+          '</div><div class="result-list-block"><h3 class="result-block-title warn">Điểm cần phát triển</h3>' +
+          renderListRows(resultKnowledge.growth, "warn") +
+          '</div><div class="result-compare"><h3 class="result-block-title">So sánh 4 chiều</h3>' +
+          safeArray(sortedScores).map(function (item, index) {
+            return '<div class="compare-row"><span class="compare-rank">' + (index + 1) + '</span><span class="compare-letter" style="background:' + item.meta.color + '">' + item.key + '</span><span class="compare-name">' + escapeHtml(item.meta.shortName) + '</span><div class="compare-bar"><span style="width:' + Math.round((item.value / 40) * 100) + "%;background:" + item.meta.color + '"></span></div><strong style="color:' + item.meta.color + '">' + item.value + '/40</strong></div>';
+          }).join("") +
+          "</div></section>"
+        );
+      }
+      if (activeTab === "communication") {
+        return (
+          '<section class="result-tab-panel"><div class="result-copy-block"><h3 class="result-block-title">Phong cách giao tiếp của bạn</h3><p class="type-copy">' +
+          escapeHtml(resultKnowledge.communicationStyle) +
+          '</p></div><div class="result-copy-block"><h3 class="result-block-title">Cách giao tiếp hiệu quả với bạn</h3>' +
+          renderArrowRows(resultKnowledge.communicationTips) +
+          '</div><div class="result-highlight" style="background:' +
+          secondary.soft +
+          '; border-color:' +
+          secondary.color +
+          '33"><strong>Ảnh hưởng từ kiểu phụ (' +
+          secondary.key +
+          " — " +
+          escapeHtml(secondary.shortName) +
+          ')</strong><p>' +
+          escapeHtml(secondaryCommunicationText(secondary.key)) +
+          "</p></div></section>"
+        );
+      }
+      if (activeTab === "sales") {
+        return (
+          '<section class="result-tab-panel"><div class="result-list-block"><h3 class="result-block-title good">' +
+          escapeHtml(resultKnowledge.applicationTitle) +
+          '</h3>' +
+          renderListRows(resultKnowledge.application, "good") +
+          '</div><div class="result-copy-block"><h3 class="result-block-title">Khi bị căng thẳng</h3><p class="type-copy">' +
+          escapeHtml(resultKnowledge.stress) +
+          '</p></div><div class="result-advice-bar"><strong>Gợi ý trọng tâm:</strong> ' +
+          escapeHtml(primary.advice || primary.salesAdvice) +
+          "</div></section>"
+        );
+      }
 
-    return (
-      '<section class="result-tab-panel"><div class="result-copy-block"><h3 class="result-block-title">Nhận xét tổng quan</h3><p class="type-copy">Kiểu ' +
-      escapeHtml(primary.english + " (" + primary.shortName + ")") +
-      ": " +
-      escapeHtml(resultKnowledge.summary) +
-      " Kiểu phụ của bạn là " +
-      escapeHtml(secondary.shortName) +
-      ".</p></div><div class=\"result-copy-block\"><h3 class=\"result-block-title\">" +
-      escapeHtml(resultKnowledge.focusTitle) +
-      "</h3><p class=\"type-copy\">" +
-      escapeHtml(resultKnowledge.focusBody) +
-      '</p></div><div class="result-two-col"><div class="result-copy-block"><h3 class="result-block-title">Điều thúc đẩy bạn</h3>' +
-      renderMiniPills(resultKnowledge.motivators, "good") +
-      '</div><div class="result-copy-block"><h3 class="result-block-title">Điều bạn lo ngại</h3>' +
-      renderMiniPills(resultKnowledge.concerns, "warn") +
-      '</div></div><div class="result-copy-block"><h3 class="result-block-title">Đặc điểm hành vi</h3><div class="behavior-grid">' +
-      primary.behavior.map(function (item) {
-        return '<div class="behavior-item"><span>' + escapeHtml(item[0]) + '</span><strong>' + escapeHtml(item[1]) + "</strong></div>";
-      }).join("") +
-      "</div></div></section>"
-    );
+      return (
+        '<section class="result-tab-panel"><div class="result-copy-block"><h3 class="result-block-title">Nhận xét tổng quan</h3><p class="type-copy">Kiểu ' +
+        escapeHtml(primary.english + " (" + primary.shortName + ")") +
+        ": " +
+        escapeHtml(resultKnowledge.summary) +
+        " Kiểu phụ của bạn là " +
+        escapeHtml(secondary.shortName) +
+        ".</p></div><div class=\"result-copy-block\"><h3 class=\"result-block-title\">" +
+        escapeHtml(resultKnowledge.focusTitle) +
+        "</h3><p class=\"type-copy\">" +
+        escapeHtml(resultKnowledge.focusBody) +
+        '</p></div><div class="result-two-col"><div class="result-copy-block"><h3 class="result-block-title">Điều thúc đẩy bạn</h3>' +
+        renderMiniPills(resultKnowledge.motivators, "good") +
+        '</div><div class="result-copy-block"><h3 class="result-block-title">Điều bạn lo ngại</h3>' +
+        renderMiniPills(resultKnowledge.concerns, "warn") +
+        '</div></div><div class="result-copy-block"><h3 class="result-block-title">Đặc điểm hành vi</h3><div class="behavior-grid">' +
+        safeArray(primary.behavior).map(function (item) {
+          return '<div class="behavior-item"><span>' + escapeHtml(item[0]) + '</span><strong>' + escapeHtml(item[1]) + "</strong></div>";
+        }).join("") +
+        "</div></div></section>"
+      );
+    } catch (_error) {
+      return '<section class="result-tab-panel"><div class="empty-state">Không thể hiển thị nội dung của thẻ này. Vui lòng quay lại tab Tổng Quan hoặc làm mới trang.</div></section>';
+    }
+  }
+
+  function safeArray(items) {
+    return Array.isArray(items) ? items : [];
   }
 
   function renderListRows(items, tone) {
-    return items.map(function (item) {
+    return safeArray(items).map(function (item) {
       return '<div class="result-list-row ' + tone + '"><span class="result-list-icon">' + (tone === "good" ? "✓" : "→") + "</span><span>" + escapeHtml(item) + "</span></div>";
     }).join("");
   }
 
   function renderArrowRows(items) {
-    return items.map(function (item) {
+    return safeArray(items).map(function (item) {
       return '<div class="result-arrow-row"><span>→</span><span>' + escapeHtml(item) + "</span></div>";
     }).join("");
   }
 
   function renderMiniPills(items, tone) {
-    return '<div class="result-mini-grid">' + items.map(function (item) {
+    return '<div class="result-mini-grid">' + safeArray(items).map(function (item) {
       return '<div class="result-mini-pill ' + tone + '"><span>' + (tone === "good" ? "◌" : "•") + '</span>' + escapeHtml(item) + "</div>";
     }).join("") + "</div>";
   }
@@ -1667,6 +1741,7 @@ function articleCard(title, list) {
           };
         }),
       });
+      setRecentResult(buildLocalAssessmentDetail(pending, questions, result.assessment_id, result));
       setPending(null);
       state.routeData.history = null;
       if (result.result_visible_to_user) {
@@ -1721,12 +1796,22 @@ function articleCard(title, list) {
         assessment_id: assessmentId,
       });
     } catch (error) {
-      state.routeData.result = {
-        assessment_id: assessmentId,
-        result_visible_to_user: false,
-        email_status_text: error.message,
-      };
-      pushNotice("error", error.message);
+      const fallbackResult = getRecentResult();
+      if (
+        fallbackResult &&
+        fallbackResult.assessment_id === assessmentId &&
+        /legacy/i.test(String(error.message || ""))
+      ) {
+        state.routeData.result = fallbackResult;
+        pushNotice("info", "Đang hiển thị kết quả từ dữ liệu vừa hoàn thành do backend chưa đọc được bản ghi mới.");
+      } else {
+        state.routeData.result = {
+          assessment_id: assessmentId,
+          result_visible_to_user: false,
+          email_status_text: error.message,
+        };
+        pushNotice("error", error.message);
+      }
     } finally {
       state.routeData.resultLoading = false;
       render();
