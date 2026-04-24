@@ -4,6 +4,7 @@
     auth: "disc_auth_v4",
     pending: "disc_pending_v4",
     recentResult: "disc_recent_result_v1",
+    postEmailReauth: "disc_post_email_reauth_v1",
   };
 
   const SETTINGS = {
@@ -601,6 +602,14 @@
     return loadFromStorage(STORAGE_KEYS.recentResult, null);
   }
 
+  function setPostEmailReauth(payload) {
+    saveToStorage(STORAGE_KEYS.postEmailReauth, payload);
+  }
+
+  function getPostEmailReauth() {
+    return loadFromStorage(STORAGE_KEYS.postEmailReauth, null);
+  }
+
   function pushNotice(type, message) {
     state.notices = [{ id: uid(), type: type, message: message }];
   }
@@ -1091,6 +1100,7 @@ function applyPageEffects() {
 
   function renderAuthPage(mode) {
     const title = mode === "login" ? "Đăng nhập" : "Đăng ký tài khoản";
+    const pendingReauth = getPostEmailReauth();
     const subtitle =
       mode === "login"
         ? "Đăng nhập để xem lịch sử bài test, nhận kết quả và cập nhật email nếu cần."
@@ -1105,6 +1115,7 @@ function applyPageEffects() {
       title +
       '</h2><p class="section-copy">' +
       subtitle +
+      (mode === "login" && pendingReauth ? " Email của bạn vừa được cập nhật. Vui lòng đăng nhập lại bằng email mới để mở kết quả DISC." : "") +
       (hasPendingComplete ? ' Bạn đang có một bài test đã hoàn thành và hệ thống sẽ gửi đi ngay sau khi xác thực thành công.' : '') +
       '</p><form id="' +
       mode +
@@ -1198,10 +1209,17 @@ function applyPageEffects() {
 
 
 function renderLockedResult(assessmentId, statusText) {
+    const canUpdateEmail = !!(state.auth && assessmentId);
     return (
       '<main class="type-page"><div class="container"><section class="panel section-card"><div class="eyebrow">Kết quả đang bị khóa</div><h2 class="section-title">Hệ thống chưa mở kết quả này cho người dùng.</h2><p class="section-copy">' +
       escapeHtml(statusText) +
-      ' Nếu email gửi thất bại hoặc sai thông tin người nhận, vui lòng vào Hồ sơ để cập nhật lại email và gửi lại kết quả.</p><div class="card-actions"><a class="btn btn-primary" href="#/profile">Mở hồ sơ</a></div></section></div></main>'
+      ' Nếu email gửi thất bại hoặc sai thông tin người nhận, vui lòng nhập lại email thật của bạn để hệ thống gửi kết quả thành công.</p>' +
+      (canUpdateEmail
+        ? '<form class="inline-email-form" data-action="update-email" data-assessment="' +
+          escapeHtml(assessmentId) +
+          '" style="margin-top:18px"><input class="input" name="email" type="email" placeholder="Nhập đúng email bạn đang dùng" required style="min-width:280px"><button class="btn btn-primary" type="submit">Cập nhật email để nhận kết quả</button></form><p class="small-note" style="margin-top:12px">Sau khi email gửi thành công, bạn sẽ được yêu cầu đăng nhập lại bằng email vừa cập nhật rồi mới xem kết quả.</p>'
+        : '<div class="card-actions"><a class="btn btn-primary" href="#/login">Đăng nhập để cập nhật email</a></div>') +
+      '</section></div></main>'
     );
   }
 
@@ -1751,8 +1769,8 @@ function articleCard(title, list) {
       if (result.result_visible_to_user) {
         navigate("/result/" + result.assessment_id);
       } else {
-        pushNotice("info", "Hệ thống đã ghi nhận bài test, nhưng email chưa gửi thành công. Vào Hồ sơ để cập nhật email.");
-        navigate("/profile");
+        pushNotice("error", "Email hiện tại chưa nhận được kết quả. Vui lòng nhập lại email thật của bạn để tiếp tục.");
+        navigate("/result/" + result.assessment_id);
       }
     } catch (error) {
       pushNotice("error", error.message);
@@ -1942,6 +1960,21 @@ function articleCard(title, list) {
             { skipAuth: true }
           );
           setAuth({ token: data.token, user: data.user });
+          const pendingReauth = getPostEmailReauth();
+          if (pendingReauth) {
+            const currentEmail = String((data.user && data.user.email) || "").trim().toLowerCase();
+            const expectedEmail = String(pendingReauth.email || "").trim().toLowerCase();
+            if (currentEmail === expectedEmail) {
+              setPostEmailReauth(null);
+              pushNotice("info", "Đăng nhập thành công. Kết quả DISC của bạn đã sẵn sàng.");
+              navigate("/result/" + pendingReauth.assessmentId);
+              return;
+            }
+            setAuth(null);
+            pushNotice("error", "Vui lòng đăng nhập bằng email vừa cập nhật để mở kết quả DISC.");
+            render();
+            return;
+          }
           pushNotice("info", "Đăng nhập thành công.");
           if (isPendingComplete()) {
             await submitPendingToBackend();
@@ -2004,13 +2037,19 @@ function articleCard(title, list) {
         form.dataset.loading = "1";
         setButtonLoading(submitButton, true, "Đang gửi lại kết quả...");
         try {
+          const newEmail = String(formData.get("email") || "").trim().toLowerCase();
           await apiRequest("updateAssessmentEmail", {
             assessment_id: form.dataset.assessment,
-            email: String(formData.get("email") || "").trim(),
+            email: newEmail,
           });
-          pushNotice("info", "Đã cập nhật email và gửi lại kết quả.");
-          state.routeData.history = null;
-          await loadHistory();
+          setPostEmailReauth({
+            assessmentId: form.dataset.assessment,
+            email: newEmail,
+          });
+          setAuth(null);
+          resetRouteData();
+          pushNotice("info", "Đã cập nhật email thành công. Vui lòng đăng nhập lại bằng email vừa cập nhật để xem kết quả DISC.");
+          navigate("/login");
         } catch (error) {
           pushNotice("error", error.message);
           render();

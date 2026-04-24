@@ -360,13 +360,11 @@ function handleUpdateAssessmentEmail(token, payload) {
   if (!assessmentMeta) throw new Error("Assessment not found.");
   if (assessmentMeta.row[1] !== session.user_id) throw new Error("Không có quyền cập nhật.");
 
+  var normalizedEmail = String(payload.email).toLowerCase();
   var userMeta = getUserMetaById_(session.user_id);
-  getSheet_(SHEETS.USERS).getRange(userMeta.rowIndex, 3).setValue(String(payload.email).toLowerCase());
-  assessmentMeta.sheet.getRange(assessmentMeta.rowIndex, 4).setValue(String(payload.email).toLowerCase());
-
   var emailResult = sendResultEmail_({
     fullName: userMeta.row[1] || "Bạn",
-    email: String(payload.email).toLowerCase(),
+    email: normalizedEmail,
     discCode: assessmentMeta.row[5],
     title: assessmentMeta.row[16],
     subtitle: assessmentMeta.row[17],
@@ -376,6 +374,15 @@ function handleUpdateAssessmentEmail(token, payload) {
     environmentLabel: assessmentMeta.row[24] || "",
   });
 
+  getSheet_(SHEETS.EMAIL_LOGS).appendRow([
+    makeId_("log"),
+    payload.assessment_id,
+    normalizedEmail,
+    emailResult.sent ? "sent" : "failed",
+    emailResult.error || "",
+    nowIso_(),
+  ]);
+
   assessmentMeta.sheet.getRange(assessmentMeta.rowIndex, 19).setValue(emailResult.sent ? "sent" : "failed");
   assessmentMeta.sheet.getRange(assessmentMeta.rowIndex, 20).setValue(
     emailResult.sent ? "Đã gửi kết quả thành công" : "Sai thông tin người nhận / gửi mail thất bại"
@@ -384,14 +391,12 @@ function handleUpdateAssessmentEmail(token, payload) {
   assessmentMeta.sheet.getRange(assessmentMeta.rowIndex, 22).setValue(emailResult.error || "");
   assessmentMeta.sheet.getRange(assessmentMeta.rowIndex, 23).setValue(emailResult.sent ? "TRUE" : "FALSE");
 
-  getSheet_(SHEETS.EMAIL_LOGS).appendRow([
-    makeId_("log"),
-    payload.assessment_id,
-    String(payload.email).toLowerCase(),
-    emailResult.sent ? "sent" : "failed",
-    emailResult.error || "",
-    nowIso_(),
-  ]);
+  if (!emailResult.sent) {
+    throw new Error(emailResult.error || "Không thể gửi email tới địa chỉ này. Vui lòng kiểm tra lại email.");
+  }
+
+  getSheet_(SHEETS.USERS).getRange(userMeta.rowIndex, 3).setValue(normalizedEmail);
+  assessmentMeta.sheet.getRange(assessmentMeta.rowIndex, 4).setValue(normalizedEmail);
 
   return { ok: true };
 }
