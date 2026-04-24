@@ -929,7 +929,34 @@ button { cursor: pointer; }
   .nav-toggle { display:flex; }
   .metric-grid, .benefit-grid, .type-grid, .trait-grid, .type-page .article-grid, .disc-card-grid, .environment-grid { grid-template-columns: 1fr; }
   .hero-stat-row { grid-template-columns: 1fr; }
-  .result-bar-chart, .result-score-cards, .result-radar-cards, .result-mini-grid, .behavior-grid, .result-bottom-actions { grid-template-columns: 1fr; }
+  .result-score-cards, .result-radar-cards, .result-mini-grid, .behavior-grid, .result-bottom-actions { grid-template-columns: 1fr; }
+  .result-bar-chart {
+    min-height: 0;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 18px 12px;
+    padding: 10px 6px 2px;
+    align-items: end;
+  }
+  .result-bar-item {
+    gap: 10px;
+  }
+  .result-bar-track {
+    width: 100%;
+    max-width: 84px;
+    height: 132px;
+  }
+  .result-bar-track span {
+    border-radius: 14px 14px 0 0;
+  }
+  .result-bar-label {
+    font-size: 1rem;
+  }
+  .result-chart-panel .result-section-head {
+    margin-bottom: 10px;
+  }
+  .result-chart-panel .result-section-title {
+    font-size: 1.55rem;
+  }
   .result-summary-title-row { align-items:flex-start; }
   .result-tab-nav { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); }
   .compare-row { grid-template-columns: 24px 34px minmax(0,1fr); }
