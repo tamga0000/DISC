@@ -126,6 +126,9 @@ function setupSpreadsheet() {
     "email_sent_at",
     "email_error",
     "result_visible_to_user",
+    "environment_key",
+    "environment_label",
+    "question_bank_version",
   ]);
   getSheet_(SHEETS.EMAIL_LOGS, [
     "log_id",
@@ -134,6 +137,34 @@ function setupSpreadsheet() {
     "status",
     "error_message",
     "created_at",
+  ]);
+  ensureColumns_(SHEETS.ASSESSMENTS, [
+    "assessment_id",
+    "user_id",
+    "session_id",
+    "recipient_email",
+    "submitted_at",
+    "disc_code",
+    "disc_primary",
+    "disc_secondary",
+    "raw_d",
+    "raw_i",
+    "raw_s",
+    "raw_c",
+    "chart_d",
+    "chart_i",
+    "chart_s",
+    "chart_c",
+    "result_title",
+    "result_subtitle",
+    "email_status",
+    "email_status_text",
+    "email_sent_at",
+    "email_error",
+    "result_visible_to_user",
+    "environment_key",
+    "environment_label",
+    "question_bank_version",
   ]);
 }
 
@@ -192,6 +223,7 @@ function handleSubmitAssessment(token, payload) {
   setupSpreadsheet();
   var session = requireSession_(token);
   if (!payload.answers || !payload.answers.length) throw new Error("Answers are required.");
+  if (!payload.environment_key) throw new Error("Environment is required.");
 
   var scoring = scoreAnswers_(payload.answers);
   var assessmentId = makeId_("asm");
@@ -233,6 +265,9 @@ function handleSubmitAssessment(token, payload) {
     emailResult.sent ? nowIso_() : "",
     emailResult.error || "",
     visible,
+    payload.environment_key || "",
+    payload.environment_label || "",
+    payload.question_bank_version || "v2-40",
   ]);
 
   getSheet_(SHEETS.EMAIL_LOGS).appendRow([
@@ -261,6 +296,7 @@ function handleGetMyHistory(token) {
   var items = [];
   for (var i = 1; i < rows.length; i++) {
     if (rows[i][1] !== session.user_id) continue;
+    if (String(rows[i][25] || "") !== "v2-40") continue;
     items.push({
       assessment_id: rows[i][0],
       submitted_at_text: formatDate_(rows[i][4]),
@@ -269,6 +305,8 @@ function handleGetMyHistory(token) {
       email_status: rows[i][18],
       email_status_text: rows[i][19],
       result_visible_to_user: isVisible_(rows[i][22]) || rows[i][18] === "sent",
+      environment_key: rows[i][23] || "",
+      environment_label: rows[i][24] || "",
     });
   }
   return { items: items };
@@ -278,6 +316,7 @@ function handleGetAssessmentDetail(token, payload) {
   var session = requireSession_(token);
   var row = getAssessmentRow_(payload.assessment_id);
   if (!row) throw new Error("Assessment not found.");
+  if (String(row[25] || "") !== "v2-40") throw new Error("Assessment legacy is no longer supported.");
   var isOwner = row[1] === session.user_id;
   var isAdmin = getUserById_(session.user_id).role === "admin";
   if (!isOwner && !isAdmin) throw new Error("Khong co quyen truy cap.");
@@ -287,6 +326,12 @@ function handleGetAssessmentDetail(token, payload) {
     disc_code: row[5],
     disc_primary: row[6],
     disc_secondary: row[7],
+    raw_scores: {
+      D: Number(row[8]) || 0,
+      I: Number(row[9]) || 0,
+      S: Number(row[10]) || 0,
+      C: Number(row[11]) || 0,
+    },
     chart_scores: {
       D: Number(row[12]) || 4,
       I: Number(row[13]) || 4,
@@ -298,6 +343,9 @@ function handleGetAssessmentDetail(token, payload) {
     email_status: row[18],
     email_status_text: row[19],
     result_visible_to_user: isVisible_(row[22]) || row[18] === "sent",
+    environment_key: row[23] || "",
+    environment_label: row[24] || "",
+    question_bank_version: row[25] || "",
   };
 }
 
@@ -356,6 +404,7 @@ function handleGetAdminDashboard(token) {
 
   for (var i = 1; i < rows.length; i++) {
     var row = rows[i];
+    if (String(row[25] || "") !== "v2-40") continue;
     var dateText = Utilities.formatDate(new Date(row[4]), Session.getScriptTimeZone(), "yyyy-MM-dd");
     if (dateText === today) todayCount += 1;
     if (row[18] === "sent") sentCount += 1;
@@ -367,6 +416,8 @@ function handleGetAdminDashboard(token) {
       disc_code: row[5],
       email_status: row[18],
       result_visible_to_user: isVisible_(row[22]) || row[18] === "sent",
+      environment_key: row[23] || "",
+      environment_label: row[24] || "",
     });
   }
 
@@ -383,20 +434,14 @@ function handleGetAdminDashboard(token) {
 function scoreAnswers_(answers) {
   var mostCounts = { D: 0, I: 0, S: 0, C: 0 };
   var leastCounts = { D: 0, I: 0, S: 0, C: 0 };
-  var map = {};
-  for (var i = 0; i < QUESTION_BANK.length; i++) {
-    var questionId = QUESTION_BANK[i][0];
-    map[questionId] = {};
-    for (var j = 0; j < QUESTION_BANK[i][1].length; j++) {
-      map[questionId][QUESTION_BANK[i][1][j][0]] = QUESTION_BANK[i][1][j][1];
-    }
-  }
-
   for (var k = 0; k < answers.length; k++) {
     var answer = answers[k];
-    var answerMap = map[answer.questionId] || {};
-    if (answer.most && answerMap[answer.most]) mostCounts[answerMap[answer.most]] += 1;
-    if (answer.least && answerMap[answer.least]) leastCounts[answerMap[answer.least]] += 1;
+    if (answer.most_disc && mostCounts[answer.most_disc] !== undefined) {
+      mostCounts[answer.most_disc] += 1;
+    }
+    if (answer.least_disc && leastCounts[answer.least_disc] !== undefined) {
+      leastCounts[answer.least_disc] += 1;
+    }
   }
 
   var raw = {
@@ -570,6 +615,16 @@ function getSheet_(name, headers) {
     sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
   }
   return sheet;
+}
+
+function ensureColumns_(name, headers) {
+  var sheet = getSheet_(name);
+  var current = sheet.getRange(1, 1, 1, Math.max(sheet.getLastColumn(), 1)).getValues()[0];
+  for (var i = 0; i < headers.length; i++) {
+    if (current[i] !== headers[i]) {
+      sheet.getRange(1, i + 1).setValue(headers[i]);
+    }
+  }
 }
 
 function isVisible_(value) {
