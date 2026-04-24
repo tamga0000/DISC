@@ -1048,6 +1048,10 @@
 function applyPageEffects() {
     if (skipNextReveal) {
       skipNextReveal = false;
+      document.querySelectorAll(".reveal-up").forEach(function (node) {
+        node.classList.add("is-visible");
+        node.style.transitionDelay = "0ms";
+      });
       return;
     }
 
@@ -1229,7 +1233,7 @@ function renderLockedResult(assessmentId, statusText) {
     const sortedScores = orderedScores.slice().sort(function (a, b) { return b.value - a.value; });
 
     return (
-      '<main class="result-page result-page-v2"><div class="container"><section class="result-summary-hero reveal-up" style="--result-env:' +
+      '<main class="result-page result-page-v2"><div class="container"><section class="result-summary-hero is-visible" style="--result-env:' +
       escapeHtml(environmentTheme.accent) +
       ';--result-env-soft:' +
       escapeHtml(environmentTheme.soft) +
