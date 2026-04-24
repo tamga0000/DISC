@@ -1,4 +1,4 @@
-var SHEETS = {
+﻿var SHEETS = {
   USERS: "users",
   SESSIONS: "sessions",
   ASSESSMENTS: "assessments",
@@ -213,11 +213,12 @@ function handleRegister(payload) {
 function handleLogin(payload) {
   setupSpreadsheet();
   validateEmail_(payload.email);
-  var user = findUserByEmail_(payload.email);
-  if (!user || user.password_hash !== hashPassword_(payload.password)) {
+  var userMeta = getUserMetaByEmail_(payload.email);
+  if (!userMeta || !isPasswordMatch_(payload.password, userMeta.row[4])) {
     throw new Error("Thông tin đăng nhập không đúng.");
   }
-  return createSessionForUser_(user.user_id);
+  migrateLegacyPasswordIfNeeded_(userMeta, payload.password);
+  return createSessionForUser_(userMeta.row[0]);
 }
 
 function handleSubmitAssessment(token, payload) {
@@ -562,6 +563,17 @@ function findUserByEmail_(email) {
   return null;
 }
 
+function getUserMetaByEmail_(email) {
+  var sheet = getSheet_(SHEETS.USERS);
+  var rows = sheet.getDataRange().getValues();
+  for (var i = 1; i < rows.length; i++) {
+    if (String(rows[i][2]).toLowerCase() === String(email).toLowerCase()) {
+      return { sheet: sheet, row: rows[i], rowIndex: i + 1 };
+    }
+  }
+  return null;
+}
+
 function getUserById_(userId) {
   var meta = getUserMetaById_(userId);
   return rowToUser_(meta.row);
@@ -805,6 +817,23 @@ function hashPassword_(text) {
   }).join("");
 }
 
+function isPasswordMatch_(inputPassword, storedValue) {
+  var password = String(inputPassword || "");
+  var stored = String(storedValue || "");
+  if (!stored) return false;
+  if (stored === hashPassword_(password)) return true;
+  return stored === password;
+}
+
+function migrateLegacyPasswordIfNeeded_(userMeta, plainPassword) {
+  var stored = String((userMeta && userMeta.row && userMeta.row[4]) || "");
+  var hashed = hashPassword_(plainPassword);
+  if (!stored || stored === hashed) return;
+  if (stored === String(plainPassword || "")) {
+    userMeta.sheet.getRange(userMeta.rowIndex, 5).setValue(hashed);
+  }
+}
+
 function validateEmail_(email) {
   var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || "").trim());
   if (!ok) throw new Error("Email không hợp lệ.");
@@ -823,3 +852,4 @@ function formatDate_(value) {
   var date = new Date(value);
   return Utilities.formatDate(date, Session.getScriptTimeZone(), "HH:mm, dd/MM/yyyy");
 }
+
