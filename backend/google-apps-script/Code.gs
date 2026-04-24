@@ -9,6 +9,7 @@ var SHEETS = {
 // Apps Script project is standalone and not container-bound.
 var SPREADSHEET_ID = "1ChwU9e9Mnb3r2kjmAhSSSQg7Z-GUwpfwVseKryMeSd4";
 var FRONTEND_URL = "https://vagavydisctest.netlify.app/#/";
+var QUESTION_BANK_VERSION = "v3-40";
 
 var QUESTION_BANK = [
   ["q1", [["a", "I"], ["b", "I"], ["c", "D"], ["d", "C"]]],
@@ -193,7 +194,7 @@ function handleRegister(payload) {
   var usersSheet = getSheet_(SHEETS.USERS);
   var rows = usersSheet.getDataRange().getValues();
   if (findRowByValue_(rows, 2, String(payload.email).toLowerCase())) {
-    throw new Error("Email da ton tai.");
+    throw new Error("Email đã tồn tại.");
   }
   var userId = makeId_("usr");
   usersSheet.appendRow([
@@ -214,7 +215,7 @@ function handleLogin(payload) {
   validateEmail_(payload.email);
   var user = findUserByEmail_(payload.email);
   if (!user || user.password_hash !== hashPassword_(payload.password)) {
-    throw new Error("Thong tin dang nhap khong dung.");
+    throw new Error("Thông tin đăng nhập không đúng.");
   }
   return createSessionForUser_(user.user_id);
 }
@@ -228,15 +229,17 @@ function handleSubmitAssessment(token, payload) {
   var scoring = scoreAnswers_(payload.answers);
   var assessmentId = makeId_("asm");
   var user = getUserById_(session.user_id);
-  var combo = COMBO_LABELS[scoring.code] || ["Phong cach ket hop", "Su pha tron giua hai dong luc hanh vi noi troi."];
+  var combo = COMBO_LABELS[scoring.code] || ["Phong cách kết hợp", "Sự pha trộn giữa hai động lực hành vi nổi trội."];
   var emailResult = sendResultEmail_({
-    fullName: user.full_name || "Ban",
+    fullName: user.full_name || "Bạn",
     email: user.email,
     discCode: scoring.code,
     title: combo[0],
     subtitle: combo[1],
     primary: scoring.primary,
     secondary: scoring.secondary,
+    environmentKey: payload.environment_key || "",
+    environmentLabel: payload.environment_label || "",
   });
 
   var emailStatus = emailResult.sent ? "sent" : "failed";
@@ -261,13 +264,13 @@ function handleSubmitAssessment(token, payload) {
     combo[0],
     combo[1],
     emailStatus,
-    emailResult.sent ? "Da gui ket qua thanh cong" : "Sai thong tin nguoi nhan / gui mail that bai",
+    emailResult.sent ? "Đã gửi kết quả thành công" : "Sai thông tin người nhận / gửi mail thất bại",
     emailResult.sent ? nowIso_() : "",
     emailResult.error || "",
     visible,
     payload.environment_key || "",
     payload.environment_label || "",
-    payload.question_bank_version || "v2-40",
+    payload.question_bank_version || QUESTION_BANK_VERSION,
   ]);
 
   getSheet_(SHEETS.EMAIL_LOGS).appendRow([
@@ -284,8 +287,8 @@ function handleSubmitAssessment(token, payload) {
     result_visible_to_user: emailResult.sent,
     email_status: emailStatus,
     email_status_text: emailResult.sent
-      ? "Da gui ket qua thanh cong"
-      : "Sai thong tin nguoi nhan / gui mail that bai",
+      ? "Đã gửi kết quả thành công"
+      : "Sai thông tin người nhận / gửi mail thất bại",
   };
 }
 
@@ -296,7 +299,7 @@ function handleGetMyHistory(token) {
   var items = [];
   for (var i = 1; i < rows.length; i++) {
     if (rows[i][1] !== session.user_id) continue;
-    if (String(rows[i][25] || "") !== "v2-40") continue;
+    if (String(rows[i][25] || "") !== QUESTION_BANK_VERSION) continue;
     items.push({
       assessment_id: rows[i][0],
       submitted_at_text: formatDate_(rows[i][4]),
@@ -316,10 +319,10 @@ function handleGetAssessmentDetail(token, payload) {
   var session = requireSession_(token);
   var row = getAssessmentRow_(payload.assessment_id);
   if (!row) throw new Error("Assessment not found.");
-  if (String(row[25] || "") !== "v2-40") throw new Error("Assessment legacy is no longer supported.");
+  if (String(row[25] || "") !== QUESTION_BANK_VERSION) throw new Error("Assessment legacy is no longer supported.");
   var isOwner = row[1] === session.user_id;
   var isAdmin = getUserById_(session.user_id).role === "admin";
-  if (!isOwner && !isAdmin) throw new Error("Khong co quyen truy cap.");
+  if (!isOwner && !isAdmin) throw new Error("Không có quyền truy cập.");
 
   return {
     assessment_id: row[0],
@@ -354,25 +357,27 @@ function handleUpdateAssessmentEmail(token, payload) {
   validateEmail_(payload.email);
   var assessmentMeta = getAssessmentMeta_(payload.assessment_id);
   if (!assessmentMeta) throw new Error("Assessment not found.");
-  if (assessmentMeta.row[1] !== session.user_id) throw new Error("Khong co quyen cap nhat.");
+  if (assessmentMeta.row[1] !== session.user_id) throw new Error("Không có quyền cập nhật.");
 
   var userMeta = getUserMetaById_(session.user_id);
   getSheet_(SHEETS.USERS).getRange(userMeta.rowIndex, 3).setValue(String(payload.email).toLowerCase());
   assessmentMeta.sheet.getRange(assessmentMeta.rowIndex, 4).setValue(String(payload.email).toLowerCase());
 
   var emailResult = sendResultEmail_({
-    fullName: userMeta.row[1] || "Ban",
+    fullName: userMeta.row[1] || "Bạn",
     email: String(payload.email).toLowerCase(),
     discCode: assessmentMeta.row[5],
     title: assessmentMeta.row[16],
     subtitle: assessmentMeta.row[17],
     primary: assessmentMeta.row[6],
     secondary: assessmentMeta.row[7],
+    environmentKey: assessmentMeta.row[23] || "",
+    environmentLabel: assessmentMeta.row[24] || "",
   });
 
   assessmentMeta.sheet.getRange(assessmentMeta.rowIndex, 19).setValue(emailResult.sent ? "sent" : "failed");
   assessmentMeta.sheet.getRange(assessmentMeta.rowIndex, 20).setValue(
-    emailResult.sent ? "Da gui ket qua thanh cong" : "Sai thong tin nguoi nhan / gui mail that bai"
+    emailResult.sent ? "Đã gửi kết quả thành công" : "Sai thông tin người nhận / gửi mail thất bại"
   );
   assessmentMeta.sheet.getRange(assessmentMeta.rowIndex, 21).setValue(emailResult.sent ? nowIso_() : "");
   assessmentMeta.sheet.getRange(assessmentMeta.rowIndex, 22).setValue(emailResult.error || "");
@@ -393,7 +398,7 @@ function handleUpdateAssessmentEmail(token, payload) {
 function handleGetAdminDashboard(token) {
   var session = requireSession_(token);
   var user = getUserById_(session.user_id);
-  if (user.role !== "admin") throw new Error("Admin only.");
+  if (user.role !== "admin") throw new Error("Chỉ admin mới có quyền truy cập.");
 
   var rows = getSheet_(SHEETS.ASSESSMENTS).getDataRange().getValues();
   var today = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "yyyy-MM-dd");
@@ -404,7 +409,7 @@ function handleGetAdminDashboard(token) {
 
   for (var i = 1; i < rows.length; i++) {
     var row = rows[i];
-    if (String(row[25] || "") !== "v2-40") continue;
+    if (String(row[25] || "") !== QUESTION_BANK_VERSION) continue;
     var dateText = Utilities.formatDate(new Date(row[4]), Session.getScriptTimeZone(), "yyyy-MM-dd");
     if (dateText === today) todayCount += 1;
     if (row[18] === "sent") sentCount += 1;
@@ -432,23 +437,19 @@ function handleGetAdminDashboard(token) {
 }
 
 function scoreAnswers_(answers) {
-  var mostCounts = { D: 0, I: 0, S: 0, C: 0 };
-  var leastCounts = { D: 0, I: 0, S: 0, C: 0 };
+  var choiceCounts = { D: 0, I: 0, S: 0, C: 0 };
   for (var k = 0; k < answers.length; k++) {
     var answer = answers[k];
-    if (answer.most_disc && mostCounts[answer.most_disc] !== undefined) {
-      mostCounts[answer.most_disc] += 1;
-    }
-    if (answer.least_disc && leastCounts[answer.least_disc] !== undefined) {
-      leastCounts[answer.least_disc] += 1;
+    if (answer.choice_disc && choiceCounts[answer.choice_disc] !== undefined) {
+      choiceCounts[answer.choice_disc] += 1;
     }
   }
 
   var raw = {
-    D: mostCounts.D * 2 - leastCounts.D,
-    I: mostCounts.I * 2 - leastCounts.I,
-    S: mostCounts.S * 2 - leastCounts.S,
-    C: mostCounts.C * 2 - leastCounts.C,
+    D: choiceCounts.D,
+    I: choiceCounts.I,
+    S: choiceCounts.S,
+    C: choiceCounts.C,
   };
   var sorted = ["D", "I", "S", "C"].sort(function (a, b) {
     return raw[b] - raw[a];
@@ -479,7 +480,8 @@ function sendResultEmail_(payload) {
   try {
     validateEmail_(payload.email);
     var subject = "Kết quả DISC của " + payload.fullName + " đã sẵn sàng";
-    var detail = buildEmailDetail_(payload.primary, payload.secondary);
+    var detail = buildEmailDetail_(payload.primary, payload.secondary, payload.environmentKey);
+    var environmentLabel = payload.environmentLabel || getEmailEnvironment_(payload.environmentKey).label;
     var html =
       '<!doctype html><html><head><meta charset="UTF-8"></head><body style="margin:0;padding:0;background:#f7f9fc;font-family:Arial,sans-serif;color:#1f3554;">' +
       '<div style="padding:32px 16px;background:#f7f9fc;">' +
@@ -487,7 +489,7 @@ function sendResultEmail_(payload) {
       '<div style="padding:30px;background:linear-gradient(135deg,#fff1e8,#ffffff);border-bottom:1px solid #eef2f7;">' +
       '<div style="display:inline-block;padding:8px 14px;border-radius:999px;background:#fff1e8;color:#ff640a;font-weight:700;">Kết quả DISC</div>' +
       '<h1 style="margin:18px 0 10px;font-size:32px;line-height:1.15;color:#ef4444;">' + escapeHtmlEmail_(payload.discCode + " - " + payload.title) + '</h1>' +
-      '<p style="margin:0;font-size:16px;line-height:1.8;color:#4b5f7c;">Xin chào <strong>' + escapeHtmlEmail_(payload.fullName) + '</strong>, bài trắc nghiệm DISC 28 câu của bạn đã được xử lý thành công. Dưới đây là phần tóm tắt nhanh để bạn nhìn rõ hơn phong cách hành vi nổi bật của mình.</p>' +
+      '<p style="margin:0;font-size:16px;line-height:1.8;color:#4b5f7c;">Xin chào <strong>' + escapeHtmlEmail_(payload.fullName) + '</strong>, bài trắc nghiệm DISC của bạn đã được xử lý thành công. Dưới đây là phần tóm tắt nhanh để bạn nhìn rõ hơn phong cách hành vi nổi bật của mình.</p>' +
       '</div>' +
       '<div style="padding:30px;">' +
       '<div style="padding:18px 20px;border:1px solid #e5edf6;border-radius:18px;background:#fbfdff;">' +
@@ -514,7 +516,7 @@ function sendResultEmail_(payload) {
     });
     return { sent: true };
   } catch (error) {
-    return { sent: false, error: error.message || "Email send failed." };
+    return { sent: false, error: error.message || "Gửi email thất bại." };
   }
 }
 
@@ -539,7 +541,7 @@ function createSessionForUser_(userId) {
 }
 
 function requireSession_(token) {
-  if (!token) throw new Error("Unauthorized.");
+  if (!token) throw new Error("Phiên đăng nhập không hợp lệ.");
   var sheet = getSheet_(SHEETS.SESSIONS);
   var rows = sheet.getDataRange().getValues();
   for (var i = 1; i < rows.length; i++) {
@@ -547,7 +549,7 @@ function requireSession_(token) {
       return { token: rows[i][0], user_id: rows[i][1] };
     }
   }
-  throw new Error("Session expired or invalid.");
+  throw new Error("Phiên đăng nhập đã hết hạn hoặc không hợp lệ.");
 }
 
 function findUserByEmail_(email) {
@@ -573,7 +575,7 @@ function getUserMetaById_(userId) {
       return { sheet: sheet, row: rows[i], rowIndex: i + 1 };
     }
   }
-  throw new Error("User not found.");
+  throw new Error("Không tìm thấy người dùng.");
 }
 
 function rowToUser_(row) {
@@ -631,7 +633,49 @@ function isVisible_(value) {
   return value === true || String(value).toUpperCase() === "TRUE";
 }
 
-function buildEmailDetail_(primary, secondary) {
+function getEmailEnvironment_(environmentKey) {
+  var environments = {
+    life: {
+      label: "Cuộc sống",
+      focusTitle: "Ứng dụng trong cuộc sống",
+      focus: "Kết quả này phản ánh cách bạn phản ứng trong gia đình, bạn bè và các tình huống thường ngày.",
+      applicationTitle: "Gợi ý trong cuộc sống",
+      application: [
+        "Quan sát cách bạn xử lý mâu thuẫn và ra quyết định trong các mối quan hệ thân thiết.",
+        "Dùng điểm mạnh tự nhiên để hỗ trợ người thân mà không bỏ qua nhu cầu của bản thân.",
+        "Điều chỉnh nhịp giao tiếp để người khác vừa hiểu ý bạn vừa cảm thấy được tôn trọng.",
+      ],
+      stress: "Khi căng thẳng, hãy chậm lại một nhịp, gọi tên cảm xúc và chọn cách phản hồi phù hợp với mối quan hệ.",
+    },
+    work: {
+      label: "Công việc",
+      focusTitle: "Ứng dụng trong công việc",
+      focus: "Kết quả này cho thấy cách bạn phối hợp, giao tiếp và xử lý mục tiêu trong môi trường nghề nghiệp.",
+      applicationTitle: "Gợi ý trong công việc",
+      application: [
+        "Chọn vai trò và cách phối hợp phù hợp với điểm mạnh nổi bật của bạn.",
+        "Làm rõ kỳ vọng, thời hạn và tiêu chuẩn để giảm hiểu nhầm khi làm việc nhóm.",
+        "Cân bằng giữa phong cách tự nhiên của bạn với nhu cầu của đồng nghiệp và khách hàng.",
+      ],
+      stress: "Khi áp lực tăng, hãy quay lại ưu tiên chính, xác nhận thông tin và tránh phản ứng quá nhanh theo thói quen.",
+    },
+    leadership: {
+      label: "Lãnh đạo",
+      focusTitle: "Ứng dụng trong lãnh đạo",
+      focus: "Kết quả này phản ánh cách bạn dẫn dắt, ra quyết định và phát triển đội ngũ.",
+      applicationTitle: "Gợi ý trong lãnh đạo",
+      application: [
+        "Dùng điểm mạnh của bạn để tạo định hướng rõ ràng cho đội ngũ.",
+        "Điều chỉnh cách phản hồi để vừa giữ tiêu chuẩn vừa phát triển con người.",
+        "Kết hợp phong cách lãnh đạo tự nhiên với dữ liệu, sự lắng nghe và nhịp triển khai phù hợp.",
+      ],
+      stress: "Khi chịu áp lực lãnh đạo, hãy tách vấn đề khỏi con người và kiểm tra lại tác động trước khi quyết định.",
+    },
+  };
+  return environments[environmentKey] || environments.work;
+}
+
+function buildEmailDetail_(primary, secondary, environmentKey) {
   var profiles = {
     D: {
       summary: "Bạn thiên về sự quyết đoán, chủ động và mong muốn nhìn thấy kết quả rõ ràng trong công việc.",
@@ -696,6 +740,7 @@ function buildEmailDetail_(primary, secondary) {
   };
 
   var primaryProfile = profiles[primary] || profiles.D;
+  var environment = getEmailEnvironment_(environmentKey);
   var secondaryFlavor = {
     D: "Khi đi cùng sắc thái D, bạn có thêm nét quyết liệt, rõ định hướng và thích tạo chuyển động nhanh.",
     I: "Khi đi cùng sắc thái I, bạn có thêm nét cởi mở, dễ tạo thiện cảm và lan tỏa năng lượng tích cực.",
@@ -704,11 +749,16 @@ function buildEmailDetail_(primary, secondary) {
   };
 
   return {
-    summary: primaryProfile.summary + " " + (secondaryFlavor[secondary] || ""),
+    summary: "[" + environment.label + "] " + primaryProfile.summary + " " + environment.focus + " " + (secondaryFlavor[secondary] || ""),
     strengths: primaryProfile.strengths,
     watchouts: primaryProfile.watchouts,
-    workStyle: primaryProfile.workStyle,
-    guidance: primaryProfile.guidance,
+    workStyle: environment.focus + " " + primaryProfile.workStyle,
+    guidance: primaryProfile.guidance + " " + environment.application.join(" "),
+    focusTitle: environment.focusTitle,
+    focusBody: environment.focus + " " + primaryProfile.workStyle,
+    applicationTitle: environment.applicationTitle,
+    application: environment.application,
+    stress: environment.stress,
   };
 }
 
@@ -757,7 +807,7 @@ function hashPassword_(text) {
 
 function validateEmail_(email) {
   var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || "").trim());
-  if (!ok) throw new Error("Email khong hop le.");
+  if (!ok) throw new Error("Email không hợp lệ.");
 }
 
 function nowIso_() {

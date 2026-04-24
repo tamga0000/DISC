@@ -11,7 +11,7 @@
   };
 
   const QUESTION_BANKS = window.DISC_QUESTION_BANKS || {};
-  const QUESTION_BANK_VERSION = "v2-40";
+  const QUESTION_BANK_VERSION = "v3-40";
   const ENVIRONMENT_KEYS = ["life", "work", "leadership"].filter(function (key) {
     return QUESTION_BANKS[key];
   });
@@ -22,167 +22,143 @@
   const DISC_TYPES = {
     D: {
       key: "D",
-      nameVi: "NhÃ³m D",
-      fullName: "Dominance - Thá»‘ng lÄ©nh",
+      nameVi: "Nhóm D",
+      fullName: "Dominance - Thống lĩnh",
       color: "#ffb632",
-      tone: "NgÆ°á»i quyáº¿t Ä‘oÃ¡n, Ä‘á»‹nh hÆ°á»›ng káº¿t quáº£ vÃ  thÃ­ch chinh phá»¥c thá»­ thÃ¡ch.",
+      tone: "Người quyết đoán, hướng kết quả và thích chinh phục thử thách.",
       description:
-        "NhÃ³m D ná»•i báº­t á»Ÿ sá»± máº¡nh máº½, trá»±c diá»‡n, thÃ­ch dáº«n dáº¯t vÃ  Æ°u tiÃªn hiá»‡u quáº£. Há» pháº£n á»©ng nhanh, thÃ­ch kiá»ƒm soÃ¡t tÃ¬nh huá»‘ng vÃ  thÆ°á»ng sáºµn sÃ ng nháº­n viá»‡c khÃ³ khi tháº¥y má»¥c tiÃªu Ä‘á»§ lá»›n.",
+        "Nhóm D nổi bật ở sự mạnh mẽ, trực diện, thích dẫn dắt và ưu tiên hiệu quả. Họ phản ứng nhanh, thích kiểm soát tình huống và thường sẵn sàng nhận việc khó khi thấy mục tiêu đủ lớn.",
       highlights: [
-        "Quyáº¿t Ä‘oÃ¡n, pháº£n á»©ng nhanh vÃ  táº­p trung má»¥c tiÃªu",
-        "Æ¯a thá»­ thÃ¡ch, thÃ­ch tá»± chá»§ vÃ  thÃ­ch vai trÃ² dáº«n dáº¯t",
-        "Giao tiáº¿p trá»±c tiáº¿p, rÃµ rÃ ng vÃ  thiÃªn vá» hiá»‡u quáº£",
+        "Quyết đoán, phản ứng nhanh và tập trung mục tiêu",
+        "Ưa thử thách, thích tự chủ và thích vai trò dẫn dắt",
+        "Giao tiếp trực tiếp, rõ ràng và thiên về hiệu quả",
       ],
       strengths: [
-        "Ra quyáº¿t Ä‘á»‹nh nhanh trong Ã¡p lá»±c",
-        "Tinh tháº§n chá»§ Ä‘á»™ng, dÃ¡m chá»‹u trÃ¡ch nhiá»‡m",
-        "CÃ³ tá»‘ cháº¥t lÃ£nh Ä‘áº¡o vÃ  Ä‘á»‹nh hÆ°á»›ng káº¿t quáº£ rÃµ rÃ ng",
-        "Há»£p vá»›i mÃ´i trÆ°á»ng tá»‘c Ä‘á»™ cao, nhiá»u má»¥c tiÃªu lá»›n",
+        "Ra quyết định nhanh trong áp lực",
+        "Tinh thần chủ động, dám chịu trách nhiệm",
+        "Có tố chất lãnh đạo và định hướng kết quả rõ ràng",
+        "Hợp với môi trường tốc độ cao, nhiều mục tiêu lớn",
       ],
       weaknesses: [
-        "Dá»… thiáº¿u kiÃªn nháº«n khi ngÆ°á»i khÃ¡c cháº­m nhá»‹p",
-        "CÃ³ thá»ƒ quÃ¡ tháº³ng vÃ  táº¡o cáº£m giÃ¡c Ã¡p lá»±c",
-        "KhÃ³ tiáº¿p nháº­n gÃ³p Ã½ khi Ä‘ang quÃ¡ tin vÃ o hÆ°á»›ng Ä‘i cá»§a mÃ¬nh",
-        "ThÆ°á»ng Æ°u tiÃªn má»¥c tiÃªu hÆ¡n cáº£m xÃºc con ngÆ°á»i",
+        "Dễ thiếu kiên nhẫn khi người khác chậm nhịp",
+        "Có thể quá thẳng và tạo cảm giác áp lực",
+        "Khó tiếp nhận góp ý khi đang quá tin vào hướng đi của mình",
+        "Thường ưu tiên mục tiêu hơn cảm xúc con người",
       ],
       workStyle:
-        "Trong cÃ´ng viá»‡c, nhÃ³m D thÃ­ch tá»‘c Ä‘á»™, quyá»n chá»§ Ä‘á»™ng vÃ  cÃ¡c má»¥c tiÃªu Ä‘o Ä‘áº¿m rÃµ rÃ ng. Há» thÆ°á»ng muá»‘n quyáº¿t nhanh, lÃ m nhanh vÃ  nhÃ¬n vÃ o bá»©c tranh lá»›n thay vÃ¬ sa vÃ o tiá»ƒu tiáº¿t.",
-      career: [
-        "Quáº£n lÃ½ / Ä‘iá»u hÃ nh",
-        "Kinh doanh",
-        "Quáº£n lÃ½ dá»± Ã¡n",
-        "Báº¥t Ä‘á»™ng sáº£n",
-        "Logistics / váº­n hÃ nh",
-      ],
+        "Trong công việc, nhóm D thích tốc độ, quyền chủ động và các mục tiêu đo đếm rõ ràng. Họ thường muốn quyết nhanh, làm nhanh và nhìn vào bức tranh lớn thay vì sa vào tiểu tiết.",
+      career: ["Quản lý / điều hành", "Kinh doanh", "Quản lý dự án", "Bất động sản", "Logistics / vận hành"],
       advice:
-        "Äá»ƒ Ä‘i xa hÆ¡n, nhÃ³m D nÃªn luyá»‡n thÃªm láº¯ng nghe, chia sáº» quyá»n kiá»ƒm soÃ¡t vÃ  cÃ¢n báº±ng giá»¯a káº¿t quáº£ vá»›i tráº£i nghiá»‡m cá»§a ngÆ°á»i xung quanh.",
+        "Để đi xa hơn, nhóm D nên luyện thêm lắng nghe, chia sẻ quyền kiểm soát và cân bằng giữa kết quả với trải nghiệm của người xung quanh.",
     },
     I: {
       key: "I",
-      nameVi: "NhÃ³m I",
-      fullName: "Influence - áº¢nh hÆ°á»Ÿng",
+      nameVi: "Nhóm I",
+      fullName: "Influence - Ảnh hưởng",
       color: "#ff8a3d",
-      tone: "NgÆ°á»i truyá»n nÄƒng lÆ°á»£ng, thÃ­ch káº¿t ná»‘i vÃ  táº¡o cáº£m há»©ng cho Ä‘Ã¡m Ä‘Ã´ng.",
+      tone: "Người truyền năng lượng, thích kết nối và tạo cảm hứng.",
       description:
-        "NhÃ³m I thÆ°á»ng cá»Ÿi má»Ÿ, giÃ u nhiá»‡t huyáº¿t vÃ  dá»… táº¡o áº£nh hÆ°á»Ÿng tÃ­ch cá»±c lÃªn ngÆ°á»i khÃ¡c. Há» thÃ­ch giao tiáº¿p, thÃ­ch Ä‘Æ°á»£c ghi nháº­n vÃ  thÆ°á»ng mang láº¡i sá»©c sá»‘ng cho mÃ´i trÆ°á»ng lÃ m viá»‡c.",
+        "Nhóm I thường cởi mở, giàu nhiệt huyết và dễ tạo ảnh hưởng tích cực lên người khác. Họ thích giao tiếp, thích được ghi nhận và thường mang lại sức sống cho môi trường làm việc.",
       highlights: [
-        "Giá»i giao tiáº¿p, káº¿t ná»‘i vÃ  táº¡o thiá»‡n cáº£m",
-        "Nhiá»‡t tÃ¬nh, truyá»n cáº£m há»©ng vÃ  mang nhiá»u nÄƒng lÆ°á»£ng tÃ­ch cá»±c",
-        "Cá»Ÿi má»Ÿ vá»›i tráº£i nghiá»‡m má»›i vÃ  thÃ­ch mÃ´i trÆ°á»ng cÃ³ tÆ°Æ¡ng tÃ¡c",
+        "Giỏi giao tiếp, kết nối và tạo thiện cảm",
+        "Nhiệt tình, truyền cảm hứng và giàu năng lượng tích cực",
+        "Cởi mở với trải nghiệm mới và thích môi trường nhiều tương tác",
       ],
       strengths: [
-        "Kháº£ nÄƒng thuyáº¿t phá»¥c vÃ  lan tá»a Ä‘á»™ng lá»±c tá»‘t",
-        "Dá»… thÃ­ch nghi vá»›i bá»‘i cáº£nh nhiá»u ngÆ°á»i vÃ  nhiá»u thay Ä‘á»•i",
-        "PhÃ¹ há»£p vá»›i vai trÃ² cáº§n giao tiáº¿p, sÃ¡ng táº¡o, truyá»n cáº£m há»©ng",
-        "Táº¡o khÃ´ng khÃ­ tÃ­ch cá»±c vÃ  kÃ©o nhá»‹p Ä‘á»™i nhÃ³m lÃªn nhanh",
+        "Khả năng thuyết phục và lan tỏa động lực tốt",
+        "Dễ thích nghi với bối cảnh nhiều người và nhiều thay đổi",
+        "Phù hợp với vai trò cần giao tiếp, sáng tạo, truyền cảm hứng",
+        "Tạo không khí tích cực và kéo nhịp đội nhóm lên nhanh",
       ],
       weaknesses: [
-        "Dá»… cáº£m tÃ­nh hoáº·c bá»‘c Ä‘á»“ng khi quÃ¡ há»©ng khá»Ÿi",
-        "KhÃ³ giá»¯ táº­p trung lÃ¢u vÃ o viá»‡c láº·p láº¡i, tá»‰ má»‰",
-        "CÃ³ thá»ƒ thiáº¿u ká»· luáº­t theo Ä‘uá»•i Ä‘áº¿n cÃ¹ng náº¿u khÃ´ng cÃ³ cáº¥u trÃºc há»— trá»£",
-        "Dá»… bá»‹ áº£nh hÆ°á»Ÿng bá»Ÿi sá»± cÃ´ng nháº­n cá»§a ngÆ°á»i khÃ¡c",
+        "Dễ cảm tính hoặc bốc đồng khi quá hứng khởi",
+        "Khó giữ tập trung lâu vào việc lặp lại, tỉ mỉ",
+        "Có thể thiếu kỷ luật theo đuổi đến cùng nếu không có cấu trúc hỗ trợ",
+        "Dễ bị ảnh hưởng bởi sự công nhận của người khác",
       ],
       workStyle:
-        "NhÃ³m I lÃ m tá»‘t nháº¥t trong mÃ´i trÆ°á»ng thÃ¢n thiá»‡n, giÃ u tÆ°Æ¡ng tÃ¡c, cÃ³ khÃ´ng gian biá»ƒu Ä‘áº¡t vÃ  khuyáº¿n khÃ­ch sÃ¡ng táº¡o. Há» thÃ­ch Ä‘Æ°á»£c nÃ³i, Ä‘Æ°á»£c chia sáº» vÃ  Ä‘Æ°á»£c nhÃ¬n tháº¥y tÃ¡c Ä‘á»™ng mÃ¬nh táº¡o ra.",
-      career: [
-        "Marketing / truyá»n thÃ´ng",
-        "Kinh doanh / phÃ¡t triá»ƒn thá»‹ trÆ°á»ng",
-        "ÄÃ o táº¡o / giáº£ng dáº¡y",
-        "ChÄƒm sÃ³c khÃ¡ch hÃ ng",
-        "Sá»± kiá»‡n / cá»™ng Ä‘á»“ng",
-      ],
+        "Nhóm I làm tốt nhất trong môi trường thân thiện, giàu tương tác, có không gian biểu đạt và khuyến khích sáng tạo. Họ thích được nói, được chia sẻ và được nhìn thấy tác động mình tạo ra.",
+      career: ["Marketing / truyền thông", "Kinh doanh / phát triển thị trường", "Đào tạo / giảng dạy", "Chăm sóc khách hàng", "Sự kiện / cộng đồng"],
       advice:
-        "NhÃ³m I sáº½ phÃ¡t triá»ƒn bá»n vá»¯ng hÆ¡n khi rÃ¨n kháº£ nÄƒng Æ°u tiÃªn, giá»¯ cam káº¿t Ä‘áº¿n cÃ¹ng vÃ  Ä‘Æ°a cáº£m há»©ng Ä‘i cÃ¹ng ká»· luáº­t thá»±c thi.",
+        "Nhóm I sẽ phát triển bền vững hơn khi rèn khả năng ưu tiên, giữ cam kết đến cùng và đưa cảm hứng đi cùng kỷ luật thực thi.",
     },
     S: {
       key: "S",
-      nameVi: "NhÃ³m S",
-      fullName: "Steadiness - á»”n Ä‘á»‹nh",
+      nameVi: "Nhóm S",
+      fullName: "Steadiness - Ổn định",
       color: "#7bc96f",
-      tone: "NgÆ°á»i kiÃªn nháº«n, táº­n tÃ¢m vÃ  táº¡o cáº£m giÃ¡c yÃªn tÃ¢m cho táº­p thá»ƒ.",
+      tone: "Người kiên nhẫn, tận tâm và tạo cảm giác an tâm cho tập thể.",
       description:
-        "NhÃ³m S Ä‘iá»m Ä‘áº¡m, kiÃªn nháº«n vÃ  Ä‘Ã¡ng tin cáº­y. Há» coi trá»ng sá»± á»•n Ä‘á»‹nh, lÃ²ng trung thÃ nh vÃ  cÃ¡c má»‘i quan há»‡ bá»n vá»¯ng; thÆ°á»ng Ä‘Ã³ng vai trÃ² ngÆ°á»i giá»¯ nhá»‹p vÃ  há»— trá»£ Ã¢m tháº§m trong Ä‘á»™i nhÃ³m.",
+        "Nhóm S điềm đạm, kiên nhẫn và đáng tin cậy. Họ coi trọng sự ổn định, lòng trung thành và các mối quan hệ bền vững; thường đóng vai trò người giữ nhịp và hỗ trợ âm thầm trong đội nhóm.",
       highlights: [
-        "Ã”n hÃ²a, kiÃªn nháº«n vÃ  thÃ­ch mÃ´i trÆ°á»ng hÃ²a thuáº­n",
-        "Trung thÃ nh, Ä‘Ã¡ng tin cáº­y vÃ  bá»n bá»‰ vá»›i cam káº¿t",
-        "Láº¯ng nghe tá»‘t, há»— trá»£ tá»‘t vÃ  Ã­t thÃ­ch xung Ä‘á»™t",
+        "Ôn hòa, kiên nhẫn và thích môi trường hòa thuận",
+        "Trung thành, đáng tin cậy và bền bỉ với cam kết",
+        "Lắng nghe tốt, hỗ trợ tốt và ít thích xung đột",
       ],
       strengths: [
-        "Giá»¯ sá»± á»•n Ä‘á»‹nh khi mÃ´i trÆ°á»ng nhiá»u Ã¡p lá»±c",
-        "Phá»‘i há»£p nhÃ³m tá»‘t vÃ  táº¡o cáº£m giÃ¡c an tÃ¢m cho ngÆ°á»i khÃ¡c",
-        "LÃ m viá»‡c Ä‘á»u tay, cÃ³ trÃ¡ch nhiá»‡m vÃ  Ä‘Ã¡ng tin cáº­y",
-        "PhÃ¹ há»£p vá»›i vai trÃ² cáº§n há»— trá»£, duy trÃ¬ vÃ  chÄƒm sÃ³c lÃ¢u dÃ i",
+        "Giữ sự ổn định khi môi trường nhiều áp lực",
+        "Phối hợp nhóm tốt và tạo cảm giác an tâm cho người khác",
+        "Làm việc đều tay, có trách nhiệm và đáng tin cậy",
+        "Phù hợp với vai trò cần hỗ trợ, duy trì và chăm sóc lâu dài",
       ],
       weaknesses: [
-        "Ngáº¡i thay Ä‘á»•i Ä‘á»™t ngá»™t vÃ  khÃ³ thÃ­ch nghi quÃ¡ nhanh",
-        "Dá»… nÃ© trÃ¡nh xung Ä‘á»™t hoáº·c cháº­m bÃ y tá» chÃ­nh kiáº¿n",
-        "CÃ³ thá»ƒ Ä‘áº·t nhu cáº§u ngÆ°á»i khÃ¡c lÃªn trÃªn báº£n thÃ¢n quÃ¡ má»©c",
-        "Hay cháº§n chá»« trong cÃ¡c tÃ¬nh huá»‘ng cáº§n quyáº¿t ráº¥t nhanh",
+        "Ngại thay đổi đột ngột và khó thích nghi quá nhanh",
+        "Dễ né tránh xung đột hoặc chậm bày tỏ chính kiến",
+        "Có thể đặt nhu cầu người khác lên trên bản thân quá mức",
+        "Hay chần chừ trong các tình huống cần quyết rất nhanh",
       ],
       workStyle:
-        "NhÃ³m S thÃ­ch quy trÃ¬nh rÃµ, nhá»‹p lÃ m viá»‡c á»•n Ä‘á»‹nh vÃ  mÃ´i trÆ°á»ng tá»­ táº¿. Há» phÃ¡t huy ráº¥t tá»‘t khi Ä‘Æ°á»£c tin tÆ°á»Ÿng, cÃ³ thá»i gian thÃ­ch nghi vÃ  Ä‘Æ°á»£c lÃ m viá»‡c trong táº­p thá»ƒ coi trá»ng sá»± há»— trá»£ láº«n nhau.",
-      career: [
-        "NhÃ¢n sá»±",
-        "Dá»‹ch vá»¥ khÃ¡ch hÃ ng",
-        "HÃ nh chÃ­nh - vÄƒn phÃ²ng",
-        "Y táº¿ / chÄƒm sÃ³c",
-        "Äiá»u phá»‘i / há»— trá»£ váº­n hÃ nh",
-      ],
+        "Nhóm S thích quy trình rõ, nhịp làm việc ổn định và môi trường tử tế. Họ phát huy rất tốt khi được tin tưởng, có thời gian thích nghi và được làm việc trong tập thể coi trọng sự hỗ trợ lẫn nhau.",
+      career: ["Nhân sự", "Dịch vụ khách hàng", "Hành chính - văn phòng", "Y tế / chăm sóc", "Điều phối / hỗ trợ vận hành"],
       advice:
-        "Muá»‘n bá»©t lÃªn máº¡nh hÆ¡n, nhÃ³m S nÃªn táº­p nÃ³i rÃµ nhu cáº§u cá»§a mÃ¬nh, Ä‘áº·t ranh giá»›i lÃ nh máº¡nh vÃ  táº­p thÃ­ch nghi dáº§n vá»›i thay Ä‘á»•i thay vÃ¬ nÃ© trÃ¡nh hoÃ n toÃ n.",
+        "Muốn bật lên mạnh hơn, nhóm S nên tập nói rõ nhu cầu của mình, đặt ranh giới lành mạnh và tập thích nghi dần với thay đổi thay vì né tránh hoàn toàn.",
     },
     C: {
       key: "C",
-      nameVi: "NhÃ³m C",
-      fullName: "Conscientiousness - TuÃ¢n thá»§",
+      nameVi: "Nhóm C",
+      fullName: "Conscientiousness - Cẩn thận",
       color: "#64748b",
-      tone: "NgÆ°á»i nguyÃªn táº¯c, lÃ½ trÃ­ vÃ  theo Ä‘uá»•i sá»± chÃ­nh xÃ¡c.",
+      tone: "Người nguyên tắc, lý trí và theo đuổi sự chính xác.",
       description:
-        "NhÃ³m C thÆ°á»ng hÃ nh Ä‘á»™ng dá»±a trÃªn logic, tiÃªu chuáº©n vÃ  quy táº¯c rÃµ rÃ ng. Há» cáº©n tháº­n, tá»‰ má»‰, thÃ­ch phÃ¢n tÃ­ch sÃ¢u vÃ  luÃ´n muá»‘n Ä‘áº£m báº£o cháº¥t lÆ°á»£ng, tÃ­nh chÃ­nh xÃ¡c trong má»i viá»‡c.",
+        "Nhóm C thường hành động dựa trên logic, tiêu chuẩn và quy tắc rõ ràng. Họ cẩn thận, tỉ mỉ, thích phân tích sâu và luôn muốn đảm bảo chất lượng, tính chính xác trong mọi việc.",
       highlights: [
-        "ChÃ­nh xÃ¡c, phÃ¢n tÃ­ch tá»‘t vÃ  chÃº trá»ng chi tiáº¿t",
-        "TÃ´n trá»ng quy trÃ¬nh, tiÃªu chuáº©n vÃ  cáº¥u trÃºc rÃµ rÃ ng",
-        "Táº­p trung cao, lÃ m viá»‡c Ä‘á»™c láº­p tá»‘t vÃ  Ä‘Ã¡ng tin cáº­y",
+        "Chính xác, phân tích tốt và chú trọng chi tiết",
+        "Tôn trọng quy trình, tiêu chuẩn và cấu trúc rõ ràng",
+        "Tập trung cao, làm việc độc lập tốt và đáng tin cậy",
       ],
       strengths: [
-        "TÆ° duy logic, nhÃ¬n tháº¥y rá»§i ro vÃ  lá»— há»•ng nhanh",
-        "LÃ m viá»‡c cÃ³ há»‡ thá»‘ng, giá»¯ chuáº©n ráº¥t tá»‘t",
-        "PhÃ¹ há»£p vá»›i viá»‡c cáº§n kiá»ƒm soÃ¡t cháº¥t lÆ°á»£ng vÃ  dá»¯ liá»‡u",
-        "Ãt bá»‹ cuá»‘n theo cáº£m xÃºc khi ra quyáº¿t Ä‘á»‹nh",
+        "Tư duy logic, nhìn thấy rủi ro và lỗ hổng nhanh",
+        "Làm việc có hệ thống, giữ chuẩn rất tốt",
+        "Phù hợp với việc cần kiểm soát chất lượng và dữ liệu",
+        "Ít bị cuốn theo cảm xúc khi ra quyết định",
       ],
       weaknesses: [
-        "Dá»… cáº§u toÃ n vÃ  cháº­m quyáº¿t khi thiáº¿u Ä‘á»§ dá»¯ liá»‡u",
-        "KhÃ´ng thoáº£i mÃ¡i vá»›i mÃ´i trÆ°á»ng mÆ¡ há»“ hoáº·c thay Ä‘á»•i Ä‘á»™t ngá»™t",
-        "Giao tiáº¿p cÃ³ thá»ƒ hÆ¡i láº¡nh vÃ  quÃ¡ tháº­n trá»ng",
-        "CÃ³ lÃºc Ä‘áº·t tiÃªu chuáº©n quÃ¡ cao cho báº£n thÃ¢n vÃ  ngÆ°á»i khÃ¡c",
+        "Dễ cầu toàn và chậm quyết khi thiếu đủ dữ liệu",
+        "Không thoải mái với môi trường mơ hồ hoặc thay đổi đột ngột",
+        "Giao tiếp có thể hơi lạnh vì quá thận trọng",
+        "Có lúc đặt tiêu chuẩn quá cao cho bản thân và người khác",
       ],
       workStyle:
-        "NhÃ³m C thÃ­ch mÃ´i trÆ°á»ng cÃ³ quy trÃ¬nh rÃµ, Ã­t nhiá»…u vÃ  Ä‘á»§ thá»i gian Ä‘á»ƒ suy nghÄ© tháº¥u Ä‘Ã¡o. Há» phÃ¹ há»£p vá»›i vai trÃ² cáº§n cháº¥t lÆ°á»£ng, sá»± chuáº©n xÃ¡c vÃ  kháº£ nÄƒng tá»• chá»©c tá»‘t.",
-      career: [
-        "PhÃ¢n tÃ­ch dá»¯ liá»‡u",
-        "Kiá»ƒm soÃ¡t cháº¥t lÆ°á»£ng",
-        "TÃ i chÃ­nh / káº¿ toÃ¡n",
-        "PhÃ¡p cháº¿ / tuÃ¢n thá»§",
-        "Ká»¹ thuáº­t / quy trÃ¬nh",
-      ],
+        "Nhóm C thích môi trường có quy trình rõ, ít nhiễu và đủ thời gian để suy nghĩ thấu đáo. Họ phù hợp với vai trò cần chất lượng, sự chuẩn xác và khả năng tổ chức tốt.",
+      career: ["Phân tích dữ liệu", "Kiểm soát chất lượng", "Tài chính / kế toán", "Pháp chế / tuân thủ", "Kỹ thuật / quy trình"],
       advice:
-        "Äá»ƒ phÃ¡t huy trá»n váº¹n, nhÃ³m C nÃªn há»c cÃ¡ch cháº¥p nháº­n má»©c Ä‘á»§ tá»‘t, giao tiáº¿p dá»… gáº§n hÆ¡n vÃ  linh hoáº¡t hÆ¡n trÆ°á»›c cÃ¡c tÃ¬nh huá»‘ng chÆ°a hoÃ n háº£o.",
+        "Để phát huy trọn vẹn, nhóm C nên học cách chấp nhận mức đủ tốt, giao tiếp dễ gần hơn và linh hoạt hơn trước các tình huống chưa hoàn hảo.",
     },
   };
 
   const COMBINATION_LABELS = {
-    DI: ["NgÆ°á»i dáº«n dáº¯t truyá»n lá»­a", "Quyáº¿t Ä‘oÃ¡n, giÃ u nÄƒng lÆ°á»£ng, thÃ­ch bá»©t phÃ¡ vÃ  táº¡o áº£nh hÆ°á»Ÿng."],
-    DC: ["NgÆ°á»i chá»‰ huy chiáº¿n lÆ°á»£c", "Máº¡nh máº½, chuáº©n xÃ¡c, quyáº¿t theo má»¥c tiÃªu nhÆ°ng váº«n giá»¯ nguyÃªn táº¯c."],
-    DS: ["NgÆ°á»i Ä‘áº¡t má»¥c tiÃªu", "Máº¡nh máº½, kiÃªn trÃ¬, trÃ¡ch nhiá»‡m, hÆ°á»›ng tá»›i káº¿t quáº£ vÃ  táº¡o sá»± cÃ¢n báº±ng."],
-    ID: ["NgÆ°á»i lan tá»a vÃ  chinh phá»¥c", "SÃ´i ná»•i, tá»± tin, thÃ­ch káº¿t ná»‘i vÃ  khÃ´ng ngáº¡i dáº«n dáº¯t."],
-    IC: ["NgÆ°á»i thuyáº¿t phá»¥c tinh táº¿", "Giá»i káº¿t ná»‘i, nÃ³i cÃ³ sá»©c náº·ng vÃ  váº«n chÃº Ã½ chuáº©n má»±c."],
-    IS: ["NgÆ°á»i káº¿t ná»‘i chÃ¢n thÃ nh", "áº¤m Ã¡p, tÃ­ch cá»±c, dá»… gáº§n vÃ  luÃ´n muá»‘n táº¡o báº§u khÃ´ng khÃ­ hÃ i hÃ²a."],
-    SD: ["NgÆ°á»i bá»n bá»‰ hÃ nh Ä‘á»™ng", "Äiá»m tÄ©nh nhÆ°ng cháº¯c tay, biáº¿t giá»¯ nhá»‹p vÃ  váº«n theo Ä‘uá»•i má»¥c tiÃªu."],
-    SI: ["NgÆ°á»i gáº¯n káº¿t con ngÆ°á»i", "ChÃ¢n thÃ nh, kiÃªn nháº«n, giÃ u tinh tháº§n há»— trá»£ vÃ  káº¿t ná»‘i."],
-    SC: ["NgÆ°á»i á»•n Ä‘á»‹nh chuáº©n má»±c", "Cáº©n trá»ng, kiÃªn nháº«n vÃ  thÃ­ch sá»± rÃµ rÃ ng, tráº­t tá»±."],
-    CD: ["NgÆ°á»i nguyÃªn táº¯c Ä‘á»‹nh hÆ°á»›ng", "LÃ½ trÃ­, máº¡nh máº½ vÃ  cÃ³ xu hÆ°á»›ng kiá»ƒm soÃ¡t cháº¥t lÆ°á»£ng láº«n má»¥c tiÃªu."],
-    CI: ["NgÆ°á»i chuáº©n xÃ¡c thuyáº¿t phá»¥c", "PhÃ¢n tÃ­ch tá»‘t nhÆ°ng váº«n cÃ³ kháº£ nÄƒng táº¡o áº£nh hÆ°á»Ÿng nháº¹ nhÃ ng."],
-    CS: ["NgÆ°á»i cáº©n trá»ng táº­n tÃ¢m", "Tá»‰ má»‰, Ä‘Ã¡ng tin, há»— trá»£ bá»n bá»‰ vÃ  thÃ­ch mÃ´i trÆ°á»ng cÃ³ cáº¥u trÃºc."],
+    DI: ["Người dẫn dắt truyền lửa", "Quyết đoán, giàu năng lượng, thích bứt phá và tạo ảnh hưởng."],
+    DC: ["Người chỉ huy chiến lược", "Mạnh mẽ, chuẩn xác, quyết theo mục tiêu nhưng vẫn giữ nguyên tắc."],
+    DS: ["Người đạt mục tiêu", "Mạnh mẽ, kiên trì, trách nhiệm, hướng tới kết quả và tạo sự cân bằng."],
+    ID: ["Người lan tỏa và chinh phục", "Sôi nổi, tự tin, thích kết nối và không ngại dẫn dắt."],
+    IC: ["Người thuyết phục tinh tế", "Giỏi kết nối, nói có sức nặng và vẫn chú ý chuẩn mực."],
+    IS: ["Người kết nối chân thành", "Ấm áp, tích cực, dễ gần và luôn muốn tạo bầu không khí hài hòa."],
+    SD: ["Người bền bỉ hành động", "Điềm tĩnh nhưng chắc tay, biết giữ nhịp và vẫn theo đuổi mục tiêu."],
+    SI: ["Người gắn kết con người", "Chân thành, kiên nhẫn, giàu tinh thần hỗ trợ và kết nối."],
+    SC: ["Người ổn định chuẩn mực", "Cẩn trọng, kiên nhẫn và thích sự rõ ràng, trật tự."],
+    CD: ["Người nguyên tắc định hướng", "Lý trí, mạnh mẽ và có xu hướng kiểm soát chất lượng lẫn mục tiêu."],
+    CI: ["Người chuẩn xác thuyết phục", "Phân tích tốt nhưng vẫn có khả năng tạo ảnh hưởng nhẹ nhàng."],
+    CS: ["Người cẩn trọng tận tâm", "Tỉ mỉ, đáng tin, hỗ trợ bền bỉ và thích môi trường có cấu trúc."],
   };
   const RESULT_DISC_META = {
     D: {
@@ -294,6 +270,192 @@
     CS: ["Người cẩn trọng tận tâm", "Tỉ mỉ, đáng tin, hỗ trợ bền bỉ và thích môi trường có cấu trúc."]
   };
 
+  const ENVIRONMENT_THEMES = {
+    life: {
+      key: "life",
+      label: "Cuộc sống",
+      badge: "Phổ biến nhất",
+      accent: "#ff2d7a",
+      accentStrong: "#ff5a96",
+      soft: "#fff1f6",
+      border: "#ffc6d9",
+      shadow: "rgba(255, 45, 122, 0.18)",
+      gradient: "linear-gradient(135deg, #ff2d7a, #f03aa1)",
+      icon: "♡",
+      resultLabel: "Ứng dụng trong cuộc sống",
+      quizNote: "Hãy chọn theo cách bạn thường phản ứng trong gia đình, bạn bè và các tình huống thường ngày.",
+    },
+    work: {
+      key: "work",
+      label: "Công việc",
+      badge: "Được khuyến nghị",
+      accent: "#ff8a00",
+      accentStrong: "#ff9f2f",
+      soft: "#fff5e8",
+      border: "#ffd3a4",
+      shadow: "rgba(255, 138, 0, 0.18)",
+      gradient: "linear-gradient(135deg, #ff8a00, #ffae00)",
+      icon: "□",
+      resultLabel: "Ứng dụng trong công việc",
+      quizNote: "Ưu tiên chọn cách bạn làm việc, phối hợp và xử lý mục tiêu trong môi trường nghề nghiệp.",
+    },
+    leadership: {
+      key: "leadership",
+      label: "Lãnh đạo",
+      badge: "Dành cho quản lý",
+      accent: "#7c4dff",
+      accentStrong: "#9a3cff",
+      soft: "#f4efff",
+      border: "#d7c7ff",
+      shadow: "rgba(124, 77, 255, 0.18)",
+      gradient: "linear-gradient(135deg, #6858f5, #a13dff)",
+      icon: "♕",
+      resultLabel: "Ứng dụng trong lãnh đạo",
+      quizNote: "Hãy chọn theo cách bạn dẫn dắt, ra quyết định và phát triển đội ngũ khi giữ vai trò lãnh đạo.",
+    },
+  };
+
+  const RESULT_ENVIRONMENT_KNOWLEDGE = {
+    life: {
+      contextTitle: "Bạn thể hiện rõ nhất trong đời sống cá nhân",
+      applicationTitle: "Gợi ý ứng dụng trong cuộc sống",
+      profiles: {
+        D: {
+          summary: "Trong cuộc sống cá nhân, bạn thường chủ động tạo nhịp, muốn mọi việc rõ ràng và thích xử lý vấn đề dứt điểm.",
+          strengths: ["Biết đứng ra gánh việc khi gia đình hoặc bạn bè cần người quyết nhanh", "Giỏi chốt hướng đi trong các tình huống rối", "Mang lại cảm giác mạnh mẽ, bảo vệ và đáng tin khi có biến động"],
+          growth: ["Cần mềm hơn khi người thân cần được lắng nghe trước khi giải quyết", "Dễ nóng ruột khi mọi thứ diễn ra chậm", "Nên giảm xu hướng áp quyết định thay cho người khác"],
+          communicationTips: ["Nói rõ nhưng giữ giọng điệu ấm hơn với người thân", "Thêm một bước hỏi cảm xúc trước khi đưa giải pháp", "Cho người khác không gian bày tỏ thay vì chốt quá nhanh"],
+          motivators: ["Sự chủ động", "Cảm giác làm chủ tình huống", "Kết quả rõ ràng trong các việc gia đình và cá nhân"],
+          concerns: ["Sự trì trệ", "Mập mờ kéo dài", "Cảm giác bị phụ thuộc hoặc bị cản nhịp"],
+          stress: "Khi căng thẳng, bạn dễ phản ứng mạnh, nói ngắn và muốn cắt bỏ những điều mình xem là không cần thiết.",
+          application: ["Trong mâu thuẫn gia đình, hãy chậm lại một nhịp trước khi kết luận", "Khi làm đầu mối tổ chức việc chung, nên phân vai rõ nhưng vẫn để người khác góp ý", "Trong quan hệ bạn bè, sự quyết đoán của bạn hiệu quả hơn khi đi cùng sự tôn trọng cảm xúc"],
+        },
+        I: {
+          summary: "Trong cuộc sống cá nhân, bạn mang nhiều năng lượng tích cực, thích kết nối và thường là người làm không khí trở nên dễ chịu hơn.",
+          strengths: ["Dễ tạo cảm giác gần gũi với người thân và bạn bè", "Biết kéo mọi người cùng tham gia, cùng vui", "Thường mang tinh thần lạc quan vào những lúc tập thể chùng xuống"],
+          growth: ["Cần giữ lời hứa và theo sát đến cùng những điều đã nhận", "Dễ tránh chi tiết thực tế khi quá hứng khởi", "Nên lắng nghe sâu hơn thay vì chỉ làm không khí dễ chịu"],
+          communicationTips: ["Giữ sự chân thành, đừng che cảm xúc thật bằng sự vui vẻ quá mức", "Khi hứa điều gì với người thân, hãy xác nhận rõ để tránh quên", "Trong xung đột, lắng nghe hết rồi mới chuyển sang xoa dịu"],
+          motivators: ["Sự gắn kết", "Không khí vui vẻ", "Cảm giác được yêu quý và ghi nhận"],
+          concerns: ["Bị lạnh nhạt", "Không khí căng thẳng kéo dài", "Sự cô lập hoặc thiếu kết nối"],
+          stress: "Khi căng thẳng, bạn có thể nói nhiều hơn bình thường, cảm xúc dao động rõ và cần sự phản hồi tích cực để cân bằng lại.",
+          application: ["Trong các cuộc gặp mặt, bạn rất hợp vai trò kết nối mọi người", "Khi xử lý chuyện buồn của người thân, hãy giảm việc làm nhẹ tình huống quá sớm", "Bạn sẽ tỏa sáng trong đời sống cá nhân khi giữ được nhiệt huyết đi cùng độ tin cậy"],
+        },
+        S: {
+          summary: "Trong cuộc sống cá nhân, bạn thiên về sự ổn định, chân thành và thường là người âm thầm giữ hòa khí cho các mối quan hệ.",
+          strengths: ["Biết lắng nghe, đồng hành và tạo cảm giác an toàn", "Kiên nhẫn trong các mối quan hệ dài lâu", "Thường là người giữ nhịp và chăm lo cho tập thể một cách bền bỉ"],
+          growth: ["Cần nói ra nhu cầu của mình rõ hơn", "Dễ chịu phần thiệt để giữ hòa khí", "Có thể chậm phản hồi khi tình huống cần quyết nhanh"],
+          communicationTips: ["Nói thẳng điều bạn cần thay vì chờ người khác tự hiểu", "Khi không đồng ý, hãy bày tỏ sớm hơn để tránh tích tụ", "Giữ sự ấm áp nhưng đừng quên đặt ranh giới lành mạnh"],
+          motivators: ["Sự yên ổn", "Những mối quan hệ bền vững", "Cảm giác được tin tưởng và cần đến"],
+          concerns: ["Xung đột gay gắt", "Thay đổi đột ngột", "Không khí thiếu chân thành"],
+          stress: "Khi căng thẳng, bạn dễ thu mình, im lặng nhiều hơn và cố gắng gồng để giữ mọi thứ không đổ vỡ.",
+          application: ["Trong gia đình, bạn rất mạnh ở vai trò giữ sự gắn kết", "Khi bị dồn nén lâu, hãy chọn thời điểm bình tĩnh để nói rõ nhu cầu", "Nếu luyện được sự dứt khoát đúng lúc, bạn sẽ vừa giữ được hòa khí vừa bảo vệ được bản thân"],
+        },
+        C: {
+          summary: "Trong cuộc sống cá nhân, bạn quan sát kỹ, suy nghĩ sâu và thường muốn mọi điều rõ ràng trước khi đặt niềm tin hoặc đưa ra quyết định.",
+          strengths: ["Biết cân nhắc kỹ trước những quyết định quan trọng", "Giữ lời hứa và tiêu chuẩn cá nhân khá cao", "Thường nhìn ra rủi ro hoặc điểm chưa hợp lý mà người khác bỏ qua"],
+          growth: ["Cần mềm hơn trong cách thể hiện để tránh tạo khoảng cách", "Dễ suy nghĩ quá kỹ trước những việc cần linh hoạt", "Có thể đặt chuẩn quá cao cho bản thân và người thân"],
+          communicationTips: ["Giải thích ngắn gọn hơn khi góp ý với người thân", "Đừng chờ đủ hoàn hảo mới chia sẻ suy nghĩ", "Khi cảm thấy chưa chắc, hãy nói mình cần thêm thời gian thay vì im lặng kéo dài"],
+          motivators: ["Sự rõ ràng", "Độ tin cậy", "Mọi việc được làm đúng và có trật tự"],
+          concerns: ["Sai sót", "Mơ hồ", "Những quyết định vội vàng thiếu căn cứ"],
+          stress: "Khi căng thẳng, bạn thường tự kiểm tra lại quá mức, khó thả lỏng và có xu hướng khắt khe hơn với lỗi nhỏ.",
+          application: ["Trong các quyết định gia đình, bạn giúp tập thể tránh những lựa chọn cảm tính", "Bạn phù hợp với việc lên kế hoạch tài chính, lịch trình và các cam kết cần độ chắc chắn", "Sự ấm áp hơn trong giao tiếp sẽ giúp trí tuệ của bạn được đón nhận dễ dàng hơn"],
+        },
+      },
+    },
+    work: {
+      contextTitle: "Bạn thể hiện rõ nhất trong môi trường công việc",
+      applicationTitle: "Gợi ý ứng dụng trong công việc",
+      profiles: {
+        D: {
+          summary: "Trong công việc, bạn thiên về tốc độ, hiệu quả và thường muốn đi thẳng vào mục tiêu thay vì vòng vo.",
+          strengths: ["Ra quyết định nhanh khi công việc có áp lực", "Thúc đẩy tiến độ và tạo động lực hành động", "Không ngại chịu trách nhiệm với những việc khó"],
+          growth: ["Cần tránh tạo áp lực quá mạnh cho đồng nghiệp", "Dễ bỏ qua chi tiết hoặc cảm xúc đội nhóm", "Nên ủy quyền tốt hơn thay vì ôm quyền quyết định"],
+          communicationTips: ["Tập trung vào mục tiêu nhưng giữ sự tôn trọng trong cách nói", "Chốt việc rõ ràng kèm theo tiêu chí thành công", "Dành thời gian phản hồi hai chiều thay vì chỉ giao lệnh"],
+          motivators: ["Mục tiêu cao", "Quyền chủ động", "Kết quả đo đếm được"],
+          concerns: ["Trì hoãn", "Quy trình rườm rà", "Thiếu quyền quyết định"],
+          stress: "Khi căng thẳng, bạn dễ đẩy tốc độ lên rất cao, trở nên cứng và thiếu kiên nhẫn với người chậm nhịp.",
+          application: ["Phù hợp với các vai trò dẫn dự án, mở thị trường hoặc xử lý việc gấp", "Khi quản lý đồng nghiệp, hãy rõ kỳ vọng nhưng không bỏ qua phần hỗ trợ", "Bạn bứt phá mạnh nhất khi kết hợp sự quyết đoán với lắng nghe dữ liệu và con người"],
+        },
+        I: {
+          summary: "Trong công việc, bạn nổi bật ở khả năng kết nối, tạo ảnh hưởng và truyền năng lượng cho tập thể.",
+          strengths: ["Tạo thiện cảm nhanh với đồng nghiệp và khách hàng", "Giỏi trình bày ý tưởng, thuyết phục và mở rộng quan hệ", "Mang lại không khí tích cực cho đội nhóm"],
+          growth: ["Cần tăng tính kỷ luật với việc theo dõi chi tiết", "Dễ hứa nhanh hơn khả năng triển khai", "Nên giữ trọng tâm tốt hơn khi công việc lặp lại hoặc cần độ sâu"],
+          communicationTips: ["Tận dụng điểm mạnh kể chuyện nhưng nhớ chốt lại đầu việc cụ thể", "Sau mỗi cuộc trao đổi, xác nhận rõ việc ai làm và khi nào xong", "Giữ năng lượng tích cực nhưng không né phản hồi khó"],
+          motivators: ["Sự ghi nhận", "Môi trường nhiều tương tác", "Cơ hội tạo ảnh hưởng"],
+          concerns: ["Bị xem nhẹ", "Không khí khô cứng", "Làm việc cô lập quá lâu"],
+          stress: "Khi căng thẳng, bạn dễ phân tán, tìm nhiều điểm tựa bên ngoài và cần được trấn an bằng phản hồi rõ ràng.",
+          application: ["Rất hợp với các vai trò cần giao tiếp, bán hàng, đào tạo hoặc kết nối nội bộ", "Bạn tạo giá trị lớn khi biến ý tưởng thành năng lượng hành động cho đội nhóm", "Nếu kết hợp được sự sáng tạo với kỷ luật thực thi, hiệu quả của bạn tăng rất mạnh"],
+        },
+        S: {
+          summary: "Trong công việc, bạn tạo cảm giác ổn định, bền bỉ và là người giữ nhịp đáng tin cho tập thể.",
+          strengths: ["Phối hợp nhóm tốt và hỗ trợ đồng nghiệp bền bỉ", "Kiên nhẫn với các đầu việc cần chăm sóc dài hạn", "Duy trì chất lượng công việc ổn định trong thời gian dài"],
+          growth: ["Cần đẩy tốc độ phản hồi khi bối cảnh thay đổi nhanh", "Dễ nhận nhiều việc vì khó từ chối", "Nên nói rõ chính kiến hơn trong cuộc họp hoặc lúc phân công việc"],
+          communicationTips: ["Xác nhận rõ ưu tiên để tránh ôm việc quá mức", "Khi không đồng ý, hãy nói sớm và cụ thể", "Dùng sự bình tĩnh của mình để tạo ổn định, không phải để né xung đột cần thiết"],
+          motivators: ["Môi trường tử tế", "Sự rõ ràng", "Quan hệ đồng đội tin cậy"],
+          concerns: ["Xáo trộn liên tục", "Áp lực gấp gáp", "Xung đột trực diện kéo dài"],
+          stress: "Khi căng thẳng, bạn có xu hướng chậm lại, ít nói hơn và cố chịu một mình thay vì nhờ hỗ trợ.",
+          application: ["Phù hợp với vận hành, chăm sóc khách hàng, hỗ trợ đội nhóm và các vai trò cần độ bền", "Bạn giúp tổ chức vận hành mượt hơn nhờ sự đều đặn và đáng tin", "Nếu rèn được khả năng lên tiếng đúng lúc, bạn sẽ có ảnh hưởng tích cực hơn nhiều trong công việc"],
+        },
+        C: {
+          summary: "Trong công việc, bạn ưu tiên tính chuẩn xác, logic và thích làm việc trên cơ sở dữ liệu, quy trình rõ ràng.",
+          strengths: ["Phân tích tốt và nhìn ra lỗ hổng sớm", "Giữ chuẩn chất lượng cao", "Làm việc có cấu trúc và đáng tin cậy"],
+          growth: ["Cần linh hoạt hơn với bối cảnh mơ hồ hoặc thay đổi nhanh", "Dễ chậm quyết khi muốn đủ dữ liệu", "Nên diễn đạt gần gũi hơn để người khác dễ tiếp nhận"],
+          communicationTips: ["Trình bày ngắn, rõ và đủ ý thay vì quá dày chi tiết", "Khi cần phản biện, hãy bắt đầu từ mục tiêu chung", "Chấp nhận mức đủ tốt ở những việc không cần độ hoàn hảo tuyệt đối"],
+          motivators: ["Tiêu chuẩn rõ", "Dữ liệu chắc chắn", "Môi trường làm việc có hệ thống"],
+          concerns: ["Sai sót", "Thiếu quy trình", "Áp lực phải quyết định khi chưa đủ thông tin"],
+          stress: "Khi căng thẳng, bạn dễ kiểm tra quá kỹ, khó buông và trở nên khắt khe hơn với bản thân lẫn người khác.",
+          application: ["Rất phù hợp với phân tích, kiểm soát chất lượng, tài chính, vận hành chuẩn hóa", "Bạn tạo giá trị lớn khi biến sự phức tạp thành cấu trúc rõ ràng", "Nếu kết hợp được sự chuẩn xác với nhịp hợp tác mềm hơn, ảnh hưởng chuyên môn của bạn sẽ mạnh hơn"],
+        },
+      },
+    },
+    leadership: {
+      contextTitle: "Bạn thể hiện rõ nhất trong vai trò lãnh đạo",
+      applicationTitle: "Gợi ý ứng dụng trong lãnh đạo",
+      profiles: {
+        D: {
+          summary: "Khi lãnh đạo, bạn thiên về định hướng mạnh, ra quyết định nhanh và thúc đẩy đội ngũ tiến về phía kết quả.",
+          strengths: ["Dám chịu trách nhiệm và chốt hướng đi khi tập thể cần người dẫn", "Tạo động lực hành động mạnh trong các giai đoạn cần bứt tốc", "Không ngại xử lý vấn đề khó hoặc mâu thuẫn trực diện"],
+          growth: ["Cần giảm áp lực quyền lực khi đội ngũ cần được phát triển", "Dễ đẩy nhịp quá nhanh so với khả năng thích nghi của người khác", "Nên tăng lắng nghe trước các quyết định ảnh hưởng rộng"],
+          communicationTips: ["Rõ ràng về kỳ vọng nhưng đừng biến phản hồi thành mệnh lệnh một chiều", "Khi góp ý khó, hãy tách con người ra khỏi vấn đề", "Cho đội ngũ thấy lý do phía sau quyết định để tăng cam kết"],
+          motivators: ["Kết quả lớn", "Thử thách", "Quyền tạo tác động rõ ràng"],
+          concerns: ["Bộ máy chậm", "Thiếu quyết đoán", "Không kiểm soát được tiến độ chiến lược"],
+          stress: "Dưới áp lực, bạn có thể trở nên cứng hơn, kiểm soát mạnh hơn và ít kiên nhẫn với các bước phát triển dài hơi.",
+          application: ["Mạnh ở giai đoạn khởi động, đổi mới hoặc xử lý khủng hoảng", "Hiệu quả lãnh đạo tăng cao khi bạn kết hợp sự quyết liệt với coaching", "Đội ngũ sẽ theo bạn bền hơn nếu họ vừa thấy mục tiêu rõ vừa thấy mình được tôn trọng"],
+        },
+        I: {
+          summary: "Khi lãnh đạo, bạn truyền cảm hứng tốt, kết nối con người nhanh và thường là người tạo ra động lực tập thể.",
+          strengths: ["Khơi dậy tinh thần và tạo niềm tin cho đội ngũ", "Giỏi truyền tầm nhìn theo cách dễ hiểu, dễ nhập cuộc", "Tạo môi trường có năng lượng và nhiều tương tác tích cực"],
+          growth: ["Cần tăng độ nhất quán trong theo dõi cam kết", "Dễ mềm trước việc khó ra quyết định nếu quá chú trọng cảm xúc", "Nên bổ sung cấu trúc để ý tưởng được triển khai tới cùng"],
+          communicationTips: ["Tận dụng khả năng truyền cảm hứng nhưng chốt rõ KPI và trách nhiệm", "Trong phản hồi hiệu suất, giữ sự ấm áp đi cùng tính cụ thể", "Khi đội ngũ rối, hãy giảm độ ngẫu hứng và tăng độ rõ ràng"],
+          motivators: ["Tầm ảnh hưởng", "Tinh thần đội nhóm", "Sự công nhận và cộng hưởng"],
+          concerns: ["Đội ngũ mất lửa", "Bầu không khí tiêu cực", "Tầm nhìn không được đón nhận"],
+          stress: "Khi căng thẳng, bạn dễ tản năng lượng, nhạy với phản ứng của đội ngũ và cần quay lại các ưu tiên cốt lõi.",
+          application: ["Rất hợp với các vai trò dẫn đội ngũ sáng tạo, kinh doanh, dịch vụ hoặc văn hóa nội bộ", "Bạn tạo sức bật lớn khi truyền được niềm tin về tương lai", "Nếu thêm kỷ luật vận hành vào sức hút tự nhiên, phong cách lãnh đạo của bạn sẽ rất thuyết phục"],
+        },
+        S: {
+          summary: "Khi lãnh đạo, bạn thiên về xây nền, giữ sự gắn kết và giúp đội ngũ phát triển theo nhịp bền vững.",
+          strengths: ["Tạo môi trường an toàn tâm lý và đáng tin cậy", "Lắng nghe tốt, hỗ trợ tốt và giữ được lòng trung thành của đội ngũ", "Bền bỉ trong việc phát triển con người dài hạn"],
+          growth: ["Cần quyết liệt hơn khi đội ngũ cần thay đổi hoặc chấn chỉnh", "Dễ trì hoãn phản hồi khó để giữ hòa khí", "Nên rõ ràng hơn trong ưu tiên và chuẩn hiệu suất"],
+          communicationTips: ["Giữ sự chân thành nhưng đừng né đối thoại khó", "Khi quyết định xong, hãy nói dứt khoát để đội ngũ yên tâm bám theo", "Bảo vệ sự ổn định của đội ngũ bằng kỳ vọng rõ ràng, không chỉ bằng sự cảm thông"],
+          motivators: ["Đội ngũ gắn kết", "Sự ổn định lâu dài", "Niềm tin và sự trung thành"],
+          concerns: ["Rạn nứt nội bộ", "Biến động quá nhanh", "Quyết định gây tổn thương tập thể"],
+          stress: "Khi căng thẳng, bạn có thể ôm vai trò nâng đỡ quá nhiều và tự đặt mình vào vị trí chịu đựng thay cho cả đội.",
+          application: ["Rất mạnh ở vai trò xây đội ngũ bền, coaching và giữ văn hóa", "Bạn giúp người khác phát triển nhờ sự nhất quán và chân thành", "Hiệu quả lãnh đạo sẽ tăng mạnh khi bạn kết hợp lòng người với chuẩn hiệu suất rõ ràng"],
+        },
+        C: {
+          summary: "Khi lãnh đạo, bạn dẫn dắt bằng tư duy hệ thống, tiêu chuẩn rõ ràng và mong muốn mọi quyết định có căn cứ vững chắc.",
+          strengths: ["Giữ chuẩn chất lượng và tư duy chiến lược có cấu trúc", "Nhìn ra rủi ro, phụ thuộc và lỗ hổng từ sớm", "Giúp đội ngũ làm việc bài bản, rõ vai và rõ quy trình"],
+          growth: ["Cần tránh để tiêu chuẩn quá cao làm chậm quyết định", "Dễ tạo khoảng cách nếu giao tiếp quá lý trí", "Nên cho phép thử nghiệm nhiều hơn trong các giai đoạn đổi mới"],
+          communicationTips: ["Truyền đạt tiêu chuẩn bằng ngôn ngữ dễ hiểu hơn", "Khi góp ý, nêu rõ điều cần sửa và cách để đạt chuẩn", "Đừng đợi mọi dữ liệu hoàn hảo mới hành động ở những quyết định cần tốc độ"],
+          motivators: ["Chất lượng", "Tính đúng đắn", "Tổ chức vận hành có hệ thống"],
+          concerns: ["Sai số chiến lược", "Quy trình lỏng lẻo", "Ra quyết định thiếu căn cứ"],
+          stress: "Khi căng thẳng, bạn có xu hướng siết chuẩn, kiểm tra sát và khó chấp nhận các cách làm chưa đủ chín.",
+          application: ["Phù hợp với lãnh đạo chức năng, chiến lược, kiểm soát chất lượng, tài chính và vận hành", "Bạn tạo giá trị lớn khi giúp đội ngũ làm đúng ngay từ đầu", "Nếu tăng thêm sự gần gũi trong giao tiếp, chuẩn mực của bạn sẽ trở thành nguồn tin cậy thay vì áp lực"],
+        },
+      },
+    },
+  };
+
   function getQuestionBank(environmentKey) {
     return QUESTION_BANKS[environmentKey] || QUESTION_BANKS[DEFAULT_ENVIRONMENT_KEY] || {
       key: DEFAULT_ENVIRONMENT_KEY,
@@ -318,6 +480,78 @@
     return ENVIRONMENT_KEYS.map(function (key) {
       return getQuestionBank(key);
     });
+  }
+
+  function getEnvironmentTheme(environmentKey) {
+    const key = ENVIRONMENT_THEMES[environmentKey] ? environmentKey : DEFAULT_ENVIRONMENT_KEY;
+    return ENVIRONMENT_THEMES[key] || ENVIRONMENT_THEMES.work;
+  }
+
+  function getEnvironmentLabel(environmentKey) {
+    return getEnvironmentTheme(environmentKey).label;
+  }
+
+  function getEnvironmentResultLabel(environmentKey) {
+    return getEnvironmentTheme(environmentKey).resultLabel;
+  }
+
+  function getEnvironmentKnowledge(environmentKey, discKey) {
+    const normalizedEnvironment = RESULT_ENVIRONMENT_KNOWLEDGE[environmentKey]
+      ? environmentKey
+      : DEFAULT_ENVIRONMENT_KEY;
+    const profileSet = RESULT_ENVIRONMENT_KNOWLEDGE[normalizedEnvironment] || RESULT_ENVIRONMENT_KNOWLEDGE.work;
+    return {
+      environment: profileSet,
+      profile: (profileSet.profiles && profileSet.profiles[discKey]) || profileSet.profiles.D,
+    };
+  }
+
+  function mergeUniqueItems(base, extra, limit) {
+    const seen = {};
+    const merged = [];
+    (base || []).concat(extra || []).forEach(function (item) {
+      const key = String(item || "").trim();
+      if (!key) return;
+      const normalized = key.toLowerCase();
+      if (seen[normalized]) return;
+      seen[normalized] = true;
+      merged.push(key);
+    });
+    return typeof limit === "number" ? merged.slice(0, limit) : merged;
+  }
+
+  function getSecondaryBlendLine(primaryKey, secondaryKey, environmentKey) {
+    const environmentLabel = getEnvironmentLabel(environmentKey).toLowerCase();
+    const primaryName = getResultMeta(primaryKey).shortName.toLowerCase();
+    const secondaryLines = {
+      D: "Sắc thái phụ D làm nổi rõ sự quyết liệt, nhu cầu chủ động và khả năng chốt hướng nhanh trong " + environmentLabel + ".",
+      I: "Sắc thái phụ I làm tăng khả năng kết nối, truyền cảm hứng và tạo ảnh hưởng tích cực trong " + environmentLabel + ".",
+      S: "Sắc thái phụ S giúp bạn giữ sự điềm tĩnh, bền bỉ và chú trọng tính hài hòa hơn trong " + environmentLabel + ".",
+      C: "Sắc thái phụ C bổ sung tư duy phân tích, sự cẩn trọng và độ chuẩn xác cao hơn trong " + environmentLabel + ".",
+    };
+    return "Kiểu chính của bạn là " + primaryName + ". " + (secondaryLines[secondaryKey] || "");
+  }
+
+  function buildResultKnowledge(detail, primary, secondary) {
+    const environmentKey = detail.environment_key || DEFAULT_ENVIRONMENT_KEY;
+    const knowledge = getEnvironmentKnowledge(environmentKey, primary.key);
+    const overlay = knowledge.profile;
+    const environmentProfile = knowledge.environment;
+    return {
+      summary: overlay.summary,
+      blendLine: getSecondaryBlendLine(primary.key, secondary.key, environmentKey),
+      strengths: mergeUniqueItems(primary.strengths, overlay.strengths, 6),
+      growth: mergeUniqueItems(primary.growth, overlay.growth, 6),
+      communicationStyle: overlay.summary + " " + primary.communicationStyle,
+      communicationTips: mergeUniqueItems(overlay.communicationTips, primary.communicationTips, 6),
+      motivators: mergeUniqueItems(overlay.motivators, primary.motivators, 5),
+      concerns: mergeUniqueItems(overlay.concerns, primary.concerns, 5),
+      stress: overlay.stress,
+      focusTitle: environmentProfile.contextTitle,
+      focusBody: overlay.summary + " " + primary.workStyle,
+      applicationTitle: environmentProfile.applicationTitle,
+      application: overlay.application,
+    };
   }
 
   const app = document.getElementById("app");
@@ -385,12 +619,12 @@
       '<main class="type-page">' +
       '<div class="container">' +
       '<section class="panel section-card">' +
-      '<div class="eyebrow">KhÃ´ng tÃ¬m tháº¥y</div>' +
-      '<h2 class="section-title">Trang nÃ y hiá»‡n khÃ´ng tá»“n táº¡i.</h2>' +
+      '<div class="eyebrow">Không tìm thấy</div>' +
+      '<h2 class="section-title">Trang này hiện không tồn tại.</h2>' +
       '<p class="section-copy">' +
-      escapeHtml(message || "ÄÆ°á»ng dáº«n khÃ´ng há»£p lá»‡.") +
+      escapeHtml(message || "Đường dẫn không hợp lệ.") +
       "</p>" +
-      '<div class="card-actions"><a class="btn btn-primary" href="#/">Vá» trang chá»§</a></div>' +
+      '<div class="card-actions"><a class="btn btn-primary" href="#/">Về trang chủ</a></div>' +
       "</section>" +
       "</div>" +
       "</main>"
@@ -400,6 +634,84 @@
   function highlightAccent(text) {
     const safeText = escapeHtml(text || "");
     return safeText.replace(/DISC/gi, '<span class="text-accent">$&</span>');
+  }
+
+  function normalizeBackendMessage(message) {
+    const text = String(message == null ? "" : message);
+    if (!/[ÃÄÂÊÔÆØÐ]/.test(text)) return text;
+    try {
+      return decodeURIComponent(escape(text));
+    } catch (_error) {
+      return text
+        .replace(/Ä‘/g, "đ")
+        .replace(/Ä/g, "Đ")
+        .replace(/Ã¡/g, "á")
+        .replace(/Ã /g, "à")
+        .replace(/áº¡/g, "ạ")
+        .replace(/áº£/g, "ả")
+        .replace(/Ã£/g, "ã")
+        .replace(/Ã¢/g, "â")
+        .replace(/áº¥/g, "ấ")
+        .replace(/áº§/g, "ầ")
+        .replace(/áº­/g, "ậ")
+        .replace(/áº©/g, "ẩ")
+        .replace(/áº«/g, "ẫ")
+        .replace(/Äƒ/g, "ă")
+        .replace(/áº¯/g, "ắ")
+        .replace(/áº±/g, "ằ")
+        .replace(/áº·/g, "ặ")
+        .replace(/áº³/g, "ẳ")
+        .replace(/áºµ/g, "ẵ")
+        .replace(/Ã©/g, "é")
+        .replace(/Ã¨/g, "è")
+        .replace(/áº¹/g, "ẹ")
+        .replace(/áº»/g, "ẻ")
+        .replace(/áº½/g, "ẽ")
+        .replace(/Ãª/g, "ê")
+        .replace(/áº¿/g, "ế")
+        .replace(/á»/g, "ề")
+        .replace(/á»‡/g, "ệ")
+        .replace(/á»ƒ/g, "ể")
+        .replace(/á»…/g, "ễ")
+        .replace(/Ã­/g, "í")
+        .replace(/Ã¬/g, "ì")
+        .replace(/á»‹/g, "ị")
+        .replace(/á»‰/g, "ỉ")
+        .replace(/Ä©/g, "ĩ")
+        .replace(/Ã³/g, "ó")
+        .replace(/Ã²/g, "ò")
+        .replace(/á»/g, "ọ")
+        .replace(/á»/g, "ỏ")
+        .replace(/Ãµ/g, "õ")
+        .replace(/Ã´/g, "ô")
+        .replace(/á»‘/g, "ố")
+        .replace(/á»“/g, "ồ")
+        .replace(/á»™/g, "ộ")
+        .replace(/á»•/g, "ổ")
+        .replace(/á»—/g, "ỗ")
+        .replace(/Æ¡/g, "ơ")
+        .replace(/á»›/g, "ớ")
+        .replace(/á»/g, "ờ")
+        .replace(/á»£/g, "ợ")
+        .replace(/á»Ÿ/g, "ở")
+        .replace(/á»¡/g, "ỡ")
+        .replace(/Ãº/g, "ú")
+        .replace(/Ã¹/g, "ù")
+        .replace(/á»¥/g, "ụ")
+        .replace(/á»§/g, "ủ")
+        .replace(/Å©/g, "ũ")
+        .replace(/Æ°/g, "ư")
+        .replace(/á»©/g, "ứ")
+        .replace(/á»«/g, "ừ")
+        .replace(/á»±/g, "ự")
+        .replace(/á»­/g, "ử")
+        .replace(/á»¯/g, "ữ")
+        .replace(/Ã½/g, "ý")
+        .replace(/á»³/g, "ỳ")
+        .replace(/á»µ/g, "ỵ")
+        .replace(/á»·/g, "ỷ")
+        .replace(/á»¹/g, "ỹ");
+    }
   }
 
   async function apiRequest(action, payload, options) {
@@ -431,7 +743,7 @@
     }
 
     if (!response.ok || !data.ok) {
-      throw new Error((data && data.error) || "Yeu cau that bai.");
+      throw new Error(normalizeBackendMessage((data && data.error) || "Yeu cau that bai."));
     }
     return data.data;
   }
@@ -486,7 +798,7 @@
       environmentKey: normalizedEnvironment,
       questionBankVersion: QUESTION_BANK_VERSION,
       responses: questions.map(function (question) {
-        return { questionId: question.id, most: null, least: null };
+        return { questionId: question.id, choice: null };
       }),
     };
     setPending(pending);
@@ -506,14 +818,7 @@
       return item.questionId === questionId;
     });
     if (!response) return;
-
-    if (mode === "most") {
-      response.most = response.most === itemId ? null : itemId;
-      if (response.least === response.most) response.least = null;
-    } else {
-      response.least = response.least === itemId ? null : itemId;
-      if (response.most === response.least) response.most = null;
-    }
+    response.choice = response.choice === itemId ? null : itemId;
     setPending(pending);
     skipNextReveal = true;
     render();
@@ -526,7 +831,7 @@
     const pending = state.pending;
     if (!pending) return false;
     return pending.responses.every(function (item) {
-      return item.most && item.least;
+      return item.choice;
     });
   }
 
@@ -551,7 +856,7 @@
       (mobileOpen ? "is-open" : "") +
       '"><a class="nav-link" href="#/">Trang chủ</a><a class="nav-link" href="#/disc">Nhóm DISC</a><div class="nav-chip-row"><a class="nav-chip" href="#/disc/d">D</a><a class="nav-chip" href="#/disc/i">I</a><a class="nav-chip" href="#/disc/s">S</a><a class="nav-chip" href="#/disc/c">C</a></div>' +
       authLinks +
-      "</div></header>"
+      '</div></header>'
     );
   }
 
@@ -580,63 +885,101 @@
 
   function renderHome() {
     const environments = getEnvironmentOptions();
+    const defaultQuestionCount = getQuestionList(DEFAULT_ENVIRONMENT_KEY).length;
+
     return (
-      "<main>" +
-      '<section class="hero hero-centered"><div class="container"><div class="hero-stack"><div class="eyebrow">C?ng c? ??nh gi? t?nh c?ch DISC</div><h1 class="hero-title hero-title-center">Kh?m ph? <span class="text-accent">t?nh c?ch</span><br>c?a b?n</h1><p class="hero-copy hero-copy-center">Ch?n m?i tr??ng ph? h?p ?? hi?u r? h?n c?ch b?n ph?n ?ng, giao ti?p v? ph?t huy th? m?nh c?a m?nh.</p><div class="hero-actions hero-actions-center"><button class="btn btn-primary" data-action="start-quiz" data-environment="' +
-      escapeHtml(DEFAULT_ENVIRONMENT_KEY) +
-      '">' +
-      escapeHtml(SETTINGS.startButton) +
-      '</button><a class="btn btn-secondary" href="#/disc">Xem 4 nh?m DISC</a></div><div class="hero-copy hero-copy-center hero-footnote">3 m?i tr??ng ??nh gi? ? 40 c?u h?i m?i b? ? K?t qu? chi ti?t sau khi ho?n th?nh</div></div></div></section>' +
-      '<section class="section"><div class="container"><div class="section-header section-header-center"><div style="width:100%"><div class="eyebrow">3 M?i Tr??ng ??nh Gi?</div><h2 class="section-title section-title-center">Ch?n m?i tr??ng ph? h?p</h2><p class="section-copy section-copy-center">M?i m?i tr??ng c? b? c?u h?i ri?ng bi?t ?? gi?p b?n hi?u s?u h?n v? b?n th?n trong t?ng l?nh v?c.</p></div></div><div class="environment-grid">' +
+      '<main>' +
+      '<section class="hero hero-centered hero-home"><div class="container"><div class="hero-stack hero-home-stack"><div class="eyebrow">Công cụ đánh giá tính cách chuyên nghiệp</div><h1 class="hero-title hero-title-center">Khám Phá <span class="text-accent">Tính Cách</span><br>Của Bạn</h1><div class="hero-copy hero-copy-center"><p>Bài đánh giá DISC giúp bạn hiểu rõ phong cách hành vi, điểm mạnh và cách giao tiếp hiệu quả nhất.</p><p>Được áp dụng bởi hàng triệu người trên toàn thế giới.</p></div><div class="hero-home-prompt">Chọn môi trường phù hợp với bạn</div><div class="hero-actions hero-actions-center hero-home-actions">' +
       environments.map(function (environment) {
-        return '<article class="environment-card" style="--accent:' +
-          escapeHtml(environment.accent || '#ff7a1a') +
+        const buttonLabel = environment.key === "life"
+          ? "Cuộc Sống"
+          : environment.key === "work"
+            ? "Công Việc"
+            : "Lãnh Đạo";
+        const buttonIcon = environment.key === "life"
+          ? "♡"
+          : environment.key === "work"
+            ? "◫"
+            : "♛";
+        return '<a class="btn hero-home-cta hero-home-cta-' +
+          escapeHtml(environment.key) +
+          '" href="#' +
+          getEnvironmentRoute(environment.key, 1) +
+          '"><span class="hero-home-cta-icon" aria-hidden="true">' +
+          buttonIcon +
+          '</span><span>' +
+          buttonLabel +
+          '</span><span aria-hidden="true">→</span></a>';
+      }).join('') +
+      '</div><div class="hero-footnote hero-home-note">Miễn phí · 10-15 phút · Kết quả tức thì</div><div class="hero-stat-row hero-home-stats"><div class="hero-stat"><strong>' +
+      String(defaultQuestionCount || 0) +
+      '</strong><span>Câu hỏi chuyên sâu</span></div><div class="hero-stat"><strong>' +
+      String(Object.keys(DISC_TYPES).length) +
+      '</strong><span>Chiều tính cách DISC</span></div><div class="hero-stat"><strong>100%</strong><span>Miễn phí hoàn toàn</span></div></div></div></div></section>' +
+      '<section class="environment-showcase"><div class="container"><div class="environment-showcase-head"><div class="eyebrow">3 Môi Trường Đánh Giá</div><h1 class="environment-showcase-title">Chọn Môi Trường Phù Hợp</h1><p class="environment-showcase-copy">Mỗi môi trường có bộ câu hỏi riêng biệt, giúp bạn hiểu sâu hơn về tính cách trong từng lĩnh vực cuộc sống.</p></div><div class="environment-grid environment-grid-v3">' +
+      environments.map(function (environment) {
+        const theme = getEnvironmentTheme(environment.key);
+        return '<article class="environment-card environment-card-v3" style="--accent:' +
+          escapeHtml(theme.accent) +
+          ';--accent-strong:' +
+          escapeHtml(theme.accentStrong) +
+          ';--accent-soft:' +
+          escapeHtml(theme.soft) +
+          ';--accent-border:' +
+          escapeHtml(theme.border) +
+          ';--accent-shadow:' +
+          escapeHtml(theme.shadow) +
           '"><div class="environment-top"><div class="environment-icon">' +
-          escapeHtml(environment.icon || '?') +
+          escapeHtml(theme.icon || environment.icon || '●') +
           '</div><span class="environment-badge">' +
-          escapeHtml(environment.badge || '') +
+          escapeHtml(theme.badge || environment.badge || '') +
           '</span></div><h3>' +
           escapeHtml(environment.label) +
           '</h3><p class="card-copy">' +
           escapeHtml(environment.shortDescription || '') +
-          '</p><button class="btn btn-primary environment-btn" data-action="start-quiz" data-environment="' +
+          '</p><button class="btn environment-btn environment-btn-v3" data-action="start-quiz" data-environment="' +
           escapeHtml(environment.key) +
-          '">B?t ??u ki?m tra</button></article>';
+          '">Bắt Đầu Kiểm Tra <span aria-hidden="true">→</span></button></article>';
       }).join('') +
+      '</div><div class="environment-showcase-foot"><button class="btn btn-primary" data-action="start-quiz" data-environment="' +
+      escapeHtml(DEFAULT_ENVIRONMENT_KEY) +
+      '">' +
+      escapeHtml(SETTINGS.startButton) +
+      '</button><a class="btn btn-secondary" href="#/disc">Xem 4 nhóm DISC</a></div></div></section>' +
+      '<section class="section"><div class="container"><div class="section-header section-header-center"><div style="width:100%"><div class="eyebrow">4 kiểu tính cách</div><h2 class="section-title section-title-center">4 Kiểu Tính Cách DISC</h2><p class="section-copy section-copy-center">Mỗi người đều có sự kết hợp riêng giữa 4 nhóm tính cách này.</p></div></div><div class="disc-card-grid">' +
+      discSummaryCard('D', 'Thống Lĩnh', 'DOMINANCE', 'Quyết đoán, mạnh mẽ, hướng đến kết quả. Luôn dẫn đầu và không ngại thử thách.', '13%') +
+      discSummaryCard('I', 'Ảnh Hưởng', 'INFLUENCE', 'Nhiệt tình, hoạt bát, truyền cảm hứng. Kết nối mọi người và tạo năng lượng tích cực.', '28%') +
+      discSummaryCard('S', 'Ổn Định', 'STEADINESS', 'Kiên nhẫn, đáng tin, quan tâm người khác. Gắn kết đội nhóm và duy trì sự hài hòa.', '47%') +
+      discSummaryCard('C', 'Cẩn Thận', 'CONSCIENTIOUSNESS', 'Chính xác, tỉ mỉ, có hệ thống. Đảm bảo chất lượng và tuân thủ tiêu chuẩn cao.', '12%') +
       '</div></div></section>' +
-      '<section class="section"><div class="container"><div class="section-header section-header-center"><div style="width:100%"><div class="eyebrow">4 ki?u t?nh c?ch</div><h2 class="section-title section-title-center">4 Ki?u T?nh C?ch DISC</h2><p class="section-copy section-copy-center">M?i ng??i ??u c? s? k?t h?p ri?ng gi?a 4 nh?m t?nh c?ch n?y.</p></div></div><div class="disc-card-grid">' +
-      discSummaryCard("D", "Th?ng L?nh", "DOMINANCE", "Quy?t ?o?n, m?nh m?, h??ng ??n k?t qu?. Lu?n d?n ??u v? kh?ng ng?i th? th?ch.", "13%") +
-      discSummaryCard("I", "?nh H??ng", "INFLUENCE", "Nhi?t t?nh, ho?t b?t, truy?n c?m h?ng. K?t n?i m?i ng??i v? t?o n?ng l??ng t?ch c?c.", "28%") +
-      discSummaryCard("S", "?n ??nh", "STEADINESS", "Ki?n nh?n, ??ng tin, quan t?m ng??i kh?c. G?n k?t ??i nh?m v? duy tr? s? h?i h?a.", "47%") +
-      discSummaryCard("C", "C?n Th?n", "CONSCIENTIOUSNESS", "Ch?nh x?c, t? m?, c? h? th?ng. ??m b?o ch?t l??ng v? tu?n th? ti?u chu?n cao.", "12%") +
-      '</div></div></section>' +
-      '<section class="section"><div class="container"><div class="section-header"><div style="width:100%"><div class="eyebrow">L?i ?ch khi l?m b?i test DISC</div></div></div><div class="benefit-grid">' +
-      infoCard("01", "Nh?m DISC n?i tr?i", "Bi?t nh?m n?o ?ang l? xu h??ng h?nh vi n?i b?t nh?t c?a b?n trong 4 nh?m D, I, S, C.") +
-      infoCard("02", "?i?m m?nh t? nhi?n", "Nh?n r? nh?ng ?i?m b?n c? th? ph?t huy trong c?ng vi?c, ph?i h?p v? giao ti?p.") +
-      infoCard("03", "?i?m c?n c?n b?ng", "Nh?n ra nh?ng ?i?u d? t?o l?ch nh?p ho?c g?y kh? kh?n khi l?m vi?c v?i ng??i kh?c.") +
-      infoCard("04", "G?i ? ph?t tri?n", "C? th?m ??nh h??ng ?? ?i?u ch?nh phong c?ch c?a m?nh theo h??ng hi?u qu? h?n.") +
+      '<section class="section"><div class="container"><div class="section-header"><div style="width:100%"><div class="eyebrow">Lợi ích khi làm bài test DISC</div></div></div><div class="benefit-grid">' +
+      infoCard('01', 'Nhóm DISC nổi trội', 'Biết nhóm nào đang là xu hướng hành vi nổi bật nhất của bạn trong 4 nhóm D, I, S, C.') +
+      infoCard('02', 'Điểm mạnh tự nhiên', 'Nhìn rõ những điểm bạn có thể phát huy trong công việc, phối hợp và giao tiếp.') +
+      infoCard('03', 'Điểm cần cân bằng', 'Nhận ra những điều dễ tạo lệch nhịp hoặc gây khó khăn khi làm việc với người khác.') +
+      infoCard('04', 'Gợi ý phát triển', 'Có thêm định hướng để điều chỉnh phong cách của mình theo hướng hiệu quả hơn.') +
       '</div></div></section>' +
       '</main>'
     );
   }
 
   function visualRow(icon, title, copy) {
-    return '<div class="visual-row"><div class="visual-tag"><span class="visual-icon" style="background:#ff8a3d">' + icon + '</span><div><strong>' + title + '</strong><div class="helper">' + copy + "</div></div></div></div>";
+    return '<div class="visual-row"><div class="visual-tag"><span class="visual-icon" style="background:#ff8a3d">' + icon + '</span><div><strong>' + title + '</strong><div class="helper">' + copy + '</div></div></div></div>';
   }
 
   function metricCard(title, text) {
-    return '<div class="metric-card"><strong>' + title + "</strong><span>" + text + "</span></div>";
+    return '<div class="metric-card"><strong>' + title + '</strong><span>' + text + '</span></div>';
   }
 
   function infoCard(icon, title, text) {
-    return '<article class="section-card"><div class="badge-circle">' + icon + "</div><h3>" + title + '</h3><p class="card-copy">' + text + "</p></article>";
+    return '<article class="section-card"><div class="badge-circle">' + icon + '</div><h3>' + title + '</h3><p class="card-copy">' + text + '</p></article>';
   }
 
   function discSummaryCard(letter, title, subtitle, copy, percent) {
     return '<a class="disc-summary-card" data-style="' + letter + '" href="#/disc/' + letter.toLowerCase() + '"><div class="disc-summary-top"><div class="disc-summary-letter">' + letter + '</div><div class="disc-summary-percent">' + percent + '</div></div><h3>' + title + '</h3><div class="disc-summary-subtitle">' + subtitle + '</div><p class="card-copy">' + copy + '</p></a>';
   }
 
-  function applyPageEffects() {
+
+function applyPageEffects() {
     if (skipNextReveal) {
       skipNextReveal = false;
       return;
@@ -677,109 +1020,114 @@
   }
 
   function renderAuthPage(mode) {
-    const title = mode === "login" ? "ÄÄƒng nháº­p" : "ÄÄƒng kÃ½ tÃ i khoáº£n";
+    const title = mode === "login" ? "Đăng nhập" : "Đăng ký tài khoản";
     const subtitle =
       mode === "login"
-        ? "ÄÄƒng nháº­p Ä‘á»ƒ xem lá»‹ch sá»­ bÃ i test, nháº­n káº¿t quáº£ vÃ  cáº­p nháº­t email náº¿u cáº§n."
-        : "ÄÄƒng kÃ½ ngay táº¡i trang chá»§ Ä‘á»ƒ lÆ°u há»“ sÆ¡, Ä‘á»“ng bá»™ lá»‹ch sá»­ bÃ i test vÃ  nháº­n káº¿t quáº£ qua email.";
-    const hasPendingComplete = isPendingComplete();
+        ? "Đăng nhập để xem lịch sử bài test, nhận kết quả và cập nhật email nếu cần."
+        : "Đăng ký để lưu hồ sơ, đồng bộ lịch sử bài test và nhận kết quả qua email.";
+    const pendingEnvironment = state.pending && state.pending.environmentKey;
+    const hasPendingComplete = isPendingComplete(pendingEnvironment || DEFAULT_ENVIRONMENT_KEY);
 
     return (
       '<main class="type-page"><div class="container"><section class="panel section-card"><div class="eyebrow">' +
-      (mode === "login" ? "TÃ i khoáº£n Ä‘Ã£ cÃ³" : "Táº¡o tÃ i khoáº£n má»›i") +
+      (mode === "login" ? "Tài khoản đã có" : "Tạo tài khoản mới") +
       '</div><h2 class="section-title">' +
       title +
       '</h2><p class="section-copy">' +
       subtitle +
-      (hasPendingComplete
-        ? " Báº¡n Ä‘ang cÃ³ má»™t bÃ i test Ä‘Ã£ hoÃ n thÃ nh vÃ  sáº½ Ä‘Æ°á»£c gá»­i Ä‘i ngay sau khi xÃ¡c thá»±c thÃ nh cÃ´ng."
-        : "") +
+      (hasPendingComplete ? ' Bạn đang có một bài test đã hoàn thành và hệ thống sẽ gửi đi ngay sau khi xác thực thành công.' : '') +
       '</p><form id="' +
       mode +
       '-form" class="form-grid" style="margin-top:20px">' +
-      (mode === "register"
-        ? '<div class="field"><label class="label">Há» vÃ  tÃªn</label><input class="input" name="full_name" required></div><div class="field"><label class="label">Sá»‘ Ä‘iá»‡n thoáº¡i</label><input class="input" name="phone"></div>'
-        : "") +
-      '<div class="field"><label class="label">Email</label><input class="input" name="email" type="email" required></div><div class="field"><label class="label">Máº­t kháº©u</label><input class="input" name="password" type="password" required></div><div class="field full"><button class="btn btn-primary" type="submit">' +
-      (mode === "login" ? "ÄÄƒng nháº­p" : "ÄÄƒng kÃ½ vÃ  tiáº¿p tá»¥c") +
+      (mode === "register" ? '<div class="field"><label class="label">Họ và tên</label><input class="input" name="full_name" required></div><div class="field"><label class="label">Số điện thoại</label><input class="input" name="phone"></div>' : '') +
+      '<div class="field"><label class="label">Email</label><input class="input" name="email" type="email" required></div><div class="field"><label class="label">Mật khẩu</label><input class="input" name="password" type="password" required></div><div class="field full"><button class="btn btn-primary" type="submit">' +
+      (mode === "login" ? "Đăng nhập" : "Đăng ký và tiếp tục") +
       '</button></div></form><div class="card-actions" style="margin-top:12px">' +
-      (mode === "login"
-        ? '<a class="btn btn-ghost" href="#/register">ChÆ°a cÃ³ tÃ i khoáº£n? ÄÄƒng kÃ½</a>'
-        : '<a class="btn btn-ghost" href="#/login">ÄÃ£ cÃ³ tÃ i khoáº£n? ÄÄƒng nháº­p</a>') +
+      (mode === "login" ? '<a class="btn btn-ghost" href="#/register">Chưa có tài khoản? Đăng ký</a>' : '<a class="btn btn-ghost" href="#/login">Đã có tài khoản? Đăng nhập</a>') +
       '</div></section></div></main>'
     );
   }
 
   function renderQuiz(environmentKey, stepText) {
     const bank = getQuestionBank(environmentKey);
+    const theme = getEnvironmentTheme(bank.key);
     const questions = getQuestionList(bank.key);
     const pending = ensurePendingSession(bank.key);
     const step = Math.max(1, Math.min(questions.length || 1, Number(stepText || 1)));
     const question = questions[step - 1];
-    const response = getPendingResponse(question.id, bank.key) || { most: null, least: null };
-    const isReady = response.most && response.least;
+    const response = question ? getPendingResponse(question.id, bank.key) : { choice: null };
+    const isReady = !!response.choice;
     const accordionOpen = sessionStorage.getItem("disc_guide_open") !== "0";
     const progress = questions.length ? Math.round((step / questions.length) * 100) : 0;
 
+    if (!question) {
+      return '<main class="type-page"><div class="container"><section class="panel section-card"><h2 class="section-title">Không tìm thấy bộ câu hỏi cho môi trường này.</h2></section></div></main>';
+    }
+
     return (
-      '<main class="quiz-page"><div class="container"><a class="back-link" href="#/">&larr; Quay l?i</a><section class="accordion"><button class="accordion-head" data-action="toggle-guide"><span>H??ng d?n th?c hi?n</span><span>' +
-      (accordionOpen ? "&#8963;" : "&#8964;") +
+      '<main class="quiz-page"><div class="container"><a class="back-link" href="#/">&larr; Quay lại</a><section class="accordion quiz-guide" style="--quiz-accent:' +
+      escapeHtml(theme.accent) +
+      ';--quiz-soft:' +
+      escapeHtml(theme.soft) +
+      ';--quiz-border:' +
+      escapeHtml(theme.border) +
+      '"><button class="accordion-head" data-action="toggle-guide"><span>Hướng dẫn thực hiện</span><span>' +
+      (accordionOpen ? '&#8963;' : '&#8964;') +
       '</span></button><div class="accordion-body ' +
-      (accordionOpen ? "" : "hidden") +
-      '"><p>B?i ??nh gi? n?y thu?c m?i tr??ng <strong>' +
+      (accordionOpen ? '' : 'hidden') +
+      '"><p>Bài đánh giá này thuộc môi trường <strong>' +
       escapeHtml(bank.label) +
-      '</strong> v? g?m ' +
+      '</strong> và gồm ' +
       questions.length +
-      ' c?u h?i, m?i c?u c? 4 m? t? kh?c nhau.</p><ul><li>H?y ??c k? t?t c? m? t?</li><li>M?i c?u ch?n 1 m? t? ?gi?ng b?n nh?t? v? 1 m? t? ?kh?c b?n nh?t?</li></ul><p>Kh?ng c? ??p ?n ??ng hay sai. H?y ch?n c?ch b?n th??ng th? hi?n nh?t trong th?c t? ?? k?t qu? ph?n ?nh ??ng con ng??i b?n.</p></div></section><section class="question-wrap quiz-no-reveal"><div class="quiz-head"><div><div class="eyebrow">' +
+      ' câu hỏi, mỗi câu có 4 đáp án A, B, C, D.</p><ul><li>Hãy đọc kỹ câu hỏi trước khi chọn.</li><li>Mỗi câu chỉ chọn 1 đáp án phù hợp nhất với bạn.</li></ul><p>' +
+      escapeHtml(theme.quizNote) +
+      '</p></div></section><section class="question-wrap quiz-no-reveal quiz-surface" style="--quiz-accent:' +
+      escapeHtml(theme.accent) +
+      ';--quiz-accent-strong:' +
+      escapeHtml(theme.accentStrong) +
+      ';--quiz-soft:' +
+      escapeHtml(theme.soft) +
+      ';--quiz-border:' +
+      escapeHtml(theme.border) +
+      ';--quiz-gradient:' +
+      escapeHtml(theme.gradient) +
+      '"><div class="quiz-head quiz-head-v2"><div class="quiz-head-main"><div class="quiz-theme-badge">' +
+      escapeHtml(theme.badge) +
+      '</div><div class="quiz-title-wrap"><div class="quiz-environment-mark">' +
       escapeHtml(bank.label) +
-      '</div><h1 class="quiz-title">B?i tr?c nghi?m DISC</h1></div><div class="quiz-progress-text">' +
+      '</div><h1 class="quiz-title quiz-title-v2">Bài trắc nghiệm DISC</h1><p class="quiz-prompt-intro">Mỗi câu chỉ chọn một đáp án A, B, C hoặc D.</p></div></div><div class="quiz-progress-card"><div class="quiz-progress-label">Tiến độ</div><strong>' +
+      step + '/' + questions.length +
+      '</strong><div class="progress-track"><span style="width:' + progress + '%"></span></div></div></div><div class="quiz-question-card"><div class="quiz-question-label">Câu hỏi ' +
       step +
-      '/' +
-      questions.length +
-      '</div><div class="progress-track"><span style="width:' +
-      progress +
-      '%"></span></div></div><div class="quiz-table-head"><div>M? t?</div><div>Kh?c nh?t</div><div>Gi?ng nh?t</div></div><div class="quiz-body">' +
+      '</div><h2 class="quiz-question-text">' +
+      escapeHtml(question.prompt) +
+      '</h2></div><div class="quiz-body quiz-body-v2 quiz-answer-list">' +
       question.items.map(function (item) {
-        return '<div class="quiz-row"><div class="quiz-row-title">' +
+        return '<button class="quiz-answer-btn ' +
+          (response.choice === item.id ? 'is-selected' : '') +
+          '" data-action="pick-choice" data-environment="' +
+          bank.key +
+          '" data-question="' +
+          question.id +
+          '" data-item="' +
+          item.id +
+          '"><span class="quiz-answer-key">' +
+          escapeHtml(String(item.id || '').toUpperCase()) +
+          '</span><span class="quiz-answer-copy">' +
           escapeHtml(item.text) +
-          '</div><button class="vote-btn ' +
-          (response.least === item.id ? 'active-least' : '') +
-          '" data-action="pick-choice" data-environment="' +
-          bank.key +
-          '" data-question="' +
-          question.id +
-          '" data-mode="least" data-item="' +
-          item.id +
-          '">&#128078;</button><button class="vote-btn ' +
-          (response.most === item.id ? 'active-most' : '') +
-          '" data-action="pick-choice" data-environment="' +
-          bank.key +
-          '" data-question="' +
-          question.id +
-          '" data-mode="most" data-item="' +
-          item.id +
-          '">&#128077;</button></div>';
+          '</span></button>';
       }).join('') +
-      '</div><div class="quiz-footer">' +
-      (step > 1
-        ? '<a class="btn btn-secondary" href="#' + getEnvironmentRoute(bank.key, step - 1) + '">&larr; C?u tr??c</a>'
-        : '<span></span>') +
+      '</div><div class="quiz-footer quiz-footer-v2">' +
+      (step > 1 ? '<a class="btn btn-secondary" href="#' + getEnvironmentRoute(bank.key, step - 1) + '">&larr; Câu trước</a>' : '<span></span>') +
       (step < questions.length
-        ? '<a class="btn btn-primary ' +
-          (isReady ? '' : 'disabled') +
-          '" ' +
-          (isReady ? 'href="#' + getEnvironmentRoute(bank.key, step + 1) + '"' : '') +
-          '>C?u sau &rarr;</a>'
-        : '<button class="btn btn-primary" data-action="complete-pending" data-environment="' +
-          bank.key +
-          '" ' +
-          (isReady ? '' : 'disabled') +
-          '>Nh?n k?t qu?</button>') +
+        ? '<a class="btn btn-primary ' + (isReady ? '' : 'disabled') + '" ' + (isReady ? 'href="#' + getEnvironmentRoute(bank.key, step + 1) + '"' : '') + '>Câu sau &rarr;</a>'
+        : '<button class="btn btn-primary" data-action="complete-pending" data-environment="' + bank.key + '" ' + (isReady ? '' : 'disabled') + '>Nhận kết quả</button>') +
       '</div></section></div></main>'
     );
   }
 
-  function renderLockedResult(assessmentId, statusText) {
+
+function renderLockedResult(assessmentId, statusText) {
     return (
       '<main class="type-page"><div class="container"><section class="panel section-card"><div class="eyebrow">Kết quả đang bị khóa</div><h2 class="section-title">Hệ thống chưa mở kết quả này cho người dùng.</h2><p class="section-copy">' +
       escapeHtml(statusText) +
@@ -801,6 +1149,8 @@
     const combo = RESULT_COMBOS[detail.disc_code] || ["Phong cách kết hợp", "Sự pha trộn giữa hai động lực hành vi nổi trội."];
     const primary = getResultMeta(detail.disc_primary);
     const secondary = getResultMeta(detail.disc_secondary);
+    const environmentTheme = getEnvironmentTheme(detail.environment_key || DEFAULT_ENVIRONMENT_KEY);
+    const resultKnowledge = buildResultKnowledge(detail, primary, secondary);
     const scores = getResultScores(detail);
     const orderedScores = ["D", "I", "S", "C"].map(function (key) {
       return {
@@ -813,7 +1163,15 @@
     const sortedScores = orderedScores.slice().sort(function (a, b) { return b.value - a.value; });
 
     return (
-      '<main class="result-page result-page-v2"><div class="container"><section class="result-summary-hero reveal-up"><div class="result-summary-main"><div class="eyebrow">Kiểu tính cách chính của bạn</div><div class="result-summary-title-row"><div class="result-summary-icon" style="background:' +
+      '<main class="result-page result-page-v2"><div class="container"><section class="result-summary-hero reveal-up" style="--result-env:' +
+      escapeHtml(environmentTheme.accent) +
+      ';--result-env-soft:' +
+      escapeHtml(environmentTheme.soft) +
+      ';--result-env-border:' +
+      escapeHtml(environmentTheme.border) +
+      '"><div class="result-summary-main"><div class="eyebrow result-environment-eyebrow">' +
+      escapeHtml(environmentTheme.resultLabel) +
+      '</div><div class="result-summary-title-row"><div class="result-summary-icon" style="background:' +
       primary.color +
       '">' +
       primary.icon +
@@ -822,7 +1180,9 @@
       '</h1><p class="result-summary-english">' +
       escapeHtml(primary.english) +
       '</p></div></div><p class="result-summary-line">' +
-      escapeHtml(primary.heroLine) +
+      escapeHtml(resultKnowledge.summary) +
+      '</p><p class="result-summary-context">' +
+      escapeHtml(resultKnowledge.blendLine) +
       '</p><div class="result-chip-row">' +
       primary.chips.map(function (chip) {
         return '<span class="result-keyword-chip">' + escapeHtml(chip) + "</span>";
@@ -898,9 +1258,9 @@
       resultTabButton("overview", "Tổng Quan", activeTab) +
       resultTabButton("strengths", "Điểm Mạnh & Yếu", activeTab) +
       resultTabButton("communication", "Giao Tiếp", activeTab) +
-      resultTabButton("sales", "Bán Hàng", activeTab) +
+      resultTabButton("sales", "Ứng Dụng", activeTab) +
       '</div><div class="result-tab-content">' +
-      renderResultTabContent(activeTab, detail, primary, secondary, combo, sortedScores) +
+      renderResultTabContent(activeTab, detail, primary, secondary, combo, sortedScores, resultKnowledge) +
       '</div></section><div class="result-bottom-actions reveal-up"><a class="btn btn-secondary result-bottom-btn" href="#/"><span>⌂</span>Trang Chủ</a><button class="btn btn-primary result-bottom-btn" data-action="start-quiz"><span>↻</span>Làm Bài Lại</button></div></div></main>'
     );
   }
@@ -942,13 +1302,13 @@
     return '<button class="result-tab-btn ' + (tab === activeTab ? "is-active" : "") + '" data-action="switch-result-tab" data-tab="' + tab + '">' + escapeHtml(label) + "</button>";
   }
 
-  function renderResultTabContent(activeTab, detail, primary, secondary, combo, sortedScores) {
+  function renderResultTabContent(activeTab, detail, primary, secondary, combo, sortedScores, resultKnowledge) {
     if (activeTab === "strengths") {
       return (
         '<section class="result-tab-panel"><div class="result-list-block"><h3 class="result-block-title good">Điểm mạnh nổi bật</h3>' +
-        renderListRows(primary.strengths, "good") +
+        renderListRows(resultKnowledge.strengths, "good") +
         '</div><div class="result-list-block"><h3 class="result-block-title warn">Điểm cần phát triển</h3>' +
-        renderListRows(primary.growth, "warn") +
+        renderListRows(resultKnowledge.growth, "warn") +
         '</div><div class="result-compare"><h3 class="result-block-title">So sánh 4 chiều</h3>' +
         sortedScores.map(function (item, index) {
           return '<div class="compare-row"><span class="compare-rank">' + (index + 1) + '</span><span class="compare-letter" style="background:' + item.meta.color + '">' + item.key + '</span><span class="compare-name">' + escapeHtml(item.meta.shortName) + '</span><div class="compare-bar"><span style="width:' + Math.round((item.value / 40) * 100) + "%;background:" + item.meta.color + '"></span></div><strong style="color:' + item.meta.color + '">' + item.value + '/40</strong></div>';
@@ -959,9 +1319,9 @@
     if (activeTab === "communication") {
       return (
         '<section class="result-tab-panel"><div class="result-copy-block"><h3 class="result-block-title">Phong cách giao tiếp của bạn</h3><p class="type-copy">' +
-        escapeHtml(primary.communicationStyle) +
+        escapeHtml(resultKnowledge.communicationStyle) +
         '</p></div><div class="result-copy-block"><h3 class="result-block-title">Cách giao tiếp hiệu quả với bạn</h3>' +
-        renderArrowRows(primary.communicationTips) +
+        renderArrowRows(resultKnowledge.communicationTips) +
         '</div><div class="result-highlight" style="background:' +
         secondary.soft +
         '; border-color:' +
@@ -977,12 +1337,14 @@
     }
     if (activeTab === "sales") {
       return (
-        '<section class="result-tab-panel"><div class="result-list-block"><h3 class="result-block-title good">Điểm mạnh trong bán hàng</h3>' +
-        renderListRows(primary.salesStrengths, "good") +
-        '</div><div class="result-list-block"><h3 class="result-block-title warn">Điểm cần chú ý</h3>' +
-        renderListRows(primary.salesCautions, "warn") +
-        '</div><div class="result-advice-bar"><strong>Lời khuyên:</strong> ' +
-        escapeHtml(primary.salesAdvice) +
+        '<section class="result-tab-panel"><div class="result-list-block"><h3 class="result-block-title good">' +
+        escapeHtml(resultKnowledge.applicationTitle) +
+        '</h3>' +
+        renderListRows(resultKnowledge.application, "good") +
+        '</div><div class="result-copy-block"><h3 class="result-block-title">Khi bị căng thẳng</h3><p class="type-copy">' +
+        escapeHtml(resultKnowledge.stress) +
+        '</p></div><div class="result-advice-bar"><strong>Gợi ý trọng tâm:</strong> ' +
+        escapeHtml(primary.advice || primary.salesAdvice) +
         "</div></section>"
       );
     }
@@ -991,15 +1353,17 @@
       '<section class="result-tab-panel"><div class="result-copy-block"><h3 class="result-block-title">Nhận xét tổng quan</h3><p class="type-copy">Kiểu ' +
       escapeHtml(primary.english + " (" + primary.shortName + ")") +
       ": " +
-      escapeHtml(primary.overview) +
+      escapeHtml(resultKnowledge.summary) +
       " Kiểu phụ của bạn là " +
       escapeHtml(secondary.shortName) +
-      ".</p></div><div class=\"result-copy-block\"><h3 class=\"result-block-title\">Phong cách làm việc</h3><p class=\"type-copy\">" +
-      escapeHtml(primary.workStyle) +
+      ".</p></div><div class=\"result-copy-block\"><h3 class=\"result-block-title\">" +
+      escapeHtml(resultKnowledge.focusTitle) +
+      "</h3><p class=\"type-copy\">" +
+      escapeHtml(resultKnowledge.focusBody) +
       '</p></div><div class="result-two-col"><div class="result-copy-block"><h3 class="result-block-title">Điều thúc đẩy bạn</h3>' +
-      renderMiniPills(primary.motivators, "good") +
+      renderMiniPills(resultKnowledge.motivators, "good") +
       '</div><div class="result-copy-block"><h3 class="result-block-title">Điều bạn lo ngại</h3>' +
-      renderMiniPills(primary.concerns, "warn") +
+      renderMiniPills(resultKnowledge.concerns, "warn") +
       '</div></div><div class="result-copy-block"><h3 class="result-block-title">Đặc điểm hành vi</h3><div class="behavior-grid">' +
       primary.behavior.map(function (item) {
         return '<div class="behavior-item"><span>' + escapeHtml(item[0]) + '</span><strong>' + escapeHtml(item[1]) + "</strong></div>";
@@ -1063,149 +1427,100 @@
     const history = state.routeData.history;
     if (!history) {
       loadHistory();
-      return '<main class="type-page"><div class="container"><section class="panel section-card"><h2 class="section-title">Äang táº£i há»“ sÆ¡...</h2></section></div></main>';
+      return '<main class="type-page"><div class="container"><section class="panel section-card"><h2 class="section-title">Đang tải hồ sơ...</h2></section></div></main>';
     }
 
     return (
-      '<main class="type-page"><div class="container"><div class="result-layout"><aside class="panel section-card"><div class="eyebrow">Há»“ sÆ¡</div><h3>' +
-      escapeHtml((state.auth.user && state.auth.user.full_name) || 'NgÆ°á»i dÃ¹ng') +
+      '<main class="type-page"><div class="container"><div class="result-layout"><aside class="panel section-card"><div class="eyebrow">Hồ sơ</div><h3>' +
+      escapeHtml((state.auth.user && state.auth.user.full_name) || 'Người dùng') +
       '</h3><p class="card-copy">' +
       escapeHtml((state.auth.user && state.auth.user.email) || '') +
-      '</p><div class="card-actions" style="margin-top:12px"><a class="btn btn-ghost" href="#/profile">BÃ i kiá»ƒm tra</a><button class="btn btn-ghost" data-action="logout">ÄÄƒng xuáº¥t</button></div></aside><section class="panel section-card"><div class="section-header"><div><div class="eyebrow">Há»“ sÆ¡ cÃ¡ nhÃ¢n</div><h2 class="section-title">BÃ i tráº¯c nghiá»‡m Ä‘Ã£ lÃ m</h2></div></div>' +
+      '</p><div class="card-actions" style="margin-top:12px"><a class="btn btn-ghost" href="#/profile">Bài kiểm tra</a><button class="btn btn-ghost" data-action="logout">Đăng xuất</button></div></aside><section class="panel section-card"><div class="section-header"><div><div class="eyebrow">Hồ sơ cá nhân</div><h2 class="section-title">Bài trắc nghiệm đã làm</h2></div></div>' +
       (history.items && history.items.length
-        ? history.items
-            .map(function (item) {
-              const resultVisible =
-                item.result_visible_to_user === true ||
-                item.result_visible_to_user === "TRUE" ||
-                item.result_visible_to_user === "true" ||
-                item.email_status === 'sent';
-              const locked = !resultVisible;
-              const comboTitle =
-                (RESULT_COMBOS[item.disc_code] && RESULT_COMBOS[item.disc_code][0]) ||
-                item.result_title ||
-                'Äang chá» káº¿t quáº£';
-              const status = item.email_status_text || (item.email_status === 'sent' ? 'ÄÃ£ gá»­i káº¿t quáº£' : 'Sai thÃ´ng tin ngÆ°á»i nháº­n');
-              return (
-                '<article class="share-card" style="margin-top:16px"><div class="header-actions"><strong>' +
-                escapeHtml((item.disc_code || '--') + ' - ' + comboTitle) +
-                '</strong>' +
-                (locked
-                  ? '<span class="small-note" style="color:#ef4444">' + escapeHtml(status) + '</span>'
-                  : '<a class="btn btn-secondary" href="#/result/' + item.assessment_id + '">Xem chi tiáº¿t</a>') +
-                '</div><div class="card-copy" style="margin:12px 0">' +
-                escapeHtml((item.environment_label ? item.environment_label + " • " : "") + (item.submitted_at_text || '')) +
-                '</div><div class="card-actions">' +
-                (locked
-                  ? '<form class="inline-email-form" data-action="update-email" data-assessment="' + item.assessment_id + '"><input class="input" name="email" type="email" placeholder="Nháº­p láº¡i email Ä‘Ãºng" required style="min-width:280px"><button class="btn btn-primary" type="submit">Cáº­p nháº­t Ä‘á»ƒ nháº­n káº¿t quáº£</button></form>'
-                  : '<span class="small-note">Email Ä‘Ã£ gá»­i thÃ nh cÃ´ng. Káº¿t quáº£ Ä‘Ã£ Ä‘Æ°á»£c má»Ÿ.</span>') +
-                '</div></article>'
-              );
-            })
-            .join('')
-        : '<div class="empty-state">Báº¡n chÆ°a cÃ³ bÃ i test nÃ o Ä‘Æ°á»£c lÆ°u.</div>') +
+        ? history.items.map(function (item) {
+            const resultVisible = item.result_visible_to_user === true || item.result_visible_to_user === 'TRUE' || item.result_visible_to_user === 'true' || item.email_status === 'sent';
+            const locked = !resultVisible;
+            const comboTitle = (RESULT_COMBOS[item.disc_code] && RESULT_COMBOS[item.disc_code][0]) || item.result_title || 'Đang chờ kết quả';
+            const status = item.email_status_text || (item.email_status === 'sent' ? 'Đã gửi kết quả' : 'Sai thông tin người nhận');
+            return '<article class="share-card" style="margin-top:16px"><div class="header-actions"><strong>' +
+              escapeHtml((item.disc_code || '--') + ' - ' + comboTitle) +
+              '</strong>' +
+              (locked ? '<span class="small-note" style="color:#ef4444">' + escapeHtml(status) + '</span>' : '<a class="btn btn-secondary" href="#/result/' + item.assessment_id + '">Xem chi tiết</a>') +
+              '</div><div class="card-copy" style="margin:12px 0">' +
+              escapeHtml((item.environment_label ? item.environment_label + ' • ' : '') + (item.submitted_at_text || '')) +
+              '</div><div class="card-actions">' +
+              (locked ? '<form class="inline-email-form" data-action="update-email" data-assessment="' + item.assessment_id + '"><input class="input" name="email" type="email" placeholder="Nhập lại email đúng" required style="min-width:280px"><button class="btn btn-primary" type="submit">Cập nhật để nhận kết quả</button></form>' : '<span class="small-note">Email đã gửi thành công. Kết quả đã được mở.</span>') +
+              '</div></article>';
+          }).join('')
+        : '<div class="empty-state">Bạn chưa có bài test nào được lưu.</div>') +
       '</section></div></div></main>'
     );
   }
 
   function renderRequireLogin() {
-    return '<main class="type-page"><div class="container"><section class="panel section-card"><div class="eyebrow">Cáº§n Ä‘Äƒng nháº­p</div><h2 class="section-title">Vui lÃ²ng Ä‘Äƒng nháº­p Ä‘á»ƒ tiáº¿p tá»¥c.</h2><div class="card-actions"><a class="btn btn-primary" href="#/login">ÄÄƒng nháº­p</a><a class="btn btn-secondary" href="#/register">ÄÄƒng kÃ½</a></div></section></div></main>';
+    return '<main class="type-page"><div class="container"><section class="panel section-card"><div class="eyebrow">Cần đăng nhập</div><h2 class="section-title">Vui lòng đăng nhập để tiếp tục.</h2><div class="card-actions"><a class="btn btn-primary" href="#/login">Đăng nhập</a><a class="btn btn-secondary" href="#/register">Đăng ký</a></div></section></div></main>';
   }
 
   function renderAdminPage() {
     if (!state.auth) return renderRequireLogin();
     if (!state.auth.user || state.auth.user.role !== 'admin') {
-      return '<main class="type-page"><div class="container"><section class="panel section-card"><div class="eyebrow">KhÃ´ng cÃ³ quyá»n</div><h2 class="section-title">Chá»‰ admin má»›i Ä‘Æ°á»£c xem bÃ¡o cÃ¡o.</h2></section></div></main>';
+      return '<main class="type-page"><div class="container"><section class="panel section-card"><div class="eyebrow">Không có quyền</div><h2 class="section-title">Chỉ admin mới được xem báo cáo.</h2></section></div></main>';
     }
     const dashboard = state.routeData.admin;
     if (!dashboard) {
       loadAdminDashboard();
-      return '<main class="type-page"><div class="container"><section class="panel section-card"><h2 class="section-title">Äang táº£i dashboard...</h2></section></div></main>';
+      return '<main class="type-page"><div class="container"><section class="panel section-card"><h2 class="section-title">Đang tải dashboard...</h2></section></div></main>';
     }
 
     return (
-      '<main class="type-page"><div class="container"><section class="panel section-card"><div class="section-header"><div><div class="eyebrow">BÃ¡o cÃ¡o admin</div><h2 class="section-title">HÃ´m nay cÃ³ bao nhiÃªu ngÆ°á»i Ä‘Ã£ lÃ m bÃ i test, há» lÃ  ai?</h2></div></div><div class="metric-grid">' +
-      metricCard(String(dashboard.today_count || 0), 'Sá»‘ bÃ i test hÃ´m nay') +
-      metricCard(String(dashboard.email_sent_count || 0), 'Email gá»­i thÃ nh cÃ´ng') +
-      metricCard(String(dashboard.email_failed_count || 0), 'Email lá»—i / cáº§n cáº­p nháº­t') +
-      '</div><div class="section-header" style="margin-top:20px"><div><div class="eyebrow">Danh sÃ¡ch gáº§n Ä‘Ã¢y</div></div></div>' +
+      '<main class="type-page"><div class="container"><section class="panel section-card"><div class="section-header"><div><div class="eyebrow">Báo cáo admin</div><h2 class="section-title">Hôm nay có bao nhiêu người đã làm bài test, họ là ai?</h2></div></div><div class="metric-grid">' +
+      metricCard(String(dashboard.today_count || 0), 'Số bài test hôm nay') +
+      metricCard(String(dashboard.email_sent_count || 0), 'Email gửi thành công') +
+      metricCard(String(dashboard.email_failed_count || 0), 'Email lỗi / cần cập nhật') +
+      '</div><div class="section-header" style="margin-top:20px"><div><div class="eyebrow">Danh sách gần đây</div></div></div>' +
       ((dashboard.recent || []).length
         ? dashboard.recent.map(function (item) {
-            return (
-              '<article class="share-card" style="margin-top:14px"><div class="header-actions"><strong>' +
-              escapeHtml(item.full_name || '(Ch?a c? t?n)') +
-              '</strong><span class="small-note">' +
-              escapeHtml(item.disc_code || '--') +
-              '</span></div><div class="card-copy">' +
-              escapeHtml((item.email || '') + ' â€¢ ' + (item.submitted_at_text || '')) +
-              '</div><div class="chip-row" style="margin-top:12px"><span class="btn btn-ghost">Mail: ' +
-              escapeHtml(item.email_status || '') +
-              '</span><span class="btn btn-ghost">Visible: ' +
-              (item.result_visible_to_user ? 'yes' : 'no') +
-              '</span><span class="btn btn-ghost">' +
-              escapeHtml(item.environment_label || 'Legacy') +
-              '</span></div></article>'
-            );
+            return '<article class="share-card" style="margin-top:14px"><div class="header-actions"><strong>' +
+              escapeHtml(item.full_name || '(Chưa có tên)') +
+              '</strong><span class="small-note">' + escapeHtml(item.disc_code || '--') + '</span></div><div class="card-copy">' +
+              escapeHtml((item.email || '') + ' • ' + (item.submitted_at_text || '')) +
+              '</div><div class="chip-row" style="margin-top:12px"><span class="btn btn-ghost">Mail: ' + escapeHtml(item.email_status || '') + '</span><span class="btn btn-ghost">Visible: ' + (item.result_visible_to_user ? 'yes' : 'no') + '</span><span class="btn btn-ghost">' + escapeHtml(item.environment_label || 'Legacy') + '</span></div></article>';
           }).join('')
-        : '<div class="empty-state">ChÆ°a cÃ³ dá»¯ liá»‡u bÃ¡o cÃ¡o.</div>') +
+        : '<div class="empty-state">Chưa có dữ liệu gần đây.</div>') +
       '</section></div></main>'
     );
   }
 
   function renderDiscHub() {
     return (
-      '<main class="type-page"><div class="container"><section class="panel section-card"><div class="section-header"><div><div class="eyebrow">KhÃ¡m phÃ¡ 4 nhÃ³m</div><h2 class="section-title">Chá»n nhÃ³m DISC báº¡n muá»‘n xem chi tiáº¿t.</h2></div><p class="section-copy">Tá»« trang nÃ y, ngÆ°á»i dÃ¹ng cÃ³ thá»ƒ Ä‘i vÃ o Ä‘áº§y Ä‘á»§ 4 nhÃ³m tÃ­nh cÃ¡ch D, I, S, C thay vÃ¬ chá»‰ má»™t trang mÃ´ táº£ duy nháº¥t.</p></div><div class="type-grid">' +
-      Object.keys(DISC_TYPES)
-        .map(function (key) {
-          const style = DISC_TYPES[key];
-          return (
-            '<article class="type-card" data-style="' +
-            style.key +
-            '"><div class="type-letter" style="background:' +
-            style.color +
-            '">' +
-            style.key +
-            '</div><h3>' +
-            escapeHtml(style.fullName) +
-            '</h3><p class="card-copy">' +
-            escapeHtml(style.tone) +
-            '</p><div class="card-actions" style="margin-top:12px"><a class="btn btn-secondary" href="#/disc/' +
-            style.key.toLowerCase() +
-            '">Xem nhÃ³m ' +
-            style.key +
-            '</a></div></article>'
-          );
-        })
-        .join('') +
+      '<main class="type-page"><div class="container"><section class="panel section-card"><div class="section-header"><div><div class="eyebrow">Khám phá 4 nhóm</div><h2 class="section-title">Chọn nhóm DISC bạn muốn xem chi tiết.</h2></div><p class="section-copy">Từ trang này, người dùng có thể đi vào đầy đủ 4 nhóm tính cách D, I, S, C thay vì chỉ một trang mô tả duy nhất.</p></div><div class="type-grid">' +
+      Object.keys(DISC_TYPES).map(function (key) {
+        const style = DISC_TYPES[key];
+        return '<article class="type-card" data-style="' + style.key + '"><div class="type-letter" style="background:' + style.color + '">' + style.key + '</div><h3>' + escapeHtml(style.fullName) + '</h3><p class="card-copy">' + escapeHtml(style.tone) + '</p><div class="card-actions" style="margin-top:12px"><a class="btn btn-secondary" href="#/disc/' + style.key.toLowerCase() + '">Xem nhóm ' + style.key + '</a></div></article>';
+      }).join('') +
       '</div></section></div></main>'
     );
   }
+
   function renderDiscType(typeKey) {
     const style = DISC_TYPES[(typeKey || '').toUpperCase()];
     if (!style) {
-      return '<main class="type-page"><div class="container"><section class="panel section-card"><h2 class="section-title">KhÃ´ng tÃ¬m tháº¥y nhÃ³m DISC.</h2></section></div></main>';
+      return '<main class="type-page"><div class="container"><section class="panel section-card"><h2 class="section-title">Không tìm thấy nhóm DISC.</h2></section></div></main>';
     }
     return (
-      '<main class="type-page"><div class="container"><a class="back-link" href="#/">&larr; Quay láº¡i</a><section class="result-hero"><div><div class="eyebrow">' +
-      escapeHtml(style.nameVi) +
-      '</div><h1 class="combo-code" style="color:' +
-      style.color +
-      '">' +
-      escapeHtml(style.fullName) +
-      '</h1><p class="combo-subtitle">' +
-      escapeHtml(style.description) +
-      '</p></div><div class="result-illustration"><div class="figure"></div></div></section><div class="article-grid">' +
-      articleCard('Äáº·c Ä‘iá»ƒm ná»•i báº­t', style.highlights) +
-      articleCard('Äiá»ƒm máº¡nh', style.strengths) +
-      articleCard('Äiá»ƒm cáº§n cÃ¢n báº±ng', style.weaknesses) +
-      articleCard('Phong cÃ¡ch lÃ m viá»‡c', [style.workStyle]) +
-      articleCard('Nghá» nghiá»‡p phÃ¹ há»£p', style.career) +
-      articleCard('Lá»i khuyÃªn phÃ¡t triá»ƒn', [style.advice]) +
+      '<main class="type-page"><div class="container"><a class="back-link" href="#/">&larr; Quay lại</a><section class="result-hero"><div><div class="eyebrow">' + escapeHtml(style.nameVi) + '</div><h1 class="combo-code" style="color:' + style.color + '">' + escapeHtml(style.fullName) + '</h1><p class="combo-subtitle">' + escapeHtml(style.description) + '</p></div><div class="result-illustration"><div class="figure"></div></div></section><div class="article-grid">' +
+      articleCard('Đặc điểm nổi bật', style.highlights) +
+      articleCard('Điểm mạnh', style.strengths) +
+      articleCard('Điểm cần cân bằng', style.weaknesses) +
+      articleCard('Phong cách làm việc', [style.workStyle]) +
+      articleCard('Nghề nghiệp phù hợp', style.career) +
+      articleCard('Lời khuyên phát triển', [style.advice]) +
       '</div></div></main>'
     );
   }
 
-  function articleCard(title, list) {
+
+function articleCard(title, list) {
     return '<article class="article-card"><div class="eyebrow">' + title + "</div><h3>" + title + "</h3><ul>" + list.map(function (item) { return "<li>" + escapeHtml(item) + "</li>"; }).join("") + "</ul></article>";
   }
 
@@ -1221,76 +1536,76 @@
   }
 
   function levelLabel(value) {
-    if (value >= 6.2) return "Ráº¥t cao";
-    if (value >= 3.2) return "Trung bÃ¬nh";
-    return "Tháº¥p";
+    if (value >= 6.2) return "Rất cao";
+    if (value >= 3.2) return "Trung bình";
+    return "Thấp";
   }
 
   function emotionNeed(key) {
     return {
-      D: "Ä‘Æ°á»£c lÃ m chá»§ tÃ¬nh huá»‘ng vÃ  tiáº¿n vá» Ä‘Ã­ch nhanh",
-      I: "Ä‘Æ°á»£c káº¿t ná»‘i, ghi nháº­n vÃ  táº¡o áº£nh hÆ°á»Ÿng tÃ­ch cá»±c",
-      S: "giá»¯ sá»± hÃ i hÃ²a, á»•n Ä‘á»‹nh vÃ  cáº£m giÃ¡c an toÃ n",
-      C: "Ä‘áº£m báº£o tÃ­nh Ä‘Ãºng Ä‘áº¯n, logic vÃ  tiÃªu chuáº©n rÃµ rÃ ng",
+      D: "được làm chủ tình huống và tiến về đích nhanh",
+      I: "được kết nối, ghi nhận và tạo ảnh hưởng tích cực",
+      S: "giữ sự hài hòa, ổn định và cảm giác an toàn",
+      C: "đảm bảo tính đúng đắn, logic và tiêu chuẩn rõ ràng",
     }[key];
   }
 
   function goalText(key) {
     return {
-      D: "Ä‘áº¡t káº¿t quáº£, dáº«n dáº¯t vÃ  táº¡o chuyá»ƒn Ä‘á»™ng rÃµ rÃ ng",
-      I: "káº¿t ná»‘i, truyá»n Ä‘á»™ng lá»±c vÃ  kÃ©o má»i ngÆ°á»i cÃ¹ng nháº­p cuá»™c",
-      S: "duy trÃ¬ sá»± á»•n Ä‘á»‹nh, Ä‘Ã¡ng tin vÃ  há»— trá»£ táº­p thá»ƒ Ä‘i Ä‘Æ°á»ng dÃ i",
-      C: "lÃ m Ä‘Ãºng, lÃ m cháº¯c vÃ  giá»¯ cháº¥t lÆ°á»£ng á»Ÿ má»©c cao",
+      D: "đạt kết quả, dẫn dắt và tạo chuyển động rõ ràng",
+      I: "kết nối, truyền động lực và kéo mọi người cùng nhập cuộc",
+      S: "duy trì sự ổn định, đáng tin và hỗ trợ tập thể đi đường dài",
+      C: "làm đúng, làm chắc và giữ chất lượng ở mức cao",
     }[key];
   }
 
   function evaluationText(key) {
     return {
-      D: "Báº¡n thÆ°á»ng Ä‘Ã¡nh giÃ¡ cao ngÆ°á»i chá»§ Ä‘á»™ng, nhanh nháº¡y, biáº¿t nháº­n trÃ¡ch nhiá»‡m vÃ  khÃ´ng vÃ²ng vo.",
-      I: "Báº¡n bá»‹ thu hÃºt bá»Ÿi nhá»¯ng ngÆ°á»i cÃ³ nÄƒng lÆ°á»£ng, giao tiáº¿p cuá»‘n hÃºt, biáº¿t lan tá»a tinh tháº§n tÃ­ch cá»±c.",
-      S: "Báº¡n Ä‘Ã¡nh giÃ¡ cao ngÆ°á»i chÃ¢n thÃ nh, bá»n bá»‰, Ä‘Ã¡ng tin vÃ  biáº¿t nghÄ© cho táº­p thá»ƒ.",
-      C: "Báº¡n tin tÆ°á»Ÿng hÆ¡n vÃ o ngÆ°á»i cÃ³ logic, cáº©n tháº­n, Ä‘Ãºng háº¹n vÃ  tÃ´n trá»ng tiÃªu chuáº©n.",
+      D: "Bạn thường đánh giá cao người chủ động, nhanh nhạy, biết nhận trách nhiệm và không vòng vo.",
+      I: "Bạn bị thu hút bởi những người có năng lượng, giao tiếp cuốn hút, biết lan tỏa tinh thần tích cực.",
+      S: "Bạn đánh giá cao người chân thành, bền bỉ, đáng tin và biết nghĩ cho tập thể.",
+      C: "Bạn tin tưởng hơn vào người có logic, cẩn thận, đúng hẹn và tôn trọng tiêu chuẩn.",
     }[key];
   }
 
   function influenceText(primaryKey, secondaryKey) {
     const primaryText = {
-      D: "sá»± tháº³ng tháº¯n, Ä‘á»‹nh hÆ°á»›ng rÃµ vÃ  nhá»‹p hÃ nh Ä‘á»™ng máº¡nh",
-      I: "nÄƒng lÆ°á»£ng tÃ­ch cá»±c, sá»± lÃ´i cuá»‘n vÃ  kháº£ nÄƒng káº¿t ná»‘i tá»± nhiÃªn",
-      S: "sá»± á»•n Ä‘á»‹nh, chÃ¢n thÃ nh vÃ  cáº£m giÃ¡c dá»… chá»‹u khi phá»‘i há»£p",
-      C: "láº­p luáº­n cháº·t cháº½, sá»± chuáº©n xÃ¡c vÃ  cáº£m giÃ¡c Ä‘Ã¡ng tin vá» chuyÃªn mÃ´n",
+      D: "sự thẳng thắn, định hướng rõ và nhịp hành động mạnh",
+      I: "năng lượng tích cực, sự lôi cuốn và khả năng kết nối tự nhiên",
+      S: "sự ổn định, chân thành và cảm giác dễ chịu khi phối hợp",
+      C: "lập luận chặt chẽ, sự chuẩn xác và cảm giác đáng tin về chuyên môn",
     }[primaryKey];
     const secondaryText = {
-      D: "quyáº¿t Ä‘oÃ¡n hÆ¡n khi cáº§n chá»‘t háº¡",
-      I: "má»m hÆ¡n nhá» kháº£ nÄƒng táº¡o thiá»‡n cáº£m",
-      S: "Ãªm hÆ¡n nhá» sá»± kiÃªn nháº«n vÃ  á»•n Ä‘á»‹nh",
-      C: "thuyáº¿t phá»¥c hÆ¡n nhá» lÃ½ láº½ vÃ  cáº¥u trÃºc rÃµ",
+      D: "quyết đoán hơn khi cần chốt hạ",
+      I: "mềm hơn nhờ khả năng tạo thiện cảm",
+      S: "êm hơn nhờ sự kiên nhẫn và ổn định",
+      C: "thuyết phục hơn nhờ lý lẽ và cấu trúc rõ",
     }[secondaryKey];
-    return "Báº¡n thÆ°á»ng áº£nh hÆ°á»Ÿng ngÆ°á»i khÃ¡c báº±ng " + primaryText + ", vÃ  Ä‘iá»u Ä‘Ã³ trá»Ÿ nÃªn " + secondaryText + ".";
+    return "Bạn thường ảnh hưởng người khác bằng " + primaryText + ", và điều đó trở nên " + secondaryText + ".";
   }
 
   function fearText(primaryKey, secondaryKey) {
     const primaryFear = {
-      D: "bá»‹ cháº­m nhá»‹p, máº¥t quyá»n chá»§ Ä‘á»™ng hoáº·c khÃ´ng cháº¡m tá»›i má»¥c tiÃªu",
-      I: "bá»‹ phá»›t lá», bá»‹ tÃ¡ch khá»i táº­p thá»ƒ hoáº·c khÃ´ng cÃ²n sá»©c áº£nh hÆ°á»Ÿng",
-      S: "xung Ä‘á»™t kÃ©o dÃ i, thay Ä‘á»•i Ä‘á»™t ngá»™t vÃ  cáº£m giÃ¡c máº¥t an toÃ n",
-      C: "sai sÃ³t, mÆ¡ há»“, thiáº¿u chuáº©n hoáº·c bá»‹ buá»™c quyáº¿t khi chÆ°a Ä‘á»§ dá»¯ liá»‡u",
+      D: "bị chậm nhịp, mất quyền chủ động hoặc không chạm tới mục tiêu",
+      I: "bị phớt lờ, bị tách khỏi tập thể hoặc không còn sức ảnh hưởng",
+      S: "xung đột kéo dài, thay đổi đột ngột và cảm giác mất an toàn",
+      C: "sai sót, mơ hồ, thiếu chuẩn hoặc bị buộc quyết khi chưa đủ dữ liệu",
     }[primaryKey];
     const secondaryFear = {
-      D: " Äiá»u nÃ y lÃ m báº¡n cÃ ng khÃ³ cháº¥p nháº­n sá»± trÃ¬ trá»‡.",
-      I: " Äiá»u nÃ y khiáº¿n báº¡n nháº¡y hÆ¡n vá»›i pháº£n á»©ng cá»§a ngÆ°á»i xung quanh.",
-      S: " Äiá»u nÃ y khiáº¿n báº¡n muá»‘n giá»¯ nhá»‹p an toÃ n nhiá»u hÆ¡n.",
-      C: " Äiá»u nÃ y lÃ m báº¡n cÃ³ xu hÆ°á»›ng tá»± kiá»ƒm tra láº¡i má»i thá»© ká»¹ hÆ¡n.",
+      D: " Điều này làm bạn càng khó chấp nhận sự trì trệ.",
+      I: " Điều này khiến bạn nhạy hơn với phản ứng của người xung quanh.",
+      S: " Điều này khiến bạn muốn giữ nhịp an toàn nhiều hơn.",
+      C: " Điều này làm bạn có xu hướng tự kiểm tra lại mọi thứ kỹ hơn.",
     }[secondaryKey];
-    return "Ná»—i sá»£ cá»‘t lÃµi thÆ°á»ng lÃ  " + primaryFear + "." + secondaryFear;
+    return "Nỗi sợ cốt lõi thường là " + primaryFear + "." + secondaryFear;
   }
 
   function pressureFlavor(key) {
     return {
-      D: "dá»… bá»™c phÃ¡t trá»±c diá»‡n hÆ¡n",
-      I: "dá»… biá»ƒu lá»™ cáº£m xÃºc rÃµ hÆ¡n",
-      S: "thÆ°á»ng cháº­m láº¡i vÃ  thu mÃ¬nh hÆ¡n",
-      C: "thÆ°á»ng trá»Ÿ nÃªn kháº¯t khe vÃ  kiá»ƒm tra ká»¹ hÆ¡n",
+      D: "dễ bộc phát trực diện hơn",
+      I: "dễ biểu lộ cảm xúc rõ hơn",
+      S: "thường chậm lại và thu mình hơn",
+      C: "thường trở nên khắt khe và kiểm tra kỹ hơn",
     }[key];
   }
 
@@ -1340,22 +1655,15 @@
         question_bank_version: QUESTION_BANK_VERSION,
         answers: pending.responses.map(function (response) {
           const question = answerLookup[response.questionId];
-          const mostItem =
+          const selectedItem =
             question &&
             question.items.find(function (item) {
-              return item.id === response.most;
-            });
-          const leastItem =
-            question &&
-            question.items.find(function (item) {
-              return item.id === response.least;
+              return item.id === response.choice;
             });
           return {
             questionId: response.questionId,
-            most: response.most,
-            least: response.least,
-            most_disc: mostItem ? mostItem.disc : "",
-            least_disc: leastItem ? leastItem.disc : "",
+            choice: response.choice,
+            choice_disc: selectedItem ? selectedItem.disc : "",
           };
         }),
       });
@@ -1364,7 +1672,7 @@
       if (result.result_visible_to_user) {
         navigate("/result/" + result.assessment_id);
       } else {
-        pushNotice("info", "Há»‡ thá»‘ng Ä‘Ã£ ghi nháº­n bÃ i test, nhÆ°ng email chÆ°a gá»­i thÃ nh cÃ´ng. VÃ o Há»“ sÆ¡ Ä‘á»ƒ cáº­p nháº­t email.");
+        pushNotice("info", "Hệ thống đã ghi nhận bài test, nhưng email chưa gửi thành công. Vào Hồ sơ để cập nhật email.");
         navigate("/profile");
       }
     } catch (error) {
@@ -1442,7 +1750,7 @@
     else if (first === "admin") content = renderAdminPage();
     else if (first === "result") content = renderResultPage();
     else if (first === "disc") content = route.parts[1] ? renderDiscType(route.parts[1]) : renderDiscHub();
-    else content = renderNotFound("???ng d?n kh?ng h?p l?.");
+    else content = renderNotFound("Đường dẫn không hợp lệ.");
 
     app.innerHTML =
       '<div class="app-shell">' +
@@ -1469,7 +1777,7 @@
         savePendingChoice(
           button.dataset.environment || (state.pending && state.pending.environmentKey) || DEFAULT_ENVIRONMENT_KEY,
           button.dataset.question,
-          button.dataset.mode,
+          "choice",
           button.dataset.item
         );
       });
@@ -1521,7 +1829,7 @@
       button.addEventListener("click", function () {
         setAuth(null);
         resetRouteData();
-        pushNotice("info", "ÄÃ£ Ä‘Äƒng xuáº¥t.");
+        pushNotice("info", "Đã đăng xuất.");
         navigate("/");
       });
     });
@@ -1545,7 +1853,7 @@
             { skipAuth: true }
           );
           setAuth({ token: data.token, user: data.user });
-          pushNotice("info", "ÄÄƒng nháº­p thÃ nh cÃ´ng.");
+          pushNotice("info", "Đăng nhập thành công.");
           if (isPendingComplete()) {
             await submitPendingToBackend();
           } else {
@@ -1582,7 +1890,7 @@
             { skipAuth: true }
           );
           setAuth({ token: data.token, user: data.user });
-          pushNotice("info", "ÄÄƒng kÃ½ thÃ nh cÃ´ng.");
+          pushNotice("info", "Đăng ký thành công.");
           if (isPendingComplete()) {
             await submitPendingToBackend();
           } else {
@@ -1611,7 +1919,7 @@
             assessment_id: form.dataset.assessment,
             email: String(formData.get("email") || "").trim(),
           });
-          pushNotice("info", "ÄÃ£ cáº­p nháº­t email vÃ  gá»­i láº¡i káº¿t quáº£.");
+          pushNotice("info", "Đã cập nhật email và gửi lại kết quả.");
           state.routeData.history = null;
           await loadHistory();
         } catch (error) {
@@ -1629,9 +1937,9 @@
         const link = button.dataset.link || window.location.href;
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(link);
-          button.textContent = "ÄÃ£ sao chÃ©p";
+          button.textContent = "Đã sao chép";
           setTimeout(function () {
-            button.textContent = "Chia s?";
+            button.textContent = "Chia sẻ";
           }, 1200);
         }
       });

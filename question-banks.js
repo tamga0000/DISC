@@ -10,26 +10,26 @@
                                    {
                                        "id":  "life-q1",
                                        "order":  1,
-                                       "prompt":  "Khi gia đình có sự kiện quan trọng, bạn:",
+                                       "prompt":  "Khi gia đình cần chuẩn bị cho một buổi gặp mặt đông người, bạn:",
                                        "items":  [
                                                      {
                                                          "id":  "a",
-                                                         "text":  "Hỗ trợ mọi người và đảm bảo không ai bị bỏ lại phía sau",
+                                                         "text":  "Hỏi xem ai cần hỗ trợ và âm thầm giúp mọi người thoải mái",
                                                          "disc":  "S"
                                                      },
                                                      {
                                                          "id":  "b",
-                                                         "text":  "Chuẩn bị kỹ lưỡng và đảm bảo mọi chi tiết đều hoàn hảo",
+                                                         "text":  "Kiểm tra danh sách việc cần làm để tránh thiếu sót",
                                                          "disc":  "C"
                                                      },
                                                      {
                                                          "id":  "c",
-                                                         "text":  "Tạo không khí vui vẻ và đảm bảo mọi người đều hạnh phúc",
+                                                         "text":  "Khuấy động không khí để mọi người hào hứng tham gia",
                                                          "disc":  "I"
                                                      },
                                                      {
                                                          "id":  "d",
-                                                         "text":  "Đứng ra chủ trì và đảm bảo mọi thứ diễn ra suôn sẻ",
+                                                         "text":  "Chủ động phân công và điều phối để mọi việc chạy đúng kế hoạch",
                                                          "disc":  "D"
                                                      }
                                                  ]
@@ -37,26 +37,26 @@
                                    {
                                        "id":  "life-q2",
                                        "order":  2,
-                                       "prompt":  "Khi gia đình có mâu thuẫn, bạn thường:",
+                                       "prompt":  "Khi hai người thân hiểu lầm nhau, bạn thường:",
                                        "items":  [
                                                      {
                                                          "id":  "a",
-                                                         "text":  "Tìm cách hòa giải bằng cách nói chuyện vui vẻ, nhẹ nhàng",
+                                                         "text":  "Làm dịu không khí bằng cách nói chuyện nhẹ nhàng, dễ gần",
                                                          "disc":  "I"
                                                      },
                                                      {
                                                          "id":  "b",
-                                                         "text":  "Phân tích nguyên nhân và đề xuất giải pháp hợp lý",
+                                                         "text":  "Tìm nguyên nhân chính và đề xuất cách tháo gỡ hợp lý",
                                                          "disc":  "C"
                                                      },
                                                      {
                                                          "id":  "c",
-                                                         "text":  "Kiên nhẫn lắng nghe tất cả mọi người trước khi lên tiếng",
+                                                         "text":  "Lắng nghe từng bên để ai cũng cảm thấy được tôn trọng",
                                                          "disc":  "S"
                                                      },
                                                      {
                                                          "id":  "d",
-                                                         "text":  "Đứng ra giải quyết thẳng thắn và dứt khoát",
+                                                         "text":  "Nói rõ vấn đề và thúc đẩy mọi người giải quyết dứt điểm",
                                                          "disc":  "D"
                                                      }
                                                  ]
@@ -64,26 +64,26 @@
                                    {
                                        "id":  "life-q3",
                                        "order":  3,
-                                       "prompt":  "Khi gia đình có sự kiện quan trọng, bạn:",
+                                       "prompt":  "Khi người thân nhờ bạn góp sức cho một việc quan trọng, bạn:",
                                        "items":  [
                                                      {
                                                          "id":  "a",
-                                                         "text":  "Hỗ trợ mọi người và đảm bảo không ai bị bỏ lại phía sau",
+                                                         "text":  "Ở bên hỗ trợ đều đặn để mọi người cảm thấy yên tâm",
                                                          "disc":  "S"
                                                      },
                                                      {
                                                          "id":  "b",
-                                                         "text":  "Chuẩn bị kỹ lưỡng và đảm bảo mọi chi tiết đều hoàn hảo",
+                                                         "text":  "Kiểm tra kỹ từng phần để việc chung không xảy ra sai sót",
                                                          "disc":  "C"
                                                      },
                                                      {
                                                          "id":  "c",
-                                                         "text":  "Tạo không khí vui vẻ và đảm bảo mọi người đều hạnh phúc",
+                                                         "text":  "Động viên mọi người và giữ tinh thần tích cực",
                                                          "disc":  "I"
                                                      },
                                                      {
                                                          "id":  "d",
-                                                         "text":  "Đứng ra chủ trì và đảm bảo mọi thứ diễn ra suôn sẻ",
+                                                         "text":  "Nhận phần khó và thúc đẩy mọi việc hoàn thành đúng hạn",
                                                          "disc":  "D"
                                                      }
                                                  ]
@@ -91,26 +91,26 @@
                                    {
                                        "id":  "life-q4",
                                        "order":  4,
-                                       "prompt":  "Khi gia đình cần thay đổi một thói quen lâu năm, bạn:",
+                                       "prompt":  "Khi gia đình muốn sắp xếp lại nếp sinh hoạt hằng ngày, bạn:",
                                        "items":  [
                                                      {
                                                          "id":  "a",
-                                                         "text":  "Nghiên cứu kỹ trước khi đề xuất cách thay đổi phù hợp",
+                                                         "text":  "Xem xét kỹ nguyên nhân và đề xuất cách thay đổi có cơ sở",
                                                          "disc":  "C"
                                                      },
                                                      {
                                                          "id":  "b",
-                                                         "text":  "Đề xuất thay đổi ngay và thúc đẩy mọi người thực hiện",
+                                                         "text":  "Đưa ra hướng thay đổi rõ ràng và thúc đẩy mọi người bắt đầu",
                                                          "disc":  "D"
                                                      },
                                                      {
                                                          "id":  "c",
-                                                         "text":  "Từ từ thích nghi và hỗ trợ mọi người trong quá trình thay đổi",
+                                                         "text":  "Giúp mọi người thích nghi từng bước để không bị xáo trộn",
                                                          "disc":  "S"
                                                      },
                                                      {
                                                          "id":  "d",
-                                                         "text":  "Truyền cảm hứng và làm cho việc thay đổi trở nên thú vị",
+                                                         "text":  "Tạo cảm hứng để việc thay đổi trở nên nhẹ nhàng hơn",
                                                          "disc":  "I"
                                                      }
                                                  ]
@@ -118,26 +118,26 @@
                                    {
                                        "id":  "life-q5",
                                        "order":  5,
-                                       "prompt":  "Trong các mối quan hệ bạn bè, bạn thường:",
+                                       "prompt":  "Khi nhóm bạn cần duy trì sự gắn kết lâu dài, bạn thường:",
                                        "items":  [
                                                      {
                                                          "id":  "a",
-                                                         "text":  "Là người chủ động đề xuất và dẫn dắt các hoạt động",
+                                                         "text":  "Chủ động đề xuất kế hoạch để cả nhóm có mục tiêu chung",
                                                          "disc":  "D"
                                                      },
                                                      {
                                                          "id":  "b",
-                                                         "text":  "Là người bạn đáng tin cậy, luôn có mặt khi cần",
+                                                         "text":  "Luôn giữ liên lạc và có mặt khi bạn bè cần hỗ trợ",
                                                          "disc":  "S"
                                                      },
                                                      {
                                                          "id":  "c",
-                                                         "text":  "Chọn lọc bạn bè cẩn thận và xây dựng tình bạn sâu sắc",
+                                                         "text":  "Quan sát kỹ để xây dựng những mối quan hệ thật sự chất lượng",
                                                          "disc":  "C"
                                                      },
                                                      {
                                                          "id":  "d",
-                                                         "text":  "Là trung tâm kết nối, luôn mở rộng vòng bạn bè",
+                                                         "text":  "Tạo cơ hội gặp gỡ để mọi người gần nhau hơn",
                                                          "disc":  "I"
                                                      }
                                                  ]
@@ -149,7 +149,7 @@
                                        "items":  [
                                                      {
                                                          "id":  "a",
-                                                         "text":  "A",
+                                                         "text":  "Lên kế hoạch chi tiết và đảm bảo mọi thứ được thực hiện đúng",
                                                          "disc":  "C"
                                                      },
                                                      {
@@ -2190,26 +2190,26 @@
                                    {
                                        "id":  "work-q1",
                                        "order":  1,
-                                       "prompt":  "Khi đồng nghiệp gặp khó khăn trong công việc, bạn:",
+                                       "prompt":  "Khi một thành viên trong nhóm bị chậm tiến độ, bạn:",
                                        "items":  [
                                                      {
                                                          "id":  "a",
-                                                         "text":  "Đứng ra giải quyết vấn đề giúp họ ngay",
+                                                         "text":  "Can thiệp nhanh và giúp họ xử lý phần việc quan trọng nhất",
                                                          "disc":  "D"
                                                      },
                                                      {
                                                          "id":  "b",
-                                                         "text":  "Động viên và kết nối họ với người có thể giúp",
+                                                         "text":  "Động viên họ và kết nối với người có thể hỗ trợ",
                                                          "disc":  "I"
                                                      },
                                                      {
                                                          "id":  "c",
-                                                         "text":  "Lắng nghe và hỗ trợ họ từng bước một cách kiên nhẫn",
+                                                         "text":  "Kiên nhẫn đồng hành để họ lấy lại nhịp làm việc",
                                                          "disc":  "S"
                                                      },
                                                      {
                                                          "id":  "d",
-                                                         "text":  "Phân tích vấn đề và đề xuất giải pháp có hệ thống",
+                                                         "text":  "Xem lại nguyên nhân chậm tiến độ và đề xuất cách khắc phục có hệ thống",
                                                          "disc":  "C"
                                                      }
                                                  ]
@@ -2919,26 +2919,26 @@
                                    {
                                        "id":  "work-q28",
                                        "order":  28,
-                                       "prompt":  "Khi nhóm có mâu thuẫn nội bộ, bạn:",
+                                       "prompt":  "Khi nhóm bất đồng về cách triển khai một dự án, bạn:",
                                        "items":  [
                                                      {
                                                          "id":  "a",
-                                                         "text":  "Tìm cách hòa giải và tạo lại không khí tích cực cho nhóm",
+                                                         "text":  "Hòa giải để cả nhóm lấy lại tinh thần hợp tác",
                                                          "disc":  "S"
                                                      },
                                                      {
                                                          "id":  "b",
-                                                         "text":  "Đứng ra giải quyết dứt khoát và thiết lập lại trật tự",
+                                                         "text":  "Chốt hướng triển khai và thiết lập lại nguyên tắc làm việc",
                                                          "disc":  "D"
                                                      },
                                                      {
                                                          "id":  "c",
-                                                         "text":  "Phân tích nguyên nhân gốc rễ và đề xuất giải pháp lâu dài",
+                                                         "text":  "Phân tích điểm nghẽn và đề xuất phương án có cơ sở",
                                                          "disc":  "C"
                                                      },
                                                      {
                                                          "id":  "d",
-                                                         "text":  "Lắng nghe tất cả các bên và tìm giải pháp hòa thuận",
+                                                         "text":  "Lắng nghe các bên để tìm cách phối hợp hài hòa hơn",
                                                          "disc":  "S"
                                                      }
                                                  ]
@@ -3081,26 +3081,26 @@
                                    {
                                        "id":  "work-q34",
                                        "order":  34,
-                                       "prompt":  "Khi cần giữ chân khách hàng đang có ý định rời đi, bạn:",
+                                       "prompt":  "Khi cần khôi phục niềm tin của khách hàng sau một trải nghiệm chưa tốt, bạn:",
                                        "items":  [
                                                      {
                                                          "id":  "a",
-                                                         "text":  "Đưa ra đề xuất giá trị mạnh mẽ và thuyết phục",
+                                                         "text":  "Đưa ra cam kết giá trị rõ ràng để thuyết phục họ tiếp tục",
                                                          "disc":  "C"
                                                      },
                                                      {
                                                          "id":  "b",
-                                                         "text":  "Phân tích nguyên nhân và đề xuất giải pháp có căn cứ",
+                                                         "text":  "Phân tích nguyên nhân và trình bày phương án khắc phục có căn cứ",
                                                          "disc":  "C"
                                                      },
                                                      {
                                                          "id":  "c",
-                                                         "text":  "Xây dựng lại mối quan hệ cá nhân và tạo kết nối cảm xúc",
+                                                         "text":  "Tái tạo kết nối cá nhân để khách hàng cảm thấy được quan tâm",
                                                          "disc":  "I"
                                                      },
                                                      {
                                                          "id":  "d",
-                                                         "text":  "Lắng nghe lo ngại của họ và tìm giải pháp phù hợp",
+                                                         "text":  "Lắng nghe lo ngại và tìm giải pháp khiến họ cảm thấy an tâm",
                                                          "disc":  "S"
                                                      }
                                                  ]
